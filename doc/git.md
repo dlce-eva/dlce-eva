@@ -3,7 +3,7 @@
 Git is a version control system used to track changes in files. Git uses
 metadata (who changed what when where) to keep a history of all the changes made
 in a repository. Git is a distributed version control system and allows
-repositories to live locally and remotely (i.e. if you clone on of our
+repositories to live locally and remotely (i.e. if you clone one of our
 repositories from GitHub you'll have a local clone and remote repository still
 living on GitHub).
 
