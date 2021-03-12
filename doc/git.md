@@ -45,3 +45,13 @@ is useful to follow basic principles for a better collaborative experience:
 - try to keep the changes in a commit within a reasonable limit (i.e. prefer
   more, smaller, commits to one very large commit that changes a lot of things)
 
+## Long filename support on Windows
+
+By default, the Windows version of `git` does not support long file names.  This
+may prevent some repositories, such as the [glottolog][glottolog] from working.
+
+To enable support for long file names, run the following command:
+
+    git config --system core.longpaths true
+
+[glottolog]: https://github.com/glottolog/glottolog
