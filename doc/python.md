@@ -61,8 +61,8 @@ Python relies on packages (or modules) to get work done. These consist of code
 that provide some functionalities that can be shared between them. Typically,
 your system will have a global location for packages. This location is normally
 used to provide basic functionalities for Python and your system. In our
-everyday research work, we don't want to mess with global location, which is why
-we're using virtual environments.
+everyday research work, we don't want to mess with the global location, which is
+why we're using virtual environments.
 
 In contrast to the global package location, virtual environments provide an
 encapsulated/local package location that we can work with without risking

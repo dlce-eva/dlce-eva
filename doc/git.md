@@ -31,3 +31,17 @@ commands:
   history)
 - `git log`: Get an overview of the history of a repository.
 - `git diff`: Get an overview of the changes made to a file.
+
+## Git and GitHub etiquette
+
+Usually more than one person is involved in a Git repository. This means that it
+is useful to follow basic principles for a better collaborative experience:
+
+- use `.gitignore` to keep temporary or unwanted files out of the repository
+  (`.DS_Store` folder in OSX, virtual environments, etc.)
+- don't commit large (and particularly binary) files to a repository and use
+  other services for storing large files
+- try to write concise but useful commit messages
+- try to keep the changes in a commit within a reasonable limit (i.e. prefer
+  more, smaller, commits to one very large commit that changes a lot of things)
+
