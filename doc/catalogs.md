@@ -23,7 +23,7 @@ Linux:
 
     $XDG_CONFIG_HOME/cldf/catalog.ini
 
-macOS:  (TODO: can anybody confirm or deny this?)
+macOS:
 
     ~/Library/Application Support/cldf/catalog.ini
 
