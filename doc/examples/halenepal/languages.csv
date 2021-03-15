@@ -1,0 +1,14 @@
+ID,Name,Glottocode,Glottolog_Name,ISO639P3code,Macroarea,Latitude,Longitude,Family,SubGroup,Number
+Nepali,Nepali,nepa1254,Nepali,npi,Eurasia,28.0,85.0,Indo-European,Indo-Aryan,1
+Gurung,Gurung,guru1261,Gurung,gvr,Eurasia,27.41687,86.28988,Sino-Tibetan,Tamangic,2
+SahuTamang,Tamang (Sahu),west2415,Western Tamang,tdg,Eurasia,28.0239,85.0563,Sino-Tibetan,Tamangic,3
+Thakali,Thakali,thak1245,Thakali,ths,Eurasia,28.7014,83.6466,Sino-Tibetan,Tamangic,4
+Magar,Magar,maga1261,Magar,,,,,Sino-Tibetan,Magar,5
+Kham,Kham,parb1234,Parbate Kham,,,,,Sino-Tibetan,Kham,6
+Kaike,Kaike,kaik1246,Kaike,kzq,Eurasia,28.853,83.1384,Sino-Tibetan,Kaike,7
+JirelTibetan,Tibetan (Jirel),jire1238,Jirel,jul,Eurasia,27.6931,86.3201,Sino-Tibetan,Tibetan,8
+SherpaTibetan,Tibetan (Sherpa),sher1255,Solu-Khumbu Sherpa,xsr,Eurasia,27.674,86.9994,Sino-Tibetan,Tibetan,9
+Sunwar,Sunwar,sunw1242,Sunwar,suz,Eurasia,27.5201,86.2476,Sino-Tibetan,Kiranti,10
+Khaling,Khaling,khal1275,Khaling,klr,Eurasia,27.3912,87.5053,Sino-Tibetan,Kiranti,11
+Newar,Newar,newa1246,Kathmandu Valley Newari,new,Eurasia,27.2614,84.9577,Sino-Tibetan,Newaric,12
+Chepang,Chepang,chep1245,Chepang,cdm,Eurasia,27.7206,84.9017,Sino-Tibetan,Chepang,13
