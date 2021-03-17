@@ -9,6 +9,9 @@ The setup process for a dataset goes as follows:
  * Download the data using `git clone` into a folder of your choice
  * Tell the `catalog.ini` the exact path to where you put the dataset
 
+(Alternatively, you can also use [`cldfbench catconfig`](## Using cldfbench
+catconfig) to automate this process.)
+
 The location of the `catalog.ini` file depends on your operating system:
 
 Windows:
@@ -76,3 +79,20 @@ Add the path to your copy of the dataset to the name `clts` in your
     clts = C:\Users\Alice\Documents\Data\clts
 
 [clts]: https://github.com/cldf-clts/clts
+
+## Using cldfbench catconfig
+
+See [the Python guide](python.md### Virtual environments) for an instruction on
+how to create a virtual environment. Having created a new virtual environment
+(e.g. `cldfbench`), install the following packages:
+
+```shell script
+$ pip install cldfbench
+$ pip install pyglottolog
+$ pip install pyconcepticon
+$ pip install pyclts
+```
+
+Afterwards, you can run `cldfbench catconfig` to clone the three catalogs and
+automatically create the `config.in` in a location appropriate for your system.
+
