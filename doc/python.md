@@ -36,6 +36,25 @@ can generally be recommended for getting Python to work on Windows. Make sure to
 check all settings related to `PATH` modifications during the setup so that
 Python is globally available on your system.
 
+If Python is not part of your `PATH`, you can change that using the ‘Set
+environment variables for this user account’ dialog.
+
+TODO: Less handwavey description on how to set `PATH` on Windows
+
+The name of the path you need to add is
+`%USERPROFILE%\AppData\Local\Python\Python<VERSION>\Scripts`, where `<VERSION>`
+needs to be replaced with Python's major and minor version, without the period.
+
+For example, if you are using Python 3.8 (or 3.8.1, 3.8.2, etc.), the folder is
+called:
+
+    %USERPROFILE%\AppData\Local\Python\Python38\Scripts
+
+However, if you are using Python 3.9 (or 3.9.1, 3.9.2, etc.), the folder is
+called:
+
+    %USERPROFILE%\AppData\Local\Python\Python39\Scripts
+
 ### macOS
 
 Even though there is a dedicated Python installer available on the Python
