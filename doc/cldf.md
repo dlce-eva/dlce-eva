@@ -1,6 +1,28 @@
 # CLDF
 
-FIXME: provide links to spec, cookbook, etc.
+CLDF (Cross-linguistic Data Formats) is our way of storing (linguistic) data. At
+its core, a CLDF dataset is
 
-getting started with cldfbench
+- a collection of UTF-8 encoded CSV files
+- that are described by a metadata file
+- and that conforms to a certain type of [CLDF
+  module](https://github.com/cldf/cldf#cldf-modules)
+
+A good mental image to keep in mind is that a CLDF dataset is a collection of
+tables that are 'glued' together by means of the accompanying JSON metadata
+file. This makes it possible to harness the full power of the [relational
+model](https://en.wikipedia.org/wiki/Relational_model) for the data. For more
+details see the [CLDF specification](https://github.com/cldf/cldf), as well as
+the [CLDF cookbook](https://github.com/cldf/cookbook) and the [CLDF
+examples](https://github.com/cldf/cldf/tree/master/examples).
+
+## CLDF tools
+
+### cldfbench
+
+### cldfofflinebrowser
+
+### datasette-cldf
+
+### cldfviz
 
