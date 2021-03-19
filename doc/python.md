@@ -36,17 +36,19 @@ can generally be recommended for getting Python to work on Windows. Make sure to
 check all settings related to `PATH` modifications during the setup so that
 Python is globally available on your system.
 
-### OSX
+### macOS
 
 Even though there is a dedicated Python installer available on the Python
-website, we generally recommend installing Python on OSX using
+website, we generally recommend installing Python on macOS using
 [brew](https://brew.sh/).
 
 Python 3.8 can easily be installed with `brew` with `brew install python@3.8`.
-Since OSX still ships with an old Python version (2.7), make sure that you're
-calling the correct Python version on OSX after installing it (this can normally
-be achieved by using `python3`, i.e. check the output of `python3 --version` on
-the command line).
+Since macOS still ships with an old Python version (2.7), make sure that you're
+calling the correct Python version on macOS after installing it (this can
+normally be achieved by using `python3`, i.e. check the output of `python3
+--version` on the command line). This also holds for installing packages with
+`pip`: Check what version of Python is called when invoking `pip`. If you see
+mentions of Python 2, try using `pip3` instead.
 
 ### Linux
 

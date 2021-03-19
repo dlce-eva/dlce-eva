@@ -10,13 +10,20 @@ to working with graphical user interfaces):
 - support is easier since entering commands in a terminal and getting an output
   is more deterministic than using GUIs
 
+A dedicated shell or terminal environment is available out of the box in macOS
+and Linux. On Windows, a shell environment can be created either by using the
+[Git Bash on
+Windows](https://www.stanleyulili.com/git/how-to-install-git-bash-on-windows/)
+or by invoking the [Windows
+PowersShell](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.1).
+
 ## Tutorials and guides
 
 The Software Carpentry foundation offers [helpful
 lessons](https://swcarpentry.github.io/shell-novice/) on getting started with
 the shell. Note that even though the lessons mention 'the Unix shell', the
 guides are applicable to basically all kinds of shells and terminal
-environments, e.g. Linux, OSX, and the Git bash in Windows.
+environments, e.g. Linux, macOS, and the Git bash in Windows.
 
 ## Essential commands
 

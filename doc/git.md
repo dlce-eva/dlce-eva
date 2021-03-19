@@ -38,7 +38,7 @@ Usually more than one person is involved in a Git repository. This means that it
 is useful to follow basic principles for a better collaborative experience:
 
 - use `.gitignore` to keep temporary or unwanted files out of the repository
-  (`.DS_Store` folder in OSX, virtual environments, etc.)
+  (`.DS_Store` folder in macOS, virtual environments, etc.)
 - don't commit large (and particularly binary) files to a repository and use
   other services for storing large files
 - try to write concise but useful commit messages
