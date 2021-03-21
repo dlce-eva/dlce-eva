@@ -1,0 +1,998 @@
+ID,Name,Concepticon_ID,Concepticon_Gloss,Number
+1_i,I,1209,I,1.001
+2_thou,thou,1215,THOU,1.002
+3_weincl,we (incl),1131,WE (INCLUSIVE),1.003
+4_this,this,1214,THIS,1.004
+5_that,that,78,THAT,1.005
+6_who,who,1235,WHO,1.006
+7_what,what,1236,WHAT,1.007
+8_not,not,1240,NOT,1.008
+9_all,all,98,ALL,1.009
+10_many,many,1198,MANY,1.010
+11_one,one,1493,ONE,1.011
+12_two,two,1498,TWO,1.012
+13_big,big,1202,BIG,1.013
+14_long,long,1203,LONG,1.014
+15_small,small,1246,SMALL,1.015
+16_woman,woman,962,WOMAN,1.016
+17_man,man,1554,MAN,1.017
+18_person,person,683,PERSON,1.018
+19_fish,fish,227,FISH,1.019
+20_bird,bird,937,BIRD,1.020
+21_dog,dog,2009,DOG,1.021
+22_louse,louse,1392,LOUSE,1.022
+23_tree,tree,906,TREE,1.023
+24_seed,seed,714,SEED,1.024
+25_leaf,leaf,628,LEAF,1.025
+26_root,root,670,ROOT,1.026
+27_barkoftree,bark (of tree),1204,BARK,1.027
+47_hand,hand,1277,HAND,1.048
+53_drink,drink,1401,DRINK,1.054
+54_eat,eat,1336,EAT,1.055
+55_bite,bite,1403,BITE,1.056
+56_see,see,1409,SEE,1.057
+57_hear,hear,1408,HEAR,1.058
+58_know,know,3626,KNOW,1.059
+59_sleep,sleep,1585,SLEEP,1.060
+60_die,die,1494,DIE,1.061
+61_kill,kill,1417,KILL,1.062
+62_swim,swim,1439,SWIM,1.063
+63_fly,fly,1441,FLY (MOVE THROUGH AIR),1.064
+64_walk,walk,1443,WALK,1.065
+65_come,come,1446,COME,1.066
+66_lie,lie,1411,LIE (REST),1.067
+67_sit,sit,1416,SIT,1.068
+68_stand,stand,1442,STAND,1.069
+69_give,give,1447,GIVE,1.070
+70_say,say,1458,SAY,1.071
+71_sun,sun,1343,SUN,1.072
+72_moon,moon,1313,MOON,1.073
+73_star,star,1430,STAR,1.074
+74_water,water,948,WATER,1.075
+75_rain,rain,658,RAIN (PRECIPITATION),1.076
+76_stone,stone,857,STONE,1.077
+77_sand,sand,671,SAND,1.078
+78_earth,earth,626,LAND,1.079
+79_cloud,cloud,1489,CLOUD,1.080
+80_smoke,smoke,778,SMOKE (EXHAUST),1.081
+81_fire,fire,221,FIRE,1.082
+82_ash,ash,646,ASH,1.083
+83_burn,burn,2102,BURN,1.084
+84_path,path,2252,PATH,1.085
+85_mountain,mountain,639,MOUNTAIN,1.086
+86_red,red,156,RED,1.087
+87_green,green,1425,GREEN,1.088
+88_yellow,yellow,1424,YELLOW,1.089
+89_white,white,1335,WHITE,1.090
+90_black,black,163,BLACK,1.091
+91_night,night,1233,NIGHT,1.092
+92_hot,hot,2272,HOT OR WARM,1.093
+93_cold,cold,1287,COLD,1.094
+94_full,full,1429,FULL,1.095
+95_new,new,1231,NEW,1.096
+96_good,good,1035,GOOD,1.097
+97_round,round,1395,ROUND,1.098
+98_dry,dry,1398,DRY,1.099
+99_name,name,1405,NAME,1.100
+100_body,body,1480,BODY,02a.01
+101_skeleton,skeleton,2668,SKELETON,02a.02
+102_marrow,marrow,1835,MARROW,02a.03
+103_joint,joint,999,JOINT,02a.04
+104_nerve,nerve,2626,NERVE,02a.05
+105_bloodvessel,blood vessel,525,BLOOD VESSEL,02a.06
+106_ligament,ligament,,,02a.07
+107_wrinkle,wrinkle,2294,WRINKLE,02a.08
+108_bodyhair,body hair,189,HAIR (BODY),02a.09
+109_pubichair,pubic hair,36,PUBIC HAIR,02a.10
+110_eyebrow,eyebrow,1173,EYEBROW,02a.11
+111_eyelash,eyelash,1540,EYELASH,02a.12
+112_beard,beard,678,BEARD,02a.13
+113_mustache,mustache,1165,MOUSTACHE,02a.14
+114_skull,skull,1605,SKULL,02a.15
+115_brain,brain,1583,BRAIN,02a.16
+116_temple,temple,1604,TEMPLES,02a.17
+117_forehead,forehead,123,FOREHEAD,02a.18
+118_cheek,cheek,1730,CHEEK,02a.19
+119_jaw,jaw,798,JAW,02a.20
+120_face,face,1560,FACE,02a.21
+121_chin,chin,1510,CHIN,02a.22
+122_eyeball,eyeball,3807,EYEBALL,02a.23
+123_nostril,nostril,1178,NOSTRIL,02a.24
+124_lip,lip,478,LIP,02a.25
+125_molar,molar,1049,MOLAR TOOTH,02a.26
+126_throat,throat,1346,THROAT,02a.27
+127_neck,neck,1333,NECK,02a.28
+128_shoulder,shoulder,1482,SHOULDER,02a.29
+129_upperback,upper back,445,UPPER BACK,02a.30
+130_lowerback,lower back,3613,LOWER BACK,02a.31
+131_spine,spine,805,SPINE,02a.32
+132_chest,chest,1592,CHEST,02a.33
+133_rib,rib,801,RIB,02a.34
+134_nipple,nipple,796,NIPPLE,02a.35
+135_lung,lung,688,LUNG,02a.36
+136_waist,waist,1681,WAIST,02a.37
+137_navel,navel,1838,NAVEL,02a.38
+138_umbilicalcord,umbilical cord,2663,UMBILICAL CORD,02a.39
+139_child,child,1304,CHILD (YOUNG HUMAN),02a.40
+140_kidney,kidney,489,KIDNEY,02a.41
+141_spleen,spleen,1744,SPLEEN,02a.42
+142_intestines,intestines,1991,INTESTINES,02a.43
+143_hip,hip,1745,HIP,02a.44
+144_buttock,buttock,834,BUTTOCKS,02a.45
+145_rectum,rectum,1935,ANUS,02a.46
+146_arm,arm,1673,ARM,02a.47
+147_shoulderblade,shoulder blade,172,SHOULDERBLADE,02a.48
+148_rightarm,right arm,,,02a.49
+149_leftarm,left arm,,,02a.50
+150_armpit,armpit,1886,ARMPIT,02a.51
+151_elbow,elbow,981,ELBOW,02a.52
+152_palmofhand,palm of hand,1183,PALM OF HAND,02a.53
+153_finger,finger,1303,FINGER,02a.54
+154_thumb,thumb,1781,THUMB,02a.55
+155_leg,leg,1297,LEG,02a.56
+156_thigh,thigh,471,UPPER LEG (THIGH),02a.57
+157_shin,shin,186,SHIN,02a.58
+158_calf,calf,1989,CALF,02a.59
+159_heel,heel,980,HEEL,02a.60
+160_sole,sole,2666,SOLE (FOOT),02a.61
+161_toe,toe,1389,TOE,02a.62
+162_pus,pus,1808,PUS,02a.63
+163_earwax,earwax,32,EARWAX,02a.64
+164_tears,tears,1651,TEAR (OF EYE),02a.65
+165_nasalmucus,nasal mucus,208,NASAL MUCUS (SNOT),02a.66
+166_saliva,saliva,1503,SALIVA,02a.67
+167_sputum,sputum,3061,PHLEGM,02a.68
+168_breath,breath,870,BREATH,02a.69
+169_vomit,vomit,1278,VOMIT,02a.70
+170_bile,bile,1780,BILE,02a.71
+171_feces,feces,675,FAECES (EXCREMENT),02a.72
+172_urine,urine,1142,URINE,02a.73
+173_sweat,sweat,125,SWEAT (SUBSTANCE),02a.74
+174_bring,bring,692,BRING,02b1.01
+175_come,come,1446,COME,02b1.02
+176_approach,approach,1778,APPROACH,02b1.03
+177_pull,pull,1455,PULL,02b1.04
+178_go,go,695,GO,02b1.05
+179_enter,enter,749,ENTER,02b1.06
+180_goout,go out,1107,GO OUT,02b1.07
+181_causetogoout,cause to go out,,,02b1.07a
+182_goaround,go around,,,02b1.08
+183_causetogoaround,cause to go around,,,02b1.08a
+184_runaway,run away,2142,RUN AWAY,02b1.09
+185_take,take,1749,TAKE,02b1.10
+186_push,push,1452,PUSH,02b1.11
+187_send,send,1127,SEND,02b1.12
+188_ascend,ascend,705,GO UP (ASCEND),02b1.13
+189_descend,descend,2014,GO DOWN (DESCEND),02b1.14
+190_accompany,accompany,1542,ACCOMPANY,02b1.15
+191_escort,escort,,,02b1.16
+192_follow,follow,1085,FOLLOW,02b1.17
+193_chase,chase,,,02b1.18
+194_catch,catch,702,CATCH,02b1.19
+195_hold,hold,1448,HOLD,02b1.20
+196_drawback,draw back,,,02b1.21
+197_causetodrawback,cause to draw back,,,02b1.21a
+198_reachfor,reach for,,,02b1.22
+199_holdout,hold out,,,02b1.23
+200_drawback,draw back,,,02b1.24
+201_limp,limp,366,LIMP,02b1.25
+202_jumpup,jump up,1829,JUMP,02b1.26
+203_jumpover,jump over,,,02b1.27
+204_jumpdown,jump down,,,02b1.28
+205_jumpacross,jump across,,,02b1.29
+206_crawl,crawl,96,CRAWL,02b1.30
+207_rollover,roll over,,,02b1.31
+208_run,run,1519,RUN,02b1.32
+209_stoopbenddown,stoop (bend down),2761,BEND (ONESELF),02b1.33
+210_stamp,stamp,3618,STAMP,02b1.34
+211_stepon,step on,575,TREAD,02b1.35
+212_pressdown,press down,1913,PRESS,02b1.36
+213_strike,strike,353,STRIKE,02b1.37
+214_throwaway,throw away,3696,THROW AWAY,02b1.38
+215_stretchitr,stretch (itr),214,STRETCH,02b1.39
+216_tremble,tremble,52,SHIVER,02b1.40
+217_jerkbecauseoffright,jerk (because of fright),,,02b1.41
+218_swing,swing,2871,SWING (MOVEMENT),02b1.42
+219_turnover,turn over,1588,TURN,02b1.43
+220_turnback,turn back,,,02b1.44
+221_climb,climb,1102,CLIMB,02b1.45
+222_collide,collide,,,02b1.46
+223_crossriver,cross (river),574,TRANSIT,02b1.47
+224_swim,swim,1439,SWIM,02b1.48
+225_wait,wait,1590,WAIT (FOR),02b1.49
+226_stop,stop,2880,HALT (STOP),02b1.50
+227_feelbytouch,feel (by touch),2559,FEEL (TACTUALLY),02b1.51
+228_touch,touch,1892,TOUCH,02b1.52
+229_movestiritr,"move, stir (itr)",,,02b1.53
+230_movetootherplace,move to other place,2874,MOVE (ONESELF),02b1.54
+231_shiftsth,shift s.th.,765,MOVE,02b1.54a
+232_slip,slip,1324,SLIP,02b1.55
+233_fallover,fall over,2894,TUMBLE (FALL DOWN),02b1.56
+234_stumble,stumble,3617,STUMBLE,02b1.57
+235_falldown,fall down,1280,FALL,02b1.58
+236_getupitr,get up (itr),,,02b1.59
+237_pickup,pick up,371,PICK UP,02b1.59a
+238_hurry,hurry,754,HURRY,02b1.60
+239_kick,kick,1135,KICK,02b1.61
+240_shake,shake,1909,SHAKE,02b1.62
+241_shiver,shiver,52,SHIVER,02b1.63
+242_nodwithhead,nod (with head),,,02b1.64
+243_belch,belch,2245,BELCH,02b2.01
+244_blink,blink,1655,BLINK,02b2.02
+245_blowwithmouth,blow (with mouth),176,BLOW (WITH MOUTH),02b2.03
+246_blownose,blow nose,2679,BLOW (WITH NOSE),02b2.04
+247_clearthroat,clear throat,,,02b2.05
+248_spit,spit,1440,SPIT,02b2.06
+249_defecate,defecate,676,SHIT (DEFECATE),02b2.07
+250_urinate,urinate,592,PISS,02b2.08
+251_yawn,yawn,1028,YAWN,02b2.09
+252_smellsenseodor,smell (sense odor),1586,SMELL (PERCEIVE),02b2.10
+253_beborn,be born,1090,BE BORN,02b2.11
+254_givebirth,give birth,1195,GIVE BIRTH,02b2.11a
+255_conceivebecomepregnant,conceive (become pregnant),1087,CONCEIVE,02b2.12
+256_havesexualintercourse,have sexual intercourse,549,COPULATE,02b2.13
+257_die,die,1494,DIE,02b2.14
+259_tire,tire,1996,GET TIRED,02b2.15
+260_sleep,sleep,1585,SLEEP,02b2.16
+261_liedown,lie down,215,LIE DOWN,02b2.17
+262_snore,snore,1983,SNORE,02b2.18
+263_wakeupitr,wake up (itr),1602,WAKE UP,02b2.19
+264_breathe,breathe,1407,BREATHE,02b2.20
+265_pant,pant,3614,PANT,02b2.21
+266_hiccup,hiccup,162,HICCOUGH,02b2.22
+267_beatheart,beat (heart),,,02b2.23
+268_bleed,bleed,3615,BLEED,02b2.24
+269_faint,faint,3616,FAINT (PASS OUT),02b2.25
+270_cough,cough,879,COUGH,02b2.26
+271_sneeze,sneeze,1621,SNEEZE,02b2.27
+272_itch,itch,148,ITCH,02b2.28
+273_vomit,vomit,1278,VOMIT,02b2.29
+274_benumb,be numb,,,02b2.30
+275_prickle,prickle,,,02b2.31
+276_live,live,1422,BE ALIVE,02b2.32
+277_bathe,bathe,138,BATHE,02b2.33
+278_shave,shave,231,SHAVE,02b2.34
+279_massage,massage,3119,MASSAGE (SOMEBODY),02b2.35
+280_rubinoil,rub in (oil),1449,RUB,02b2.36
+281_combhair,comb hair,2070,COMB (VERB),02b2.37
+282_cuthair,cut hair,2155,CUT (WITH SCISSORS),02b2.38
+283_makeup,make up,,,02b2.39
+284_scratch,scratch,1436,SCRATCH,02b2.40
+285_gargle,gargle,,,02b2.41
+286_warmosbyfire,warm (o.s. by fire),2032,WARM UP,02b2.42
+287_getwounded,get wounded,,,02b2.43
+288_woundsb,wound s.b.,44,INJURE,02b2.43a
+289_hurt,hurt,2561,HURT (SENSE PAIN),02b2.44
+290_swell,swell,1573,SWELL,02b2.45
+291_endure,endure,833,ENDURE,02b2.46
+292_healwound,heal (wound),499,CURE,02b2.47
+293_getwellrecover,get well (recover),1978,RECOVER,02b2.48
+294_treat,treat,,,02b2.49
+295_twistalimb,twist (a limb),,,02b2.50
+296_sprainalimb,sprain (a limb),,,02b2.51
+297_groan,groan,716,GROAN,02b2.52
+298_animal,animal,619,ANIMAL,03a.001
+299_rooster,rooster,1511,ROOSTER,03a.002
+300_hen,hen,1514,HEN,03a.003
+301_chick,chick,2512,CHICK,03a.004
+302_comb,comb,188,COMB OF BIRD,03a.005
+303_duck,duck,1360,DUCK,03a.006
+304_pigeon,pigeon,1853,DOVE,03a.007
+305_pheasant,pheasant,3060,PHEASANT,03a.008
+306_peacock,peacock,3382,PEACOCK,03a.009
+307_sparrow,sparrow,1854,SPARROW,03a.010
+308_swallow,swallow,3077,SWALLOW (BIRD),03a.011
+309_bill,bill,,,03a.012
+310_nest,nest,539,NEST,03a.013
+311_wing,wing,1257,WING,03a.014
+312_parrot,parrot,882,PARROT,03a.015
+313_crow,crow,913,CROW,03a.016
+314_blackbird,blackbird,,,03a.017
+315_woodpecker,woodpecker,2447,WOODPECKER,03a.018
+316_crane,crane,1830,CRANE,03a.019
+317_owl,owl,735,OWL,03a.020
+318_hawk,hawk,307,HAWK,03a.021
+319_eagle,eagle,1905,EAGLE,03a.022
+320_vulture,vulture,1185,VULTURE,03a.023
+321_largebat,large bat,,,03a.024
+322_smallbat,small bat,,,03a.025
+323_fur,fur,580,FUR,03a.026
+324_buffalo,buffalo,934,BUFFALO,03a.027
+325_buffbull,buff. bull,,,03a.028
+326_buffcow,buff. cow,,,03a.029
+327_buffcalf,buff. calf,,,03a.030
+328_cattle,cattle,1153,CATTLE,03a.031
+329_hoof,hoof,152,HOOF,03a.032
+330_bull,bull,1008,BULL,03a.033
+331_cow,cow,1007,COW,03a.034
+332_calf,calf,1989,CALF,03a.035
+333_goat,goat,1502,GOAT,03a.036
+334_billy,billy,,,03a.037
+335_nanny,nanny,,,03a.038
+336_kid,kid,1972,KID,03a.039
+337_sheep,sheep,1331,SHEEP,03a.040
+338_hog,hog,1337,PIG,03a.041
+339_boar,boar,1348,BOAR (MALE PIG),03a.042
+340_snout,snout,2200,SNOUT,03a.043
+341_horse,horse,615,HORSE,03a.044
+342_donkey,donkey,1862,DONKEY,03a.045
+343_yak,yak,2477,YAK,03a.046
+344_rhinoceros,rhinoceros,2591,RHINOCEROS,03a.047
+345_cat,cat,1208,CAT,03a.048
+346_whiskers,whiskers,,,03a.049
+347_rat,rat,1490,RAT,03a.050
+348_shrew,shrew,3676,SHREW,03a.051
+349_squirrel,squirrel,1628,SQUIRREL,03a.052
+350_monkey,monkey,1350,MONKEY,03a.053
+351_elephant,elephant,1290,ELEPHANT,03a.054
+352_trunk,trunk,3678,ELEPHANT TRUNK,03a.055
+353_tusks,tusks,2495,ELEPHANT TUSK,03a.056
+354_deer,deer,1936,DEER,03a.057
+355_antelope,antelope,3674,ANTELOPE,03a.058
+356_fox,fox,1312,FOX,03a.059
+357_jackal,jackal,3313,JACKAL,03a.060
+358_mongoose,mongoose,3677,MONGOOSE,03a.061
+359_bear,bear,1820,BEAR,03a.062
+360_tiger,tiger,846,TIGER,03a.063
+361_leopard,leopard,1139,LEOPARD,03a.064
+362_lizard,lizard,632,LIZARD,03a.065
+363_frog,frog,503,FROG,03a.066
+364_toad,toad,894,TOAD,03a.067
+365_turtle,turtle,112,TURTLE,03a.068
+366_bigsnake,big snake,,,03a.069
+367_smallsnake,small snake,,,03a.070
+368_snail,snail,1543,SNAIL,03a.071
+369_shell,shell,598,SHELL,03a.072
+370_scorpion,scorpion,1538,SCORPION,03a.073
+371_sting,sting,,,03a.074
+372_centipede,centipede,1974,CENTIPEDE,03a.075
+373_landleech,land leech,2273,LEECH,03a.076
+374_waterleech,water leech,949,WATER LEECH,03a.077
+375_grub,grub,3011,GRUB,03a.078
+376_caterpillar,caterpillar,2247,CATERPILLAR,03a.079
+377_earthworm,earthworm,2350,EARTHWORM,03a.080
+378_spider,spider,843,SPIDER,03a.081
+379_web,web,1065,SPIDER WEB,03a.082
+380_fly,fly,1504,FLY (INSECT),03a.083
+381_mosquito,mosquito,1509,MOSQUITO,03a.084
+382_ant,ant,587,ANT,03a.085
+383_flyingant,flying ant,883,TERMITE,03a.086
+384_bodylouse,body louse,1392,LOUSE,03a.087
+385_louseegg,louse egg,267,NIT,03a.088
+386_flea,flea,232,FLEA,03a.089
+387_bedbug,bed bug,1949,BEDBUG,03a.090
+388_dragonfly,dragonfly,2352,DRAGONFLY,03a.091
+389_moth,moth,2828,MOTH,03a.092
+390_butterfly,butterfly,1791,BUTTERFLY,03a.093
+391_firefly,firefly,206,FIREFLY,03a.094
+392_cockroach,cockroach,1575,COCKROACH,03a.095
+393_grasshopper,grasshopper,607,GRASSHOPPER,03a.096
+394_wasp,wasp,1517,WASP,03a.097
+395_bee,bee,665,BEE,03a.098
+396_hive,hive,88,BEEHIVE,03a.099
+397_honey,honey,942,HONEY,03a.100
+398_bark,bark,1206,BARKING,03b.01
+399_growl,growl,3679,GROWL,03b.02
+400_howl,howl,526,HOWL,03b.03
+401_bite,bite,1403,BITE,03b.04
+402_sniff,sniff,375,SNIFF,03b.05
+403_gnaw,gnaw,2706,GNAW,03b.06
+404_lick,lick,319,LICK,03b.07
+405_gritteeth,grit (teeth),,,03b.08
+406_fly,fly,1441,FLY (MOVE THROUGH AIR),03b.09
+407_alight,alight,,,03b.10
+408_perch,perch,3682,PERCH (OF BIRD),03b.11
+409_peck,peck,3684,PECK,03b.12
+410_chirp,chirp,,,03b.13
+411_layegg,lay egg,2464,LAY EGGS,03b.14
+412_cackle,cackle,3683,CACKLE,03b.15
+413_brood,brood,2075,BROOD (VERB),03b.16
+414_hatch,hatch,3116,HATCH (OUT),03b.17
+415_bitesnake,bite (snake),1403,BITE,03b.18
+416_hiss,hiss,3685,HISS,03b.19
+417_stinginsects,sting (insects),571,STING,03b.20
+418_crowcock,crow (cock),2074,CROW (VERB),03b.21
+419_huminsects,hum (insects),,,03b.22
+420_driveaway,drive away,30,DISPEL,03b.23
+421_runafter,run after,,,03b.24
+422_snatchaway,snatch away,,,03b.25
+423_hunt,hunt,1435,HUNT,03b.26
+424_aimat,aim at,,,03b.27
+425_shoot,shoot,1172,SHOOT,03b.28
+426_miss,miss,161,MISS (A TARGET),03b.29
+427_catchtrap,catch (trap),1170,TRAP (CATCH),03b.30
+428_skin,skin,291,PULL OFF (SKIN),03b.31
+429_singe,singe,3698,SINGE,03b.32
+430_graze,graze,3058,GRAZE,03b.33
+431_drive,drive,2868,DRIVE (CATTLE),03b.34
+432_lead,lead,43,LEAD (GUIDE),03b.35
+433_tether,tether,2891,TIE UP (TETHER),03b.36
+434_getloose,get loose,2506,LOOSE,03b.37
+435_goastray,go astray,,,03b.38
+436_wallow,wallow,,,03b.39
+437_ruminate,ruminate,3680,RUMINATE,03b.40
+438_milkacow,milk a cow,93,DRAW MILK,03b.41
+439_fightanimals,fight (animals),1423,FIGHT,03b.42
+440_bellowbull,bellow (bull),,,03b.43
+441_ride,ride,367,RIDE,03b.44
+442_neigh,neigh,,,03b.45
+443_givebirth,give birth,1195,GIVE BIRTH,03b.46
+444_castrategoats,castrate goats,,,03b.47
+445_castratebulls,castrate bulls,,,03b.48
+446_shearsheep,shear sheep,1532,SHEAR,03b.49
+447_penup,pen up,,,03b.50
+659_road,road,2457,PATH OR ROAD,06a.01
+660_village,village,930,VILLAGE,06a.02
+661_town,town,1391,TOWN,06a.03
+662_place,place,723,PLACE (POSITION),06a.04
+663_corner,corner,192,CORNER,06a.05
+664_house,house,1252,HOUSE,06a.06
+665_granary,granary,3657,GRANARY,06a.07
+666_vegetablepatch,vegetable patch,,,06a.08
+667_cowshed,cow shed,851,STABLE,06a.09
+668_hoghouse,hog house,,,06a.10
+669_chickenhouse,chicken house,,,06a.11
+670_cage,cage,,,06a.12
+671_wall,wall,933,WALL (OF HOUSE),06a.13
+672_mud,mud,640,MUD,06a.14
+673_lime,lime,2540,LIME (MATERIAL),06a.15
+674_roof,roof,769,ROOF,06a.16
+675_thatch,thatch,279,THATCH,06a.17
+676_beam,beam,1132,BEAM,06a.18
+677_rafter,rafter,829,RAFTER,06a.19
+678_canerattan,"cane, rattan",2497,RATTAN,06a.20
+679_post,post,281,POST,06a.21
+680_bambootiesstripsforbuilding,bamboo ties (strips for building),,,06a.22
+681_scaffold,scaffold,,,06a.23
+682_ladder,ladder,1464,LADDER,06a.24
+683_veranda,veranda,,,06a.25
+684_doorway,doorway,,,06a.26
+685_door,door,1567,DOOR,06a.27
+686_lock,lock,1596,LOCK,06a.28
+687_window,window,1375,WINDOW,06a.29
+688_windowshutter,window shutter,,,06a.30
+689_floor,floor,1632,FLOOR,06a.31
+690_fence,fence,1690,FENCE,06a.32
+691_bedstead,bedstead,,,06a.33
+692_sleepingmat,sleeping mat,105,MATTRESS,06a.34
+693_covering,covering,,,06a.35
+694_pillow,pillow,1044,PILLOW,06a.36
+695_mat,mat,195,MAT,06a.37
+696_cradle,cradle,2946,CRADLE,06a.38
+697_bench,bench,2584,BENCH,06a.39
+698_loft,loft,,,06a.40
+699_cookingplace,cooking place,,,06a.41
+700_charcoal,charcoal,1188,CHARCOAL,06a.42
+701_soot,soot,830,SOOT,06a.43
+702_grinder,grinder,,,06a.44
+703_griddle,griddle,,,06a.45
+704_mortar,mortar,224,MORTAR,06a.46
+705_pestle,pestle,225,PESTLE,06a.47
+706_flame,flame,889,FLAME,06a.48
+707_sparks,sparks,518,SPARK,06a.49
+708_steam,steam,1193,STEAM,06a.50
+709_broom,broom,245,BROOM,06a.51
+710_sweepings,sweepings,,,06a.52
+711_bellows,bellows,3658,BELLOWS,06a.53
+712_firetongs,fire tongs,272,TONGS,06a.54
+713_kindling,kindling,,,06a.55
+714_fryingpan,frying pan,31,PAN,06a.56
+778_tickle,tickle,3647,TICKLE (SOMEBODY),06b2.25
+1059_three,three,492,THREE,9.01
+1060_four,four,1500,FOUR,9.02
+1061_five,five,493,FIVE,9.03
+1062_six,six,1703,SIX,9.04
+1063_seven,seven,1704,SEVEN,9.05
+1064_eight,eight,1705,EIGHT,9.06
+1065_nine,nine,1483,NINE,9.07
+1066_ten,ten,1515,TEN,9.08
+1067_thirteen,thirteen,1708,THIRTEEN,9.09
+1068_nineteen,nineteen,1714,NINETEEN,9.1
+1069_twenty,twenty,1710,TWENTY,9.11
+1070_twentytwo,twenty-two,3166,TWENTY TWO,9.12
+1071_twentynine,twenty-nine,,,9.13
+1072_thirtyone,thirty-one,,,9.14
+1073_thirtynine,thirty-nine,,,9.15
+1074_forty,forty,1716,FORTY,9.16
+1075_fifty,fifty,1717,FIFTY,9.17
+1076_sixty,sixty,1718,SIXTY,9.18
+1077_seventy,seventy,1721,SEVENTY,9.19
+1078_eighty,eighty,1722,EIGHTY,9.2
+1079_ninety,ninety,1724,NINETY,9.21
+1080_ninetyeight,ninety-eight,,,9.22
+1081_ninetynine,ninety-nine,,,9.23
+1082_hundred,hundred,1634,HUNDRED,9.24
+1083_hundredandtwo,hundred and two,,,9.25
+1084_hundredandthirty,hundred and thirty,,,9.26
+1085_hundredandninety,hundred and ninety,,,9.27
+1086_twohundred,two hundred,2676,TWO HUNDRED,9.28
+1087_onethousand,one thousand,1843,THOUSAND,9.29
+1088_first,first,728,FIRST,9.3
+1089_second,second,1384,SECOND,9.31
+1090_third,third,1859,THIRD,9.32
+1091_eighth,eighth,,,9.33
+1092_last,last,1529,LAST (FINAL),9.34
+1093_half,half,816,HALF,9.35
+1094_halfway,half way,,,9.36
+1095_onethird,one-third,3842,ONE THIRD,9.37
+1096_onequarter,one quarter,,,9.38
+1097_twothirds,two thirds,,,9.39
+1098_threequarters,three quarters,,,9.4
+1099_apair,a pair,1888,PAIR,9.41
+1100_none,none,,,9.42
+1101_neither,neither,,,9.43
+1102_both,both,,,9.44
+1103_every,every,98,ALL,9.45
+1104_total,total,2277,WHOLE,9.46
+1105_together,together,2482,TOGETHER,9.47
+1106_something,something,,,9.48
+1107_nothing,nothing,687,NOTHING,9.49
+1108_someone,someone,2422,SOMEONE,9.5
+1109_noone,no one,,,9.51
+1110_another,another,197,OTHER,9.52
+1111_some,some,1241,SOME,9.54
+1112_toomuch,too much,,,9.55
+1113_love,love,,,10a.01
+1114_hate,hate,3749,HATE (LOATHING),10a.02
+1115_envy,envy,40,ENVY,10a.03
+1116_pride,pride,,,10a.04
+1117_generosity,generosity,,,10a.05
+1118_selfishness,selfishness,,,10a.06
+1119_greed,greed,,,10a.07
+1120_kindness,kindness,3468,KINDNESS,10a.08
+1121_cruelty,cruelty,,,10a.09
+1122_happiness,happiness,2941,HAPPINESS,10a.10
+1123_sorrow,sorrow,1668,GRIEF,10a.11
+1124_life,life,210,LIFE,10a.12
+1125_longlife,long life,,,10a.13
+1126_dwarf,dwarf,,,10a.14
+1127_lefthandedperson,left-handed person,2825,LEFT HANDED,10a.15
+1128_stammerer,stammerer,,,10a.16
+1129_cripple,cripple,3621,DISABLED PERSON,10a.17
+1130_health,health,1364,HEALTHY,10a.18
+1131_injury,injury,2947,DAMAGE (INJURY),10a.19
+1132_wound,wound,1109,WOUND,10a.20
+1133_infection,infection,,,10a.21
+1134_pain,pain,1783,PAIN,10a.22
+1135_weeping,weeping,,,10a.23
+1136_weakness,weakness,,,10a.24
+1137_fever,fever,1534,FEVER,10a.25
+1138_cough,cough,,,10a.26
+1139_sneeze,sneeze,,,10a.27
+1140_hiccup,hiccup,,,10a.28
+1141_disease,disease,1986,DISEASE,10a.29
+1142_leprosy,leprosy,3624,LEPROSY,10a.30
+1143_tuberculosis,tuberculosis,,,10a.31
+1144_malaria,malaria,3059,MALARIA,10a.32
+1145_cholera,cholera,,,10a.33
+1146_typhoid,typhoid,,,10a.34
+1147_smallpox,smallpox,1054,SMALLPOX,10a.35
+1148_measles,measles,,,10a.36
+1149_cold,cold,102,COMMON COLD (DISEASE),10a.37
+1150_eyedisease,eye disease,,,10a.38
+1151_dysentery,dysentery,,,10a.39
+1152_worms,worms,1219,WORM,10a.40
+1153_poison,poison,655,POISON,10a.41
+1154_medicine,medicine,1372,MEDICINE,10a.42
+1155_cure,cure,,,10a.43
+1156_doctor,doctor,597,PHYSICIAN,10a.44
+1157_death,death,910,DEATH,10a.45
+1158_corpse,corpse,767,CORPSE,10a.46
+1159_burial,burial,,,10a.47
+1160_cemetery,cemetery,3284,GRAVEYARD,10a.48
+1161_cremation,cremation,,,10a.49
+1162_burningplace,burning place,,,10a.50
+1163_mourning,mourning,3673,MOURNING,10a.51
+1164_otherworlds,other worlds,,,10a.52
+1165_ghost,ghost,1175,GHOST,10a.53
+1166_spirit,spirit,53,SPIRIT,10a.54
+1167_god,god,1944,GOD,10a.55
+1168_witch,witch,824,WITCH,10a.56
+1169_shaman,shaman,394,SHAMAN (FOLK HEALER),10a.57
+1170_mask,mask,2005,MASK,10a.58
+1171_incense,incense,,,10a.59
+1172_temple,temple,911,TEMPLE,10a.60
+1173_idol,idol,1945,IDOL,10a.61
+1174_faith,faith,,,10a.62
+1175_miracle,miracle,2541,MIRACLE,10a.63
+1176_prayer,prayer,,,10a.64
+1177_prayerflag,prayer flag,,,10a.65
+1178_oath,oath,1712,OATH,10a.66
+1179_worship,worship,,,10a.67
+1180_sacrifice,sacrifice,1103,SACRIFICE,10a.68
+1181_offering,offering,1103,SACRIFICE,10a.69
+1182_ceremony,ceremony,,,10a.70
+1183_festival,festival,131,FESTIVAL,10a.71
+1184_sin,sin,2971,SIN,10a.72
+1185_guilt,guilt,134,FAULT,10a.73
+1186_tell,tell,1711,TELL,10b1.01
+1187_talk,talk,2708,TALK,10b1.02
+1188_speakalanguage,speak (a language),1623,SPEAK,10b1.03
+1189_mutter,mutter,,,10b1.04
+1190_stutter,stutter,1866,STUTTER,10b1.05
+1191_whisper,whisper,55,WHISPER,10b1.06
+1192_murmur,murmur,,,10b1.07
+1193_chatter,chatter,,,10b1.08
+1194_scream,scream,3809,SCREAM (PRODUCE A CRY),10b1.09
+1195_shout,shout,715,SHOUT,10b1.10
+1196_exaggerate,exaggerate,,,10b1.11
+1197_boast,boast,101,BOAST,10b1.12
+1198_agree,agree,3643,AGREE,10b1.13
+1199_advice,advice,,,10b1.14
+1200_ask,ask,1309,ASK (INQUIRE),10b1.15
+1201_answer,answer,1275,ANSWER,10b1.16
+1202_listen,listen,1608,LISTEN,10b1.17
+1203_approveconfirm,"approve, confirm",,,10b1.18
+1204_obey,obey,1635,OBEY,10b1.19
+1205_request,request,1828,ASK (REQUEST),10b1.20
+1206_beg,beg,3534,BEG,10b1.21
+1207_persist,persist,,,10b1.22
+1208_persuade,persuade,3645,PERSUADE,10b1.23
+1209_force,force,,,10b1.24
+1210_threaten,threaten,1192,THREATEN,10b1.25
+1211_tempt,tempt,,,10b1.26
+1212_seduce,seduce,,,10b1.27
+1213_stagger,stagger,,,10b1.28
+1214_discuss,discuss,,,10b1.29
+1215_understand,understand,1536,UNDERSTAND,10b1.30
+1216_promise,promise,1675,PROMISE,10b1.31
+1217_omiterr,"omit, err",839,ERR,10b1.32
+1218_admit,admit,2022,ADMIT,10b1.33
+1219_regret,regret,1875,REGRET,10b1.34
+1220_repent,repent,1875,REGRET,10b1.35
+1221_becomewarned,become warned,,,10b1.36
+1222_protect,protect,2900,PROTECT,10b1.37
+1223_bespared,be spared,,,10b1.38
+1224_trust,trust,,,10b1.39
+1225_forgive,forgive,1528,FORGIVE,10b1.40
+1226_give,give,1447,GIVE,10b1.41
+1227_giveback,give back,85,GIVE BACK,10b1.42
+1228_givein,give in,,,10b1.43
+1229_giveup,give up,1696,SURRENDER,10b1.44
+1230_greet,greet,3552,GREET,10b1.45
+1231_guard,guard,,,10b1.46
+1232_help,help,1897,HELP,10b1.47
+1233_meet,meet,1831,MEET,10b1.48
+1234_invite,invite,1611,INVITE,10b1.49
+1235_embrace,embrace,928,EMBRACE,10b1.50
+1236_kiss,kiss,578,KISS,10b1.51
+1237_love,love,923,LOVE,10b1.52
+1238_mourn,mourn,1955,GRIEVE,10b1.53
+1239_pityso,pity (s.o.),,,10b1.54
+1240_knowso,know (s.o.),2248,KNOW (SOMEBODY),10b1.55
+1241_ordertocome,order to come,,,10b1.56
+1242_beg,beg,3534,BEG,10b1.57
+1243_betray,betray,1902,BETRAY,10b1.58
+1244_cheat,cheat,3230,DECEIVE,10b1.59
+1245_command,command,1998,COMMAND,10b1.60
+1246_spreadnewsitr,spread news (itr),,,10b1.61
+1247_complain,complain,3642,COMPLAIN,10b1.62
+1248_annoy,annoy,2892,MAKE ANGRY (ANNOY),10b1.63
+1249_tease,tease,,,10b1.64
+1250_ridicule,ridicule,,,10b1.65
+1251_nagcriticize,"nag, criticize",,,10b1.66
+1252_despise,despise,2715,DESPISE,10b1.67
+1253_hate,hate,1607,HATE,10b1.68
+1254_disgrace,disgrace,75,DISGRACE,10b1.69
+1255_ignore,ignore,41,IGNORE,10b1.70
+1256_getstuck,get stuck,,,10b1.71
+1257_forbid,forbid,83,FORBID,10b1.72
+1258_avoidsb,avoid s.b.,3639,AVOID,10b1.73
+1259_hurtnotphysically,hurt (not physically),2411,HURT (SOMEBODY),10b1.74
+1260_lie,lie,601,LIE (MISLEAD),10b1.75
+1261_pretend,pretend,3631,PRETEND,10b1.76
+1262_flatter,flatter,2709,FLATTER,10b1.77
+1263_flirt,flirt,494,FLIRT,10b1.78
+1264_feelatease,feel at ease,,,10b1.79
+1265_quarrelwithwords,quarrel with words,1848,QUARREL,10b1.80
+1266_quarrel,quarrel,1848,QUARREL,10b1.81
+1267_separate,separate,1359,SEPARATE,10b1.82
+1268_failinanattempt,fail (in an attempt),,,10b1.83
+1269_succeed,succeed,1112,SUCCEED,10b1.84
+1270_losebedefeated,lose (be defeated),3535,BE DEFEATED,10b1.85
+1271_win,win,866,WIN,10b1.86
+1272_stopholdup,"stop, hold up",2880,HALT (STOP),10b1.87
+1273_read,read,724,READ,10b2.01
+1274_write,write,1672,WRITE,10b2.02
+1275_learn,learn,504,LEARN,10b2.03
+1276_study,study,1929,STUDY,10b2.04
+1277_practice,practice,,,10b2.05
+1278_review,review,,,10b2.06
+1279_repeat,repeat,880,REPEAT,10b2.07
+1280_recite,recite,,,10b2.08
+1281_learnbyheart,learn by heart,71,BY HEART,10b2.09
+1282_remember,remember,707,REMEMBER,10b2.10
+1283_forget,forget,1523,FORGET,10b2.11
+1284_think,think,2271,THINK,10b2.12
+1285_doubt,doubt,3536,DOUBT (SOMETHING),10b2.13
+1286_see,see,1409,SEE,10b2.14
+1287_lookat,look at,1819,LOOK,10b2.15
+1288_compare,compare,3429,COMPARE,10b2.16
+1289_resemble,resemble,1777,RESEMBLE,10b2.17
+1290_describe,describe,,,10b2.18
+1291_know,know,3626,KNOW,10b2.19
+1292_imagine,imagine,,,10b2.20
+1293_examine,examine,,,10b2.21
+1294_count,count,1420,COUNT,10b2.22
+1295_multiply,multiply,,,10b2.23
+1296_divide,divide,1119,DIVIDE,10b2.24
+1297_compose,compose,,,10b2.25
+1298_draw,draw,2001,PAINTING,10b2.26
+1299_erase,erase,,,10b2.27
+1300_translate,translate,2906,TRANSLATE,10b2.28
+1301_interpret,interpret,,,10b2.29
+1302_understand,understand,1536,UNDERSTAND,10b2.30
+1430_dance,dance,1879,DANCE,11b1.01
+1431_play,play,1413,PLAY,11b1.02
+1432_sing,sing,1261,SING,11b1.03
+1433_whistle,whistle,1025,WHISTLE,11b1.04
+1434_humatune,hum (a tune),3671,HUM,11b1.05
+1435_beatdrum,beat drum,,,11b1.06
+1436_playinstr,play instr.,3124,PLAY (INSTRUMENT),11b1.07
+1437_sound,sound,2879,SOUND (OF INSTRUMENT OR VOICE),11b1.08
+1438_rattle,rattle,,,11b1.09
+1439_claphands,clap hands,3110,CLAP,11b1.10
+1440_snapwithfingers,snap with fingers,,,11b1.11
+1441_visit,visit,1377,VISIT,11b1.12
+1442_welcome,welcome,,,11b1.13
+1443_gossip,gossip,3640,GOSSIP,11b1.14
+1444_joke,joke,2760,MAKE A JOKE,11b1.15
+1445_amuse,amuse,,,11b1.16
+1446_smoke,smoke,1689,SMOKE (INHALE),11b1.17
+1447_gamble,gamble,,,11b1.18
+1448_getdrunk,get drunk,1463,DRUNK,11b1.19
+1449_travel,travel,3665,TRAVEL,11b1.20
+1450_prepare,prepare,2909,PREPARE,11b1.21
+1451_decide,decide,685,DECIDE,11b1.22
+1452_walk,walk,1443,WALK,11b1.23
+1453_wander,wander,3666,WANDER,11b1.24
+1454_overtake,over take,,,11b1.25
+1455_passby,pass by,558,PASS BY,11b1.26
+1456_point,point,2669,POINT (WITH FINGER),11b1.27
+1457_load,load,3669,LOAD (SOMETHING),11b1.28
+1458_craminto,cram into,,,11b1.29
+1459_carry,carry,700,CARRY,11b1.30
+1460_leavestartout,"leave, start out",1752,LEAVE,11b1.31
+1461_leavebehind,leave behind,,,11b1.32
+1462_rest,rest,168,REST,11b1.33
+1463_reachthere,reach there,1387,ARRIVE,11b1.34
+1464_arrivehere,arrive here,1387,ARRIVE,11b1.35
+1465_return,return,581,COME BACK,11b1.36
+1466_paddle,paddle,3668,PADDLE (MOVEMENT),11b1.37
+1467_buy,buy,1869,BUY,11b2.01
+1468_sell,sell,1571,SELL,11b2.02
+1469_pay,pay,718,PAY,11b2.03
+1470_repayloan,repay loan,,,11b2.04
+1471_lendmoney,lend money,582,LEND,11b2.05
+1472_borrowmoney,borrow money,1823,BORROW,11b2.06
+1473_lendthings,lend things,582,LEND,11b2.07
+1474_borrowthings,borrow things,1823,BORROW,11b2.08
+1475_exchangemoney,exchange money,2509,EXCHANGE,11b2.09
+1476_barter,barter,370,BARTER,11b2.10
+1477_trade,trade,898,TRADE,11b2.11
+1478_earn,earn,733,EARN,11b2.12
+1479_weigh,weigh,1098,WEIGH,11b2.13
+1480_increase,increase,1041,INCREASE,11b2.14
+1481_decrease,decrease,2864,DECREASE,11b2.15
+1482_bargain,bargain,,,11b2.16
+1483_marry,marry,203,MARRY,11b2.17
+1484_giveinmarriage,give in marriage,,,11b2.18
+1485_settlemarriage,settle (marriage),,,11b2.19
+1486_divorce,divorce,3672,DIVORCE (SEPARATE),11b2.20
+1487_desert,desert,,,11b2.21
+1488_bedefiled,be defiled,,,11b2.22
+1489_fulfillworksofpurification,fulfill works of purification,,,11b2.23
+1490_sprinklewaterofpurification,sprinkle water of purification,,,11b2.24
+1491_becomepurified,become purified,,,11b2.25
+1492_becomeunclean,become unclean,,,11b2.26
+1493_bury,bury,1719,BURY,11b2.27
+1494_inherit,inherit,3664,INHERIT,11b2.28
+1495_divide,divide,1119,DIVIDE,11b2.29
+1496_share,share,884,SHARE,11b2.30
+1497_own,own,684,OWN,11b2.31
+1498_serveamaster,serve a master,3648,SERVE (SOMEONE),11b2.32
+1499_swearoath,swear oath,1939,SWEAR,11b2.33
+1500_assemble,assemble,,,11b2.34
+1501_elect,elect,,,11b2.35
+1502_vote,vote,,,11b2.36
+1503_collecttaxes,collect taxes,,,11b2.37
+1504_rob,rob,2073,ROB (VERB),11b3.01
+1505_steal,steal,713,STEAL,11b3.02
+1506_plunder,plunder,3670,PLUNDER,11b3.03
+1507_attack,attack,,,11b3.04
+1508_insult,insult,3204,INSULT,11b3.05
+1509_conspire,conspire,,,11b3.06
+1510_transgress,transgress,,,11b3.07
+1511_suspectso,suspect s.o.,1841,SUSPECT,11b3.08
+1512_accuse,accuse,1814,ACCUSE,11b3.09
+1513_interrogate,interrogate,,,11b3.10
+1514_deny,deny,755,DENY,11b3.11
+1515_judge,judge,1818,ADJUDICATE,11b3.12
+1516_condemn,condemn,484,CONDEMN,11b3.13
+1517_fineso,fine s.o.,,,11b3.14
+1518_persecute,persecute,,,11b3.15
+1519_torture,torture,1952,TORTURE,11b3.16
+1520_release,release,1095,LET GO OR SET FREE,11b3.17
+1521_flee,flee,956,FLEE,11b3.18
+1522_escape,escape,1615,ESCAPE,11b3.19
+1523_avenge,avenge,,,11b3.20
+1524_fileacase,file a case,,,11b3.21
+1525_givefinaljudgement,give final judgement,,,11b3.22
+1526_young,young,1207,YOUNG,12a.01
+1527_aged,aged,2112,OLD (AGED),12a.02
+1528_experienced,experienced,2218,EXPERIENCED,12a.03
+1529_strong,strong,785,STRONG,12a.04
+1530_weak,weak,1601,WEAK,12a.05
+1531_violent,violent,,,12a.06
+1532_gentle,gentle,1954,GENTLE,12a.07
+1533_alive,alive,1422,BE ALIVE,12a.08
+1534_dead,dead,1625,DEAD,12a.09
+1535_numb,numb,,,12a.10
+1536_blind,blind,1653,BLIND,12a.11
+1537_deaf,deaf,996,DEAF,12a.12
+1538_curious,curious,3633,CURIOUS,12a.13
+1539_attentive,attentive,1908,ATTENTIVE,12a.14
+1540_careful,careful,2758,CAREFUL,12a.15
+1541_careless,careless,,,12a.16
+1542_intelligent,intelligent,2530,SMART,12a.17
+1543_ignorant,ignorant,2651,BE IGNORANT,12a.18
+1544_cleverhands,clever (hands),,,12a.19
+1545_cleverhead,clever (head),1310,CLEVER,12a.20
+1546_foolish,foolish,1518,STUPID,12a.21
+1547_insane,insane,1899,MAD,12a.22
+1548_good,good,1035,GOOD,12a.23
+1549_evil,evil,45,EVIL,12a.24
+1550_healthy,healthy,1364,HEALTHY,12a.25
+1551_sick,sick,1847,SICK,12a.26
+1552_busy,busy,2755,BUSY,12a.27
+1553_lazy,lazy,1564,LAZY,12a.28
+1554_tired,tired,1757,TIRED,12a.29
+1555_skillful,skillful,,,12a.30
+1556_clumsy,clumsy,,,12a.31
+1557_rich,rich,712,RICH,12a.32
+1558_poor,poor,1674,POOR,12a.33
+1559_fat,fat,1279,FAT (OBESE),12a.34
+1560_stout,stout,,,12a.35
+1561_slender,slender,,,12a.36
+1562_severe,severe,419,SEVERE,12a.37
+1563_lenient,lenient,,,12a.38
+1564_obedient,obedient,,,12a.39
+1565_generous,generous,3632,GENEROUS,12a.40
+1566_stingy,stingy,1774,STINGY,12a.41
+1567_content,content,,,12a.42
+1568_discontent,discontent,,,12a.43
+1569_happy,happy,1495,HAPPY,12a.44
+1570_sad,sad,699,SAD,12a.45
+1571_funny,funny,1976,MERRY,12a.46
+1572_boring,boring,905,BORING,12a.47
+1573_pretty,pretty,2410,GOOD-LOOKING,12a.48
+1574_ugly,ugly,1548,UGLY,12a.49
+1575_brave,brave,3,BRAVE,12a.50
+1576_fearful,fearful,528,DREADFUL,12a.51
+1577_cowardly,cowardly,3812,COWARDLY,12a.52
+1578_cautious,cautious,,,12a.53
+1579_proud,proud,174,PROUD,12a.54
+1580_humble,humble,,,12a.55
+1581_modest,modest,,,12a.56
+1582_insulent,insulent,91,INSOLENT,12a.57
+1583_friendly,friendly,,,12a.58
+1584_unfriendly,unfriendly,,,12a.59
+1585_polite,polite,583,KIND OR POLITE,12a.60
+1586_rude,rude,1412,RUDE,12a.61
+1587_kind,kind,583,KIND OR POLITE,12a.62
+1588_cruel,cruel,500,CRUEL,12a.63
+1589_jealous,jealous,2821,JEALOUS,12a.64
+1590_envious,envious,,,12a.65
+1591_drunk,drunk,1463,DRUNK,12a.66
+1592_guilty,guilty,1682,GUILTY,12a.67
+1593_sacred,sacred,1702,HOLY,12a.68
+1594_attractive,attractive,2410,GOOD-LOOKING,12a.69
+1595_repulsive,repulsive,,,12a.70
+1596_tight,tight,3053,TIGHT,12b.01
+1597_loose,loose,2506,LOOSE,12b.02
+1598_heavy,heavy,1210,HEAVY,12b.03
+1599_light,light,1052,LIGHT (WEIGHT),12b.04
+1600_thickdensity,thick (density),2239,DENSE,12b.05
+1601_thindensity,thin (density),2306,THIN (OF LEAF AND CLOTH),12b.06
+1602_hard,hard,1884,HARD,12b.07
+1603_soft,soft,1856,SOFT,12b.08
+1604_elastic,elastic,,,12b.09
+1605_inelastic,inelastic,,,12b.10
+1606_flexible,flexible,1691,FLEXIBLE,12b.11
+1607_brittle,brittle,,,12b.12
+1608_slick,slick,,,12b.13
+1609_sticky,sticky,3703,STICKY,12b.14
+1610_greasy,greasy,955,GREASY,12b.15
+1611_damp,damp,2998,DAMP,12b.16
+1612_wet,wet,1726,WET,12b.17
+1613_pleasant,pleasant,,,12b.18
+1614_painful,painful,1129,PAINFUL,12b.19
+1615_savory,savory,,,12b.20
+1616_unsavory,unsavory,,,12b.21
+1617_sweet,sweet,717,SWEET,12b.22
+1618_hotspicy,"hot, spicy",544,SPICY,12b.23
+1619_sour,sour,1906,SOUR,12b.24
+1620_bitter,bitter,887,BITTER,12b.25
+1621_salty,salty,1091,SALTY,12b.26
+1622_fragrant,fragrant,376,FRAGRANT,12b.27
+1623_fetid,fetid,42,STINKING,12b.28
+1624_loud,loud,377,LOUD,12b.29
+1625_soft,soft,,,12b.30
+1626_highpitch,high pitch,,,12b.31
+1627_lowpitch,low pitch,,,12b.32
+1628_bright,bright,679,BRIGHT,12b.33
+1629_dark,dark,706,DARK,12b.34
+1630_blue,blue,837,BLUE,12b.35
+1631_brown,brown,2409,BROWN,12b.36
+1632_variegated,variegated,,,12b.37
+1633_faded,faded,,,12b.38
+1634_spotted,spotted,,,12b.39
+1635_striped,striped,,,12b.40
+1636_right,right,1725,CORRECT (RIGHT),12b.41
+1637_wrong,wrong,1390,WRONG,12b.42
+1638_true,true,1657,TRUE,12b.43
+1639_false,false,3069,FALSE,12b.44
+1640_sufficient,sufficient,,,12b.45
+1641_insufficient,insufficient,,,12b.46
+1642_bad,bad,1292,BAD,12b.47
+1643_clean,clean,704,CLEAN,12b.48
+1645_expensive,expensive,1426,EXPENSIVE,12b.50
+1646_cheap,cheap,1887,CHEAP,12b.51
+1647_terrible,terrible,,,12b.52
+1648_desirable,desirable,,,12b.53
+1649_far,far,1406,FAR,12c.01
+1650_near,near,1942,NEAR,12c.02
+1651_broad,broad,2531,BROAD,12c.03
+1652_narrow,narrow,1267,NARROW,12c.04
+1653_short,short,1645,SHORT,12c.05
+1654_thick,thick,1244,THICK,12c.06
+1655_thin,thin,2249,THIN (OF SHAPE OF OBJECT),12c.07
+1656_high,high,1265,HIGH,12c.08
+1657_low,low,721,LOW,12c.09
+1658_deep,deep,1593,DEEP,12c.10
+1659_shallow,shallow,193,SHALLOW,12c.11
+1660_vertical,vertical,2375,VERTICAL,12c.12
+1661_horizontal,horizontal,2376,HORIZONTAL,12c.13
+1662_covered,covered,,,12c.14
+1663_bare,bare,,,12c.15
+1664_front,front,1883,IN FRONT OF,12c.16
+1665_back,back,2910,BACK (DIRECTION),12c.17
+1666_right,right,1019,RIGHT,12c.18
+1667_left,left,244,LEFT,12c.19
+1668_curved,curved,1698,CURVED,12c.20
+1669_crooked,crooked,297,CROOKED,12c.21
+1670_straight,straight,1404,STRAIGHT,12c.22
+1671_twisted,twisted,,,12c.23
+1672_flat,flat,1633,FLAT,12c.24
+1673_sharpedged,sharp edged,,,12c.25
+1674_sharppointed,"sharp, pointed",372,POINTED,12c.26
+1675_blunt,blunt,379,BLUNT,12c.27
+1676_smooth,smooth,1234,SMOOTH,12c.28
+1677_rough,rough,1923,ROUGH,12c.29
+1678_solid,solid,3003,SOLID,12c.30
+1679_hollow,hollow,3701,HOLLOW,12c.31
+1680_empty,empty,1624,EMPTY,12c.32
+1681_open,open,,,12c.33
+1682_shut,shut,,,12c.34
+1683_perforated,perforated,,,12c.35
+1684_plugged,plugged,,,12c.36
+1685_moving,moving,,,12c.37
+1686_stationary,stationary,,,12c.38
+1687_fast,fast,1631,FAST,12c.39
+1688_slow,slow,701,SLOW,12c.40
+1689_slowly,slowly,,,12c.41
+1690_cubitelbowtofingertip,cubit (elbow to fingertip),,,12c.42
+1691_spanofhand,span of hand,,,12c.43
+1692_from,from,693,FROM,12c.44
+1693_into,into,,,12c.45
+1694_outof,out of,,,12c.46
+1704_infrontof,in front of,1883,IN FRONT OF,12c.56
+1712_where,where,1237,WHERE,12c.64
+1719_more,more,1992,MORE,12d.07
+1726_false,false,3069,FALSE,12d.14
+1743_until,until,2753,UNTIL,12d.31
+1744_canbeabletodosomething,can (be able to do something),972,BE ABLE,13a.01
+1745_knowsomething,know (something),1410,KNOW (SOMETHING),13a.02
+1746_benefactive,benefactive,,,13a.03
+1747_letsodosth,let (s.o. do s.th.),1003,PERMIT,13a.04
+1748_causesotodosth,cause (s.o. to do s.th.),2896,CAUSE TO (LET),13a.05
