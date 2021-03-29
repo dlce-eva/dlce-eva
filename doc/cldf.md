@@ -18,11 +18,25 @@ examples](https://github.com/cldf/cldf/tree/master/examples).
 
 ## CLDF tools
 
+### pycldf
+
+[`pycldf`](https://github.com/cldf/pycldf) can be used for programmatically
+accessing, writing, and verifying CLDF data.
+
 ### cldfbench
 
-### cldfofflinebrowser
+[`cldfbench`](https://github.com/cldf/cldfbench) is our main tool to create CLDF
+data from existing data. Also have a lookt at
+[cldf-datasets](https://github.com/cldf-datasets) to see `cldfbench` in action.
 
 ### datasette-cldf
 
+Create a locally browsable representation of a CLDF dataset with
+[datasette-cldf](https://github.com/cldf/datasette-cldf). Very helpful to
+illustrate the relational idea behind CLDF data.
+
 ### cldfviz
+
+[cldfviz](https://github.com/cldf/cldfviz) makes it possible to illustrate CLDF
+data (and more specifically particular features within a dataset) on a map.
 
