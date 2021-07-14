@@ -195,7 +195,8 @@ b'M\xc3\xb6we'
 Python actually supports numerous encodings right out of the box.  If you want
 a full list, refer to [the official Python documentation][python-encodings].
 
-[python-encodings]: https://docs.python.org/3/library/codecs.html#standard-encodings)
+[python-encodings]: https://docs.python.org/3/library/codecs.html#standard-encodings
+
 ```python
 >>> bytes('Möwe', encoding='latin1')
 b'M\xf6we'
