@@ -263,9 +263,8 @@ can use the `encoding` parameter to set the appropriate encoding.
 The reason for that is that Python's default encoding is actually different
 depending on your operating system and system configuration.  Some might use
 UTF-8, some might use UTF-16, some use their own default encoding scheme.  If
-you leave `encoding` to the default, your program might do behave differently
-when it's run on someone else's computer.  So, *better be safe: better be
-explicit*.
+you leave `encoding` to the default, your program might behave differently when
+it's run on someone else's computer.  So, *better be safe: better be explicit*.
 
 
 Common pitfalls
