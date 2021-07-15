@@ -110,15 +110,15 @@ from one up to four bytes for a single Unicode codepoint.
 [utf8]: https://en.wikipedia.org/wiki/UTF-8
 
 ```python
->>> list(bytes('a', encoding='utf-8'))
+>>> list('a'.encode('utf-8'))
 [97]
->>> list(bytes('ä', encoding='utf-8'))
+>>> list('ä'.encode('utf-8'))
 [195, 164]
->>> list(bytes('ы', encoding='utf-8'))
+>>> list('ы'.encode('utf-8'))
 [209, 139]
->>> list(bytes('家', encoding='utf-8'))
+>>> list('家'.encode('utf-8'))
 [229, 174, 182]
->>> list(bytes('😐', encoding='utf-8'))
+>>> list('😐'.encode('utf-8'))
 [240, 159, 152, 144]
 ```
 
@@ -183,11 +183,11 @@ reason.
 You have a Unicode string and want to apply some encoding.
 
 *Solution:*
-To convert a string into an encoded sequence of bytes, use `bytes()` and provide
-the appropriate encoding:
+To convert a string into an encoded sequence of bytes, call the string's
+`encode` method and provide the appropriate encoding:
 
 ```python
->>> bytes('Möwe', encoding='utf-8')
+>>> 'Möwe'.encode('utf-8')
 b'M\xc3\xb6we'
 ```
 
@@ -198,7 +198,7 @@ a full list, refer to [the official Python documentation][python-encodings].
 [python-encodings]: https://docs.python.org/3/library/codecs.html#standard-encodings
 
 ```python
->>> bytes('Möwe', encoding='latin1')
+>>> 'Möwe'.encode('latin1')
 b'M\xf6we'
 ```
 
@@ -207,11 +207,11 @@ You have the reverse: an encoded piece of text that you want to decode into
 a string.
 
 *Solution:*
-To convert a sequence of bytes into a string, use `str()` and provide the
-appropriate encoding:
+To convert a sequence of bytes into a string, use the `decode` method and
+provide the appropriate encoding:
 
 ```python
->>> str(b'M\xc3\xb6we', encoding='utf-8')
+>>> b'M\xc3\xb6we'.decode('utf-8')
 'Möwe'
 ```
 
@@ -238,8 +238,8 @@ Open the file in binary mode using `open()` and pass in `'rb'` (as in **R**ead
 >>> type(data)
 <class 'bytes'>
 >>> # Note: you can always convert the data into Unicode after the fact
->>> decoded_data = str(data, encoding='utf-8')
->>> type(decoded_data)
+>>> unicode_data = data.decode('utf-8')
+>>> type(unicode_data)
 <class 'str'>
 ```
 
