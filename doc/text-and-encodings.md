@@ -130,7 +130,7 @@ two or four bytes of memory per symbol.  Note that, unlike UTF-8, UTF-16 is
 [utf16]: https://en.wikipedia.org/wiki/UTF-16
 
 
-Python and Text
+Python and text
 ---------------
 
 *Question:*
@@ -312,7 +312,7 @@ symbols semantically.
 Unfortunately, there is no simple catch-all solutions for this, as there is no
 unified way to normalize text across different writing systems.
 
-### Combining Diacritics vs. Characters with Accents on Them
+### Combining diacritics vs. characters with accents on them
 
 *Problem:*
 
