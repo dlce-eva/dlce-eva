@@ -143,7 +143,7 @@ files or data downloaded from the internet usually use some sort of text
 encoding, so you will have to deal with that.
 
 *Question:*
-How is the difference between Unicode text and encoded text represented?
+How does Python represent the difference between Unicode text and encoded text?
 
 *Answer*
 Python uses two kind of strings:
@@ -260,11 +260,69 @@ can use the `encoding` parameter to set the appropriate encoding.
 
 *Note:*
 *Technically* the `encoding` parameter is optional – but only *technically*.
-The reason for that is that Python's default encoding is actually different
-depending on your operating system and system configuration.  Some might use
-UTF-8, some might use UTF-16, some use their own default encoding scheme.  If
-you leave `encoding` to the default, your program might behave differently when
-it's run on someone else's computer.  So, *better be safe: better be explicit*.
+The reason is that Python's default encoding is actually different depending on
+your operating system and system configuration.  Some might use UTF-8, some
+might use UTF-16, some might use their own default encoding scheme.  If you
+leave `encoding` to the default, your program might behave differently when it's
+run on someone else's computer.  So it's a good habit to always specify the
+`encoding` parameter when calling `open()`.
+*Be safe – be explicit.*
+
+
+Converting between different encodings on the Unix command-line
+---------------------------------------------------------------
+
+*Goal:*
+You have a file using a specific encoding (e.g. *Latin 1*) and want to convert
+it to another (e.g. *UTF-8*).  Also, you don't want to write your own program
+in Python because you've got a limited amount of life-time and other stuff to
+do (although writing such a program might be good exercise if you're new to
+Python programming).
+
+*Solution:*
+To convert a file from one encoding to another, you can use [`iconv`][iconv(1)]:
+
+
+```sh
+$ iconv -f ENC -t ENC INPUT_FILE > OUTPUT_FILE
+```
+
+ * `-f ENC`: specifies the source encoding (`-f` stands for ‘*from*’)
+ * `-t ENC`: specifies the target encoding (`-t` stands for ‘*to*’)
+ * `INPUT_FILE`: path to the original file
+ * `> OUTPUT_FILE`: path where you want to save the re-encoded file
+
+[iconv(1)]: https://linux.die.net/man/1/iconv
+
+*Example:*
+Convert `original-file.txt` from `latin1` to `utf-8` and save the result to
+`new-file.txt`.
+
+```sh
+$ iconv -f latin1 -t utf-8 original-file.txt > new-file.txt
+```
+
+If you want to know which encodings `iconv` spports, you can also ask it for a
+list using the `-l` flag:
+
+```sh
+$ iconv -l
+```
+
+*Note:*
+`INPUT_FILE` and `> OUTPUT_FILE` are actually optional.  If you leave out the
+input file `iconv` will read from standard input instead, and if you leave out
+the output file `iconv` will print to standard output.  This means you can also
+use `iconv` in a good ol' Unix pipe:
+
+```sh
+$ printf "Möwe" | wc -c
+5
+$ printf "Möwe" | iconv -f utf-8 -t latin1 | wc -c
+4
+$ printf "Möwe" | iconv -f utf-8 -t utf-16 | wc -c
+11
+```
 
 
 Common pitfalls
@@ -305,12 +363,14 @@ CYRILLIC SMALL LETTER O
 CYRILLIC SMALL LETTER ES
 ```
 
-Both versions look the same to the naked eye, but because they are different
-symbols semantically.
+Both strings look the same to the naked eye but they are *different symbols*,
+that have *different meaning* and got assigned different *Unicode codepoints*.
 
 *Solution:*
-Unfortunately, there is no simple catch-all solutions for this, as there is no
-unified way to normalize text across different writing systems.
+Unfortunately, there is no simple catch-all solution for this, as there is no
+unified way to normalize text across different writing systems (Do you normalise
+Cyrillic `с` to Latin `c` because they look the same, or to Latin `s` because
+that's what it sounds like in Russian?).
 
 ### Combining diacritics vs. characters with accents on them
 
@@ -384,27 +444,26 @@ COMBINING CARON
 File names themselves can contain non-English characters.
 
 *Bigger problem:*
-The encoding of filenames depends on the filesystem the file saved on (which can
-be different for different hard-drives, partitions, or USB sticks).  Things
+The encoding of filenames depends on the filesystem the file saved on (which
+could be different for each hard-drive, partition, or USB stick).  Things
 *usually* work out, but you might encounter an old CD-ROM or USB stick, where
 the filenames are scrambled.
 
 TODO is there a general way to actually fix this problem
 
-*Best practice for file names:*
+*Recommendations for robust file names:*
 
  * If you can at all help it, try to use ASCII characters only in your filenames
    (`a-z`, `A-Z`, `0-9`, `-`, `_`, and `.`).
 
  * Some file systems make a difference between capital and small letters, some
-   don't, some do sometimes.  It's best to name files in a way that they can
-   always be distinguished whether the system is case-sensitive or note.  For
-   example, you should avoid having files like `File.txt` and `file.txt` in the
-   same folder.
+   don't, some do sometimes.  It's best to make sure file can be told apart
+   regardless whether the system is case-sensitive or not.  For example, you
+   should avoid having files like `File.txt` and `file.txt` in the same folder.
 
  * Spaces ` ` are *usually* not a problem these days, but it might not be a bad
    idea to separate words using `-`, `_`, or `.`, instead, e.g. `todo-list.txt`.
-   It also makes your life easier whenever you're using the command-line.
+   It also makes your life easier when using the command-line.
 
 These recommendations may seem a bit restrictive at first, but they do greatly
 reduce the chance that something breaks in the long run.
