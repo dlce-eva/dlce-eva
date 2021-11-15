@@ -419,7 +419,7 @@ Working with text encodings on the Unix command-line
 There are also a few handy command-line programs that deal with text and
 encodings.
 
-## Converting between different encodings using `iconv`
+### Converting between different encodings using `iconv`
 
 *Goal:*
 You have a file using a specific encoding (e.g. *Latin 1*) and want to convert
@@ -473,7 +473,7 @@ $ printf "Möwe" | iconv -f utf-8 -t utf-16 | wc -c
 11
 ```
 
-## Unicode normalisation using `uconv`
+### Unicode normalisation using `uconv`
 
 *Goal:*
 You have a file containing diacritics and you need it normalised to either NFC
