@@ -372,7 +372,7 @@ unified way to normalize text across different writing systems (Do you normalise
 Cyrillic `с` to Latin `c` because they look the same, or to Latin `s` because
 that's what it sounds like in Russian?).
 
-### Combining diacritics vs. characters with accents on them
+### Characters with accents on them, combining diacritics, and unicode normalisation
 
 *Problem:*
 
