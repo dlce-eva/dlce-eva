@@ -99,8 +99,8 @@ If you want to see a human-readable name of a symbol, use `unicodedata.name`:
 
 *Problem:*
 Since code-points can become quite large, storing the number takes up more space
-in memory or on storage -- currently 32 bits (4 bytes) of memory for each
-symbol, which is wasteful.
+in memory or on storage – currently 32 bits (4 bytes) of memory for each symbol,
+which is wasteful.
 
 *Solution:*
 Variable-width encodings, which use less space for smaller numbers and more for
@@ -269,62 +269,6 @@ run on someone else's computer.  So it's a good habit to always specify the
 *Be safe – be explicit.*
 
 
-Converting between different encodings on the Unix command-line
----------------------------------------------------------------
-
-*Goal:*
-You have a file using a specific encoding (e.g. *Latin 1*) and want to convert
-it to another (e.g. *UTF-8*).  Also, you don't want to write your own program
-in Python because you've got a limited amount of life-time and other stuff to
-do (although writing such a program might be good exercise if you're new to
-Python programming).
-
-*Solution:*
-To convert a file from one encoding to another, you can use [`iconv`][iconv(1)]:
-
-
-```sh
-$ iconv -f ENC -t ENC INPUT_FILE > OUTPUT_FILE
-```
-
- * `-f ENC`: specifies the source encoding (`-f` stands for ‘*from*’)
- * `-t ENC`: specifies the target encoding (`-t` stands for ‘*to*’)
- * `INPUT_FILE`: path to the original file
- * `> OUTPUT_FILE`: path where you want to save the re-encoded file
-
-[iconv(1)]: https://linux.die.net/man/1/iconv
-
-*Example:*
-Convert `original-file.txt` from `latin1` to `utf-8` and save the result to
-`new-file.txt`.
-
-```sh
-$ iconv -f latin1 -t utf-8 original-file.txt > new-file.txt
-```
-
-If you want to know which encodings `iconv` spports, you can also ask it for a
-list using the `-l` flag:
-
-```sh
-$ iconv -l
-```
-
-*Note:*
-`INPUT_FILE` and `> OUTPUT_FILE` are actually optional.  If you leave out the
-input file `iconv` will read from standard input instead, and if you leave out
-the output file `iconv` will print to standard output.  This means you can also
-use `iconv` in a good ol' Unix pipe:
-
-```sh
-$ printf "Möwe" | wc -c
-5
-$ printf "Möwe" | iconv -f utf-8 -t latin1 | wc -c
-4
-$ printf "Möwe" | iconv -f utf-8 -t utf-16 | wc -c
-11
-```
-
-
 Common pitfalls
 ---------------
 
@@ -350,7 +294,7 @@ LATIN SMALL LETTER O
 LATIN SMALL LETTER C
 ```
 
-The string to the right, on the other hand, is the Russian word `Нос` ‘nose‘,
+The string to the right, on the other hand, is the Russian word `Нос` ‘nose’,
 written in Cyrillic letters, i.e.:
 
 ```python
@@ -467,3 +411,155 @@ TODO is there a general way to actually fix this problem
 
 These recommendations may seem a bit restrictive at first, but they do greatly
 reduce the chance that something breaks in the long run.
+
+
+Working with text encodings on the Unix command-line
+----------------------------------------------------
+
+There are also a few handy command-line programs that deal with text and
+encodings.
+
+## Converting between different encodings using `iconv`
+
+*Goal:*
+You have a file using a specific encoding (e.g. *Latin 1*) and want to convert
+it to another (e.g. *UTF-8*).  Also, you don't want to write your own program
+in Python because you've got a limited amount of life-time and other stuff to
+do (although writing such a program might be good exercise if you're new to
+Python programming).
+
+*Solution:*
+To convert a file from one encoding to another, you can use [`iconv`][iconv(1)]:
+
+
+```sh
+$ iconv -f ENC -t ENC INPUT_FILE > OUTPUT_FILE
+```
+
+ * `-f ENC`: specifies the source encoding (`-f` stands for ‘*from*’)
+ * `-t ENC`: specifies the target encoding (`-t` stands for ‘*to*’)
+ * `INPUT_FILE`: path to the original file
+ * `> OUTPUT_FILE`: path where you want to save the re-encoded file
+
+[iconv(1)]: https://linux.die.net/man/1/iconv
+
+*Example:*
+Convert `original-file.txt` from `latin1` to `utf-8` and save the result to
+`new-file.txt`.
+
+```sh
+$ iconv -f latin1 -t utf-8 original-file.txt > new-file.txt
+```
+
+If you want to know which encodings `iconv` spports, you can also ask it for a
+list using the `-l` flag:
+
+```sh
+$ iconv -l
+```
+
+*Note:*
+`INPUT_FILE` and `> OUTPUT_FILE` are actually optional.  If you leave out the
+input file `iconv` will read from standard input instead, and if you leave out
+the output file `iconv` will print to standard output.  This means you can also
+use `iconv` in a good ol' Unix pipe:
+
+```sh
+$ printf "Möwe" | wc -c
+5
+$ printf "Möwe" | iconv -f utf-8 -t latin1 | wc -c
+4
+$ printf "Möwe" | iconv -f utf-8 -t utf-16 | wc -c
+11
+```
+
+## Unicode normalisation using `uconv`
+
+*Goal:*
+You have a file containing diacritics and you need it normalised to either NFC
+or NFD.
+
+*Solution:*
+The [`uconv`][uconv(1)] program can perform a number of transliterations,
+including the conversion of combining diacritics.  It is part of the
+[International Components for Unicode library (ICU)][icu]
+(in the [`icu-devtools`][icu-debian] package on Debian/Ubuntu).
+
+TODO: Is `uconv` available on macos?  If not, what is the least painful way
+to get it?
+
+[uconv(1)]: https://linux.die.net/man/1/uconv
+[icu]: https://icu.unicode.org/
+[icu-debian]: https://packages.debian.org/bullseye/icu-devtools
+
+```sh
+$ uconv -f ENC -t ENC -x TRANSLITERATION -o OUTPUT_FILE INPUT_FILE
+```
+
+ * `-f ENC`: specifies the source encoding (`-f` stands for ‘*from*’)
+ * `-t ENC`: specifies the target encoding (`-t` stands for ‘*to*’)
+ * `-x TRANSLITERATION`: specifies transliteration (including Unicode normalisation)
+ * `-o OUTPUT_FILE`: path where you want to save the re-encoded file
+ * `INPUT_FILE`: path to the original file
+
+As with `iconv`, `INPUT_FILE` and `-o OUTPUT_FILE` are optional and default to
+standard input and standard output respectively:
+
+```sh
+$ printf "Kapitänsmütze" | wc -c
+16
+$ printf "Kapitänsmütze" | uconv -x any-nfc | wc -c
+15
+$ printf "Kapitänsmütze" | uconv -x any-nfd | wc -c
+17
+```
+
+As stated above, Unicode normalisation is not the only kind of transliteration
+`uconv` can do.  It can, for instance, also show the Unicode names of all
+characters:
+
+```sh
+$ printf "Kapitänsmütze" | uconv -x any-name | sed 's/\\N/\n/g'
+
+{LATIN CAPITAL LETTER K}
+{LATIN SMALL LETTER A}
+{LATIN SMALL LETTER P}
+{LATIN SMALL LETTER I}
+{LATIN SMALL LETTER T}
+{LATIN SMALL LETTER A WITH DIAERESIS}
+{LATIN SMALL LETTER N}
+{LATIN SMALL LETTER S}
+{LATIN SMALL LETTER M}
+{LATIN SMALL LETTER U}
+{COMBINING DIAERESIS}
+{LATIN SMALL LETTER T}
+{LATIN SMALL LETTER Z}
+{LATIN SMALL LETTER E}
+```
+
+You can use the `-L` flag to see a list of all supported transliterations.
+
+```sh
+$ uconv -L
+```
+
+**Important Note:**
+We touched on this earlier, but this point bears repeating:
+Always remember that there is *no uniform way* to convert a piece of text from one
+writing system to another.  See for instance:
+
+```sh
+$ echo 'しょう' | uconv -x hiragana-latin
+shou
+```
+
+The result `shou` is definitely *a* correct way to romanise the Japanese
+characters しょう, but there are other transliterations such as `shō`, `shô`, or
+`syoo`, which are also correct and might actually be preferred in specific
+contexts.
+
+So, whenever `uconv` or any other program/library promises to ‘convert X to
+Latin’ or ‘convert Latin to X’, look at the output and check if the
+transliteration is actually what you want.  If it isn't, check the documentation
+of the specific program or library and see how you can change the conversion
+rules to fit your needs.
