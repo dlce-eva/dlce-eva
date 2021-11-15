@@ -29,7 +29,7 @@ symbols – from `0000000` (0) to `1111111` (127), for instance:
 Many (but not all) other encoding schemes, such as [Latin-1][latin1] or
 [Windows-1252][cp1252], are actually backwards-compatible with ASCII.  This
 means that they encode the same characters as ASCII for the range 0–127 but
-different charaters for code points above that.  This also includes UTF-8 (see
+different characters for code points above that.  This also includes UTF-8 (see
 below).
 
 [ascii]: https://en.wikipedia.org/wiki/ASCII
@@ -155,7 +155,7 @@ Python uses two kind of strings:
  * *Byte strings* are sequences of raw bytes that are used for encoded text (or
    any other kind of binary data).  They are signified by adding a `b` at the
    front of the string, `b'like so'`.  When displaying bytes strings, Python will
-   show printable characters withing the ASCII range (0–127) verbatim.  Bytes that
+   show printable characters within the ASCII range (0–127) verbatim.  Bytes that
    fall outside of the ASCII range are displayed with `\x` plus the number
    contained in that byte in hexadecimal.
 
@@ -316,7 +316,7 @@ unified way to normalize text across different writing systems (Do you normalise
 Cyrillic `с` to Latin `c` because they look the same, or to Latin `s` because
 that's what it sounds like in Russian?).
 
-### Characters with accents on them, combining diacritics, and unicode normalisation
+### Characters with accents on them, combining diacritics, and Unicode normalisation
 
 *Problem:*
 
@@ -451,7 +451,7 @@ Convert `original-file.txt` from `latin1` to `utf-8` and save the result to
 $ iconv -f latin1 -t utf-8 original-file.txt > new-file.txt
 ```
 
-If you want to know which encodings `iconv` spports, you can also ask it for a
+If you want to know which encodings `iconv` supports, you can also ask it for a
 list using the `-l` flag:
 
 ```sh
