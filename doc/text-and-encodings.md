@@ -482,15 +482,19 @@ or NFD.
 *Solution:*
 The [`uconv`][uconv(1)] program can perform a number of transliterations,
 including the conversion of combining diacritics.  It is part of the
-[International Components for Unicode library (ICU)][icu]
-(in the [`icu-devtools`][icu-debian] package on Debian/Ubuntu).
+[International Components for Unicode library (ICU)][icu].
 
-TODO: Is `uconv` available on macos?  If not, what is the least painful way
-to get it?
+ * On Debian/Ubuntu `uconv` is part of the [`icu-devtools`][icu-debian] package
+ * On macOS you can get it from [homebrew][homebrew] by installing the
+   [`icu4c`][icu-homebrew] package
 
 [uconv(1)]: https://linux.die.net/man/1/uconv
 [icu]: https://icu.unicode.org/
 [icu-debian]: https://packages.debian.org/bullseye/icu-devtools
+[icu-homebrew]: https://formulae.brew.sh/formula/icu4c#default
+[homebrew]: https://brew.sh/
+
+The command syntax for `uconv` is as follows:
 
 ```sh
 $ uconv -f ENC -t ENC -x TRANSLITERATION -o OUTPUT_FILE INPUT_FILE
