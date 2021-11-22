@@ -694,7 +694,7 @@ repositories for all major Linux distributions and [on homebrew][dos2unix-brew].
 | `unix2mac` | LF → CR    |
 
 All of these programs take a number of file names as command-line arguments and
-converts all of them *in place*:
+convert all of them *in place*:
 
 ```sh
 dos2unix file-1.txt file-2.txt file-3.txt
