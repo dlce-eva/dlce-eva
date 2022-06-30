@@ -18,6 +18,7 @@ Thus, to make use of this toolset, members of DLCE should be familiar with
 - Git - See [doc/git.md](doc/git.md)
 - Python - See [doc/python.md](doc/python.md)
 - Shell/working on the command line - See [doc/shell.md](doc/shell.md)
+- Text encoding and Unicode - See [doc/text-and-encodings.md](doc/text-and-encodings.md)
 - CLDF - See [doc/cldf.md](doc/cldf.md)
 - Reference catalogs at DLCE - See [doc/catalogs.md](doc/catalogs.md)
 - Databases at DLCE - See [doc/databases.md](doc/databases.md)
