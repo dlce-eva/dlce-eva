@@ -1,5 +1,5 @@
-Working with textual data in Python
-===================================
+Text encoding and the Unicode standard
+======================================
 
 
 How do computers represent text?
