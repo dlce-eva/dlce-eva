@@ -185,8 +185,9 @@ If you're writing code that reads tabular data there are
  * Double- and triple-check that the character encoding isn't broken when
    importing or exporting CSV/TSV.
 
-<!-- TODO: LibreOffice -->
-<!--
+<!-- TODO: MS Excel (as in: don't) -->
+
+<!-- TODO: LibreOffice
     * turn off all auto-correction
     * set default encoding to UTF-8
     * use raw copy-paste (test that)
