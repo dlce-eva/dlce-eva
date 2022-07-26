@@ -88,12 +88,12 @@ But I do have some guesses of what you might see:
    rather nicely.
  * There is a good chance the cells in column 3 don't all line up – because some
    of the cells go over the ‘imaginary line’ and push everything back.
- * There is a chance that `Cell 1.3` and `Cell 1.3` *do* line up with each
+ * There is a chance that `Cell 1.3` and `Cell 2.3` *do* line up with each
    other.
 
 It's actually not very common to find tabs inside of regular text (outside of
 program code) – instead they're usually used to separate bits of text
-from each other (which is precisely what TSV files do).
+from each other, which is precisely what TSV files do.
 
 Because tabs aren't actually supposed to be used in text, the TSV standard
 (technically) does not allow quoting and instead requires tabs and newline to be
@@ -117,8 +117,8 @@ formats defined in separate standards:
 Aside from the choice of separator there are a few details that are different
 between the standards:
 
- * CSV allows quoting, TSV doesn't
- * TSV requires the first row to contain the names for all columns, CSV doesn't
+ * CSV allows quoting, TSV doesn't.
+ * TSV requires the first row to contain the names for all columns, CSV doesn't.
  * CSV requires CRLF line endings to be used, the TSV standard does not mention
    any line ending scheme explicitly.
  * The TSV standard explicitly mentions that all rows must have the same number
@@ -152,15 +152,16 @@ Best practices for working with CSV/TSV files
 If you're writing code that generates tabular data (no matter whether it's in
 Python, or R, or whatever) it is a good idea to follow these guidelines:
 
- * Stick to the standards as closely as you can
+ * Stick to the standards as closely as you can.
 
- * Make sure all rows have the same width
+ * Make sure all rows have the same width.
 
- * Don't generate empty rows or empty columns
+ * Don't generate empty rows or empty columns.
 
 ### When reading CSV/TSV files
 
-If you're writing code that reads tabular data there are 
+If you're writing code that reads tabular data there are also guidelines you
+should keep in mind:
 
  * Don't assume anyone adheres to any standards…
 
