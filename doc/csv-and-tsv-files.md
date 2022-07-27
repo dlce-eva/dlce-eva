@@ -186,7 +186,25 @@ should keep in mind:
  * Double- and triple-check that the character encoding isn't broken when
    importing or exporting CSV/TSV.
 
-<!-- TODO: MS Excel (as in: don't) -->
+
+A quick note on Microsoft Excel
+-------------------------------
+
+I hear it is possible to work with CSV data in Excel but I haven't met anyone
+who's actually managed to do it…  People seem to struggle with the UI a lot.
+Importing CSV seems to be somewhat reliable once you figured out how to do it,
+but exporting seems to be a problem.  Sometimes the format isn't right,
+sometimes the character encoding isn't right.
+
+Currently most people just walk the path of least resistance and switch to
+LibreOffice Calc instead.  It can be a bit janky at times, but at least it
+works.
+
+(Side note:  I never used the Numbers program by Apple, so I don't know if it's
+any good or not.)
+
+
+
 
 <!-- TODO: LibreOffice
     * turn off all auto-correction
