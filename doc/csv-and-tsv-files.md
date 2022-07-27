@@ -19,7 +19,7 @@ like these formats because:
 *Prerequisites:*
 Since CSV and TSV are plain-text formats it might be a good idea to first read
 and understand the tutorial on
-[how pain-text and character encodings work](./text-and-encodings.md).
+[how plain-text and character encodings work](./text-and-encodings.md).
 
 
 How CSV files work
