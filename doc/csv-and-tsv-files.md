@@ -204,10 +204,24 @@ works.
 any good or not.)
 
 
+Working with CSV and TSV files in LibreOffice Calc
+--------------------------------------------------
 
+### Recommendation: Turn off auto-correction features
+
+By default LibreOffice enables a lot of features that automatically correct
+common user mistakes – stuff like replacing quotations marks and hyphens with
+typographically more pleasing alternatives (`“”`, `–`), switching letters from
+lower-case to upper-case or back, and so forth.
+
+While these features were made with the best of intentions, they can get in the
+way when working with research data, where stuff like capitalisation is
+important.  Because of that it's recommended to open the auto-correction options
+under `Tools → AutoCorrect Options…` and turn off all the things.
+
+![The AutoCorrect Options dialogue](./images/csvtut-autocorrect-dialogue.png)
 
 <!-- TODO: LibreOffice
-    * turn off all auto-correction
     * set default encoding to UTF-8
     * use raw copy-paste (test that)
 -->
