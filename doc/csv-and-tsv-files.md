@@ -92,12 +92,11 @@ But I do have some guesses of what you might see:
    other.
 
 It's actually not very common to find tabs inside of regular text (outside of
-program code) – instead they're usually used to separate bits of text
-from each other, which is precisely what TSV files do.
-
-Because tabs aren't actually supposed to be used in text, the TSV standard
-(technically) does not allow quoting and instead requires tabs and newline to be
-replaced with escape sequences like `\t` or `\n`.
+program code) – instead they're usually used to separate bits of text from each
+other, which is precisely what TSV files do.  And because tabs aren't actually
+supposed to be used in text, the TSV standard (technically) does not allow
+quoting and instead requires tabs and newline to be replaced with escape
+sequences like `\t` or `\n`.
 
 
 Differences between CSV and TSV
