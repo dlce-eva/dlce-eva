@@ -148,8 +148,8 @@ Best practices for working with CSV/TSV files
 ### When editing spreadsheets in general
 
  * It's generally a good idea use the first row of the table for column names
-   – any workflow that requires people to remember or guess what the data was
-   supposed to be is doomed to fall apart eventually…
+   – any workflow that relies on human beings to remember or guess what the data
+   was supposed to be is doomed to fall apart eventually…
 
  * Avoid typographic quotes (`‘’`, `“”`, `„“`, etc.) in your table.  While they
    pose no problem for the computer (they're separate Unicode code points after
