@@ -261,9 +261,31 @@ different encodings until it looks right.
    it to.<br>
    ![Right encoding](images/csvtut-import-5.png)
 
-<!-- TODO: LibreOffice
-    * export
--->
+### Exporting a spreadsheet to CSV/TSV from LibreOffice Calc
+
+To export a spreadsheet to CSV/TSV data you can just use the ‘Save as…’ dialogue
+in LibreOffice:
+
+![Save as…](./images/csvtut-export-1.png)
+
+ 1. Set the file type to ‘Text CSV (.csv)’ (regardless whether you want to save
+    you data as CSV or TSV).
+ 2. Check the ‘Edit filter settings’ checkbox.
+
+This should open a second dialogue where you can set the details about your
+output:
+
+![Export Text File](./images/csvtut-export-2.png)
+
+ 1. *Character set*:  Set this to the character encoding you want the file to be
+    saved as.  When unsure, ‘Unicode (UTF-8)’ is always a good bet.
+ 2. *Field delimiter*:  Set this to `,` for CSV or to `{Tab}` for TSV.
+
+*Note:*
+LibreOffice will give always the file the file extension `.csv`, no matter if
+you're saving CSV or TSV data.  If you're saving TSV data, it is recommended to
+go into your file manager and rename the file from `.csv` to `.tsv` after
+exporting it.
 
 <!-- TODO: csvkit (https://csvkit.readthedocs.io/en/latest/) -->
 <!-- TODO: Python -->
