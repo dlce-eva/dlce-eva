@@ -131,11 +131,11 @@ Basically, the two standards are just summaries of practices that a disjointed
 cloud of people across the internet had already been using.  And out in the
 field people parse and generate all sorts of data.  Some implementations choke
 if there are rows of different sizes, others just deal with it.  Some
-implementations don't allow quoting.  Some allow CSV files with semicolons
-instead of commas.  I vaguely remember there are even programs that generate
-comma-separated values if it's set to English and semicolon-separated values if
-it's set to a language like German, which uses commas in place of decimal points
-(e.g. 3,141592653589793).
+implementations don't allow quoting, some do.  Some allow CSV files with
+semicolons instead of commas.  I even vaguely remember programs that generate
+comma-separated values when they're set to English and semicolon-separated
+values if they're set to a language like German, which uses commas in place of
+decimal points (e.g. 3,141592653589793).
 
 Also, a lot of implementations also don't treat the two standards as separate
 and just treat TSV as ‘CSV with tabs instead of commas’.  Others might make
