@@ -198,8 +198,9 @@ Currently most people just walk the path of least resistance and switch to
 LibreOffice Calc instead.  It can be a bit janky at times, but at least it
 works.
 
-(Side note:  I never used the Numbers program by Apple, so I don't know if it's
-any good or not.)
+(Side note:  I never tried the Numbers program by Apple, nor any of those
+browser-base programs like OnlyOffice or Google Docs.  So I don't know how well
+those work.)
 
 
 Working with CSV and TSV files in LibreOffice Calc
