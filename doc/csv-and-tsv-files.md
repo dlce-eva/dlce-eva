@@ -221,9 +221,48 @@ under `Tools → AutoCorrect Options…` and turn off all the things.
 
 ![The AutoCorrect Options dialogue](./images/csvtut-autocorrect-dialogue.png)
 
+### Importing TSV/CSV data into LibreOffice Calc
+
+The easiest way to import a TSV/CSV file is to just open the file in LibreOffice
+Calc (either from your file manager or by using ‘File → Open’ in the menu bar.
+
+This will open the import dialogue where you can tell LibreOffice about the
+format of the file.  It also comes with a small preview where you can
+double-check the effects of your settings.  There are two things to look out
+for: the *separator* and the *encoding*.
+
+First make sure you set the correct separator for your data (commas for CSV,
+tabs for TSV):
+
+ * If the separator is wrong, the table in the preview won't line up
+   properly.<br>
+   ![Wrong separator](images/csvtut-import-1.png)
+ * If the separator is correct, the table in the preview will look as
+   intended.<br>
+   ![Right separator](images/csvtut-import-2.png)
+
+Then you need to make sure the character encoding is right.  In a perfect world
+all files would use some sort of Unicode encoding (UTF-8, UTF-16, etc.),
+*however* when reading files that other people have made, you have to work with
+the world you have, not the one you want.
+
+The only real way to figure out the character encoding of a file is to scroll
+the small preview to a place where there is some sort of non-English text or
+some special character (`–`, `“”`, `😐`, `…`, etc.) and then experiment with
+different encodings until it looks right.
+
+ * If the table contains text that cannot be decoded with the selected encoding
+   it will be replaced with placeholder characters.<br>
+   ![Wrong encoding 1](images/csvtut-import-3.png)
+ * If the text can be decoded using different encodings, them some of them will
+   just produce wrong results.<br>
+   ![Wrong encoding 2](images/csvtut-import-4.png)
+ * Try to switch encodings until all the non-English text looks like you expect
+   it to.<br>
+   ![Right encoding](images/csvtut-import-5.png)
+
 <!-- TODO: LibreOffice
-    * set default encoding to UTF-8
-    * use raw copy-paste (test that)
+    * export
 -->
 
 <!-- TODO: csvkit (https://csvkit.readthedocs.io/en/latest/) -->
