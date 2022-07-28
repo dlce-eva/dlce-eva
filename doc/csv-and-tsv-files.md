@@ -224,7 +224,6 @@ under `Tools → AutoCorrect Options…` and turn off all the things.
 
 The easiest way to import a TSV/CSV file is to just open the file in LibreOffice
 Calc (either from your file manager or by using *File → Open* in the menu bar.
-
 This will open the import dialogue where you can tell LibreOffice about the
 format of the file.  It also comes with a small preview where you can
 double-check the effects of your settings.  There are two things to look out
