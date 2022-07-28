@@ -224,7 +224,7 @@ under `Tools → AutoCorrect Options…` and turn off all the things.
 ### Importing TSV/CSV data into LibreOffice Calc
 
 The easiest way to import a TSV/CSV file is to just open the file in LibreOffice
-Calc (either from your file manager or by using ‘File → Open’ in the menu bar.
+Calc (either from your file manager or by using *File → Open* in the menu bar.
 
 This will open the import dialogue where you can tell LibreOffice about the
 format of the file.  It also comes with a small preview where you can
@@ -263,14 +263,14 @@ different encodings until it looks right.
 
 ### Exporting a spreadsheet to CSV/TSV from LibreOffice Calc
 
-To export a spreadsheet to CSV/TSV data you can just use the ‘Save as…’ dialogue
+To export a spreadsheet to CSV/TSV data you can just use the *Save as…* dialogue
 in LibreOffice:
 
 ![Save as…](./images/csvtut-export-1.png)
 
- 1. Set the file type to ‘Text CSV (.csv)’ (regardless whether you want to save
+ 1. Set the file type to *Text CSV (.csv)* (regardless whether you want to save
     you data as CSV or TSV).
- 2. Check the ‘Edit filter settings’ checkbox.
+ 2. Check the *Edit filter settings* checkbox.
 
 This should open a second dialogue where you can set the details about your
 output:
@@ -278,7 +278,7 @@ output:
 ![Export Text File](./images/csvtut-export-2.png)
 
  1. *Character set*:  Set this to the character encoding you want the file to be
-    saved as.  When unsure, ‘Unicode (UTF-8)’ is always a good bet.
+    saved as.  When unsure, *Unicode (UTF-8)* is always a good bet.
  2. *Field delimiter*:  Set this to `,` for CSV or to `{Tab}` for TSV.
 
 *Note:*
