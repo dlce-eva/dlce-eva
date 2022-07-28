@@ -199,7 +199,7 @@ LibreOffice Calc instead.  It can be a bit janky at times, but at least it
 works.
 
 (Side note:  I never tried the Numbers program by Apple, nor any of those
-browser-base programs like OnlyOffice or Google Docs.  So I don't know how well
+browser-based programs like OnlyOffice or Google Docs.  So I don't know how well
 those work.)
 
 
