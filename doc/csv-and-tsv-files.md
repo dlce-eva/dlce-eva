@@ -146,6 +146,23 @@ a difference, though – who knows…
 Best practices for working with CSV/TSV files
 ---------------------------------------------
 
+### When editing spreadsheets in general
+
+ * It's generally a good idea use the first row of the table for column names
+   – any workflow that requires people to remember or guess what the data was
+   supposed to be is doomed to fall apart eventually…
+
+ * Avoid typographic quotes (`‘’`, `“”`, `„“`, etc.) in your table.  While they
+   pose no problem for the computer (they're separate Unicode code points after
+   all), they make life more confusing for human beings, whenever they have to
+   look at the raw data.
+
+ * Keep backups of all files before making significant changes<br>
+   (bonus points for using revision control).
+
+ * Double- and triple-check that the character encoding isn't broken when
+   importing or exporting CSV/TSV.
+
 ### When generating CSV/TSV files
 
 If you're writing code that generates tabular data (no matter whether it's in
@@ -167,23 +184,6 @@ should keep in mind:
  * Make sure your program can handle trailing or missing cells…
 
  * Don't assume empty rows or empty columns mark the end of a spreadsheet…
-
-### When editing spreadsheets in general
-
- * It's generally a good idea use the first row of the table for column names
-   – any workflow that requires people to remember or guess what the data was
-   supposed to be is doomed to fall apart eventually…
-
- * Avoid typographic quotes (`‘’`, `“”`, `„“`, etc.) in your table.  While they
-   pose no problem for the computer (they're separate Unicode code points after
-   all), they make life more confusing for human beings, whenever they have to
-   look at the raw data.
-
- * Keep backups of all files before making significant changes<br>
-   (bonus points for using revision control).
-
- * Double- and triple-check that the character encoding isn't broken when
-   importing or exporting CSV/TSV.
 
 
 A quick note on Microsoft Excel
