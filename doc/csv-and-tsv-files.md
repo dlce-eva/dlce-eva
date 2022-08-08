@@ -285,5 +285,165 @@ you're saving CSV or TSV data.  If you're saving TSV data, it is recommended to
 go into your file manager and rename the file from `.csv` to `.tsv` after
 exporting it.
 
-<!-- TODO: csvkit (https://csvkit.readthedocs.io/en/latest/) -->
+
+Working with CSV and TSV files on the command-line
+--------------------------------------------------
+
+Probably the most comfortable way to manipulate CSV or TSV data on the
+command-line is a suite of programs called [*csvkit*][csvkit-docs].
+
+[csvkit-docs]: https://csvkit.readthedocs.io/en/latest/
+
+### Installation
+
+To use *csvkit* you need to have Python installed on your system.
+
+ * Windows:
+   1. First install [Python][python].
+   2. Then install the [*csvkit*][csvkit-pypi] package using *pip* from the
+      command-line.
+ * macOS:
+   * You can install the [*csvkit*][csvkit-hb] package using *homebrew*.
+   * Alternatively you can use *pip* to install [the PyPI package][csvkit-pypi].
+ * GNU/Linux:
+   * [It's][csvkit-ubuntu] [in][csvkit-fedora] [the][csvkit-suse]
+     [repos][csvkit-arch].
+   * If it isn't, or you need a more recent version for some reason, install
+     [the PyPI package][csvkit-pypi] with *pip*.
+
+[python]: https://www.python.org/
+[csvkit-pypi]: https://pypi.org/project/csvkit/
+[csvkit-hb]: https://formulae.brew.sh/formula/csvkit
+[csvkit-ubuntu]: https://packages.ubuntu.com/jammy/csvkit
+[csvkit-fedora]: https://packages.fedoraproject.org/pkgs/python-csvkit/python3-csvkit/
+[csvkit-suse]: https://software.opensuse.org/package/python-csvkit
+[csvkit-arch]: https://archlinux.org/packages/community/any/csvkit/
+
+### Quick tutorial
+
+*Note:*
+This section only serves as a quick run-down of the principles behind *csvkit*.
+For a more in-depth view, the [official documentation][csvkit-docs] provides
+tutorials and a full reference of its capabilities.  It can also be helpful to
+run all the commands in *csvkit* with the `-h` flag and read about the different
+options they support.
+
+*csvkit* is a selection of small command-line programs, each of which performs
+a single specific task.  The most commonly used programs are:
+
+ * [*in2csv(1)*][in2csv]:
+   Convert tables from other formats (MS Excel, JSON) to CSV or TSV.
+ * [*csvformat(1)*][csvformat]:
+   Change the format of a table (delimiters, quotation characters, etc.).
+ * [*csvcut(1)*][csvcut]:
+   Cuts entire columns from a table (inspired by the [*cut(1)*][cut] program on
+   Unix systems).
+ * [*csvgrep(1)*][csvgrep]:
+   Filter rows based on their content (inspired by the [*grep(1)*][grep] program
+   on Unix systems).
+ * [*csvsort(1)*][csvsort]:
+   Sort rows based on their content (inspired by the [*sort(1)*][sort] program
+   on Unix systems).
+ * [*csvjoin(1)*][csvjoin]:
+   Create a join table from multiple tables.
+ * [*csvlook(1)*][csvlook]:
+   Create a more human-readable ASCII-representation of the table.
+
+[in2csv]: https://manpages.debian.org/bullseye/csvkit/in2csv.1.en.html
+[csvformat]: https://manpages.debian.org/bullseye/csvkit/csvformat.1.en.html
+[csvcut]: https://manpages.debian.org/bullseye/csvkit/csvcut.1.en.html
+[csvgrep]: https://manpages.debian.org/bullseye/csvkit/csvgrep.1.en.html
+[csvsort]: https://manpages.debian.org/bullseye/csvkit/csvsort.1.en.html
+[csvjoin]: https://manpages.debian.org/bullseye/csvkit/csvjoin.1.en.html
+[csvlook]: https://manpages.debian.org/bullseye/csvkit/csvlook.1.en.html
+
+[cut]: https://manpages.debian.org/bullseye/coreutils/cut.1.en.html
+[grep]: https://manpages.debian.org/bullseye/grep/grep.1.en.html
+[sort]: https://manpages.debian.org/bullseye/coreutils/sort.1.en.html
+
+As an example, we'll use the following CSV table called `people.csv`:
+
+    Name,Email,Phone,Has Been Naughty
+    Alice,alice@example.com,123456789,no
+    Bob,bob@example.com,987654321,no
+    Mallory,mallory@example.com,0112358,yes
+    Sam,sam@example.com,012357,no
+
+For the most part these programs follow a very predictable pattern.  They take
+a CSV table as an argument and print the result of their operation to standard
+output.  In the following example, we remove all columns except the `Name` and
+the `Has Been Naughty` column from the table using the *csvcut* program:
+
+    $ csvcut -c "Name,Has Been Naughty" people.csv
+    Name,Has Been Naughty
+    Alice,no
+    Bob,no
+    Mallory,yes
+    Sam,no
+
+Note that this has not changed the original table in any way.  It just printed
+its results and quit.  If you want to save the new table for later, you have
+redirect the output into a new file using the `>` operator:
+
+    $ csvcut -c "Name,Has Been Naughty" people.csv >slimmer-table.csv
+
+*Warning:*
+Always save your new tables into new files.  If you try to use this to overwrite
+your old table you might suffer data loss.  Also: always keep backup copies of
+anything you work with.
+
+Next, we can use different programs to work with the newly generated table, for
+instance we could use *csvgrep* to only show rows where the `Has Been Naughty`
+contains the word `no`, so we can make sure that Mallory will *not* get any
+candy!
+
+    $ csvgrep -c "Has Been Naughty" -m "no" slimmer-table.csv
+    Name,Has Been Naughty
+    Alice,no
+    Bob,no
+    Sam,no
+
+Now, here's where the true power of *csvkit* comes to shine:  When you don't
+give the command-line programs any CSV files they will read the CSV data from
+standard input.  This means you can use pipes `|` to chain several operations
+together instead of leaving a bunch of intermediate files behind.  So, you can
+write one-liners like this:
+
+    $ csvcut -c "Name,Has Been Naughty" people.csv | csvgrep -c "Has Been Naughty" -m "no" | csvformat -D "🍬"
+    Name🍬Has Been Naughty
+    Alice🍬no
+    Bob🍬no
+    Sam🍬no
+
+This does three things, all in one go:
+
+ 1. Cut down the columns from `people.csv`.
+ 2. Filter out all rows where `Has Been Naughty` aren't `no`.
+ 3. Convert the data to candy-separated values.
+
+Building pipelines like this is *really* useful for exploring new data or
+diagnosing problems and inconsistencies.  I often find it easier to make sense
+out of a table by *cut*'ing and *grep*'ing it into a smaller chunk and piping
+that into *csvlook*, rather than staring at a massive wall of cells in
+a graphical spreadsheet program.
+
+And, since CSV/TSV data is just another kind of plain text you can pipe the data
+into other Unix text processing tools as well, like [*uniq(1)*][uniq] or
+[*wc(1)*][wc], to get even more information out of your data.
+
+[uniq]: https://manpages.debian.org/bullseye/coreutils/uniq.1.en.html
+[wc]: https://manpages.debian.org/bullseye/coreutils/wc.1.en.html
+
+### Working with TSV in *csvkit*
+
+<!-- TODO: csvkit: tsv input (-d, -t options) -->
+<!-- TODO: csvkit: tsv output (csvformat) -->
+
+### Notes
+
+<!-- TODO: csvkit: note on column header -->
+<!-- TODO: csvkit: note on 'smart' defaults... -->
+<!-- TODO: csvkit: don't actually make candy-separated values -->
+
+
 <!-- TODO: Python -->
