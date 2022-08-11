@@ -27,7 +27,7 @@ How CSV files work
 
 CSV stands for _**C**omma-**S**eparated **V**alues_, which describes the format
 pretty well.  A CSV file is a text file that contains exactly one table.  Each
-line in that text file is a row in the table.  The cells of each table are
+line in that text file is a row in the table.  The cells of each row are
 separated using commas.  The result looks like this:
 
     Header 1,Header 2,Header 3
@@ -382,7 +382,7 @@ the `Has Been Naughty` column from the table using the *csvcut* program:
     Sam,no
 
 Note that this has not changed the original table in any way.  It just printed
-its results and quit.  If you want to save the new table for later, you have
+its results and quit.  If you want to save the new table for later, you have to
 redirect the output into a new file using the `>` operator:
 
     $ csvcut -c "Name,Has Been Naughty" people.csv >slimmer-table.csv
@@ -433,6 +433,21 @@ into other Unix text processing tools as well, like [*uniq(1)*][uniq] or
 
 [uniq]: https://manpages.debian.org/bullseye/coreutils/uniq.1.en.html
 [wc]: https://manpages.debian.org/bullseye/coreutils/wc.1.en.html
+
+For instance, if you wanted to know how many distinct values there are in the
+`Has Been Naughty` column, you could write something like this:
+
+    $ csvcut -c "Has Been Naughty" people.csv | sed 1d | sort | uniq | wc -l
+    2
+
+ 1. Cut everything but the `Has Been Naughty` column.
+ 2. Use [*sed(1)*][sed] to delete the first line (we don't want to include the
+    header in the count).
+ 3. [*sort(1)*][sort] all lines alphabetically.
+ 4. Use [*uniq(1)*][uniq] to remove all duplicates.
+ 5. Use [*wc(1)*][wc] to count the number of lines that are left.
+
+[sed]: https://manpages.debian.org/bullseye/sed/sed.1.en.html
 
 ### Working with TSV in *csvkit*
 
