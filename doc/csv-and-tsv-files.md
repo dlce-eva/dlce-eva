@@ -491,7 +491,7 @@ the lower-case version used specify an input format also exist):
 
     $ csvcut -c "Row 1,Row 2" example.csv | csvformat -D ";" -Q "'"
 
-And if you want to output TSV data, there is also an uppercase `-T` flag which
+And if you want to output TSV data, there is also an upper-case `-T` flag which
 sets the output delimiter to tab characters:
 
     $ csvcut -c "Row 1,Row 2" -d ";" -q "'" example.tsv | csvformat -D ";" -Q "'"
@@ -524,8 +524,8 @@ this:
     Bob,0012345
 
 [*csvsort(1)*][csvsort] will very cleverly recognise that the data consists of
-numbers.  At the same time it less cleverly fail to recognise that you're not
-actually supposed to remove leading zeroes in phone numbers…
+numbers.  At the same time it will – less cleverly – fail to recognise that
+you're not actually supposed to remove leading zeroes in phone numbers…
 
     csvsort -c 'Phone Number' table.csv
     Name,Phone Number
@@ -542,7 +542,7 @@ be treated as *text* only.
     Alice,0023456
 
 (The downside is that *csvsort* will now just sort everything alphabetically,
-which means it will consider `"1000000000" < "2"` to be true.)
+which means `1000000000` will come before `2`.)
 
 If you're unsure if a particular program uses type inference or not, check the
 output of `-h` to see if it supports the `-I` flag.
@@ -556,7 +556,7 @@ this?
 Basically, there is this looming temptation to create custom data formats based
 on Unicode code points that seem more optimal than either CSV or TSV:
 
- * A character that doesn't appear all over the data unlike comma.
+ * A character that doesn't appear all over the data like commas.
  * A character that isn't invisible like tab.
 
 And while most CSV-capable tools are equipped to kind of deal with this, some
