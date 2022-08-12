@@ -482,7 +482,7 @@ you would use *instead of* `-d`.
 #### Specifying the output format
 
 Now, if all *csvkit* programs only output CSV data, how do we save data in
-a different format if the need arises.  Quite simply: by piping the result into
+a different format if the need arises?  Quite simply: by piping the result into
 [*csvformat(1)*][csvformat].
 
 *csvformat* lets you specify the output format by using the `-D` and `-Q` flags,
@@ -494,7 +494,7 @@ the lower-case version used specify an input format also exist):
 And if you want to output TSV data, there is also an upper-case `-T` flag which
 sets the output delimiter to tab characters:
 
-    $ csvcut -c "Row 1,Row 2" -d ";" -q "'" example.tsv | csvformat -D ";" -Q "'"
+    $ csvcut -c "Row 1,Row 2" example.csv | csvformat -T
 
 #### Summary
 
@@ -517,13 +517,13 @@ descriptive names to every column in your table, instead.
 Some of the programs in *csvkit* ([*csvlook(1)*][csvlook],
 [*csvjoin(1)*][csvjoin], and [*csvsort(1)*][csvsort] come to mind right now)
 try to guess what kind of data the table contains.  So, if you have a table like
-this:
+this…
 
     Name,Phone Number
     Alice,0023456
     Bob,0012345
 
-[*csvsort(1)*][csvsort] will very cleverly recognise that the data consists of
+…[*csvsort(1)*][csvsort] will very cleverly recognise that the data consists of
 numbers.  At the same time it will – less cleverly – fail to recognise that
 you're not actually supposed to remove leading zeroes in phone numbers…
 
