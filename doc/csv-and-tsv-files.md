@@ -547,7 +547,28 @@ which means it will consider `"1000000000" < "2"` to be true.)
 If you're unsure if a particular program uses type inference or not, check the
 output of `-h` to see if it supports the `-I` flag.
 
-<!-- TODO: csvkit: don't actually make candy-separated values -->
+#### Don't *actually* make candy-separated values
+
+Now, obviously I'm not trying to imply that anyone actually thought the
+candy-thing was anything more than a cheeky little joke.  So what do I mean by
+this?
+
+Basically, there is this looming temptation to create custom data formats based
+on Unicode code points that seem more optimal than either CSV or TSV:
+
+ * A character that doesn't appear all over the data unlike comma.
+ * A character that isn't invisible like tab.
+
+And while most CSV-capable tools are equipped to kind of deal with this, some
+might not be and even if they do, the person who has to browse through your data
+in their text editor to figure out what settings they have to use *might* get
+a tad bit grumpy at you.  So it's better to avoid that.
+
+For better or for worse, CSV and TSV are the formats that we're using right now.
+Stick to them.  Only adopt a new format if it has been officially created by
+some world-wide standardisation body, or if there is already so much data out
+there in that format that you can reasonably expect other people to recognise
+the data at a glance (or ideally, first one and then the other).
 
 
 <!-- TODO: Python -->
