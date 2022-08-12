@@ -533,12 +533,16 @@ actually supposed to remove leading zeroes in phone numbers…
     Alice,23456
 
 To disable automatic type inference, add the `-I` (that's a capital letter I as
-in *India* – in case this gets butchered by a bad font).
+in *India* – in case this gets butchered by a bad font).  Then every cell will
+be treated as *text* only.
 
     csvsort -I -c 'Phone Number' table.csv
     Name,Phone Number
     Bob,0012345
     Alice,0023456
+
+(The downside is that *csvsort* will now just sort everything alphabetically,
+which means it will consider `"1000000000" < "2"` to be true.)
 
 If you're unsure if a particular program uses type inference or not, check the
 output of `-h` to see if it supports the `-I` flag.
