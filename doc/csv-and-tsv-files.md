@@ -451,8 +451,57 @@ For instance, if you wanted to know how many distinct values there are in the
 
 ### Working with TSV in *csvkit*
 
-<!-- TODO: csvkit: tsv input (-d, -t options) -->
-<!-- TODO: csvkit: tsv output (csvformat) -->
+All of the examples above assumed the data is saved as comma-separated values,
+but naturally *csvkit* can also deal with other plain-text table formats.
+
+ * The input format of all *csvkit* programs can be configured using
+   command-line parameters.
+ * The output format of all *csvkit* programs will *always* be CSV (except for
+   [*csvformat(1)*][csvformat]).
+
+#### Specifying the input format
+
+If the original data is in another format than CSV, you can tell *csvkit* what
+separators or quoting characters the file contains by using the `-d` and the
+`-q` flags respectively (think *d* for *delimiter* and *q* for *quote*):
+
+    $ csvcut -c "Row 1,Row 2" -d ";" -q "'" example.csv
+
+Remember that this will only set the *input format*.  Even if you set the `-d`
+and `-q` flags the program will still output standard CSV.  This means that you
+only have to specify the input format in *the first element of a pipe*:
+
+    $ csvcut -c "Row 1,Row 2" -d ";" -q "'" example.csv | csvgrep -c "Row 1" -m "hi"
+
+Because tab characters are sometimes hard to type and hard to see, *csvkit*
+programs provide a special `-t` flag that sets the cell separator to tab, that
+you would use *instead of* `-d`.
+
+    $ csvcut -c "Row 1,Row 2" -t example.tsv | csvgrep -c "Row 1" -m "hi"
+
+#### Specifying the output format
+
+Now, if all *csvkit* programs only output CSV data, how do we save data in
+a different format if the need arises.  Quite simply: by piping the result into
+[*csvformat(1)*][csvformat].
+
+*csvformat* lets you specify the output format by using the the `-D` and `-Q`
+flags, which are just the upper-case counterparts of the `-d` and `q` flags
+(side note: the lower-case version used specify an input format also exist):
+
+    $ csvcut -c "Row 1,Row 2" example.csv | csvformat -D ";" -Q "'"
+
+And if you want to output TSV data, there is also an uppercase `-T` flag which
+sets the output delimiter to tab characters:
+
+    $ csvcut -c "Row 1,Row 2" -d ";" -q "'" example.tsv | csvformat -D ";" -Q "'"
+
+#### Summary
+
+ * Set the input format adding the lower-case `-d`, `-q`, or `-t` flags to the
+   first element in a *csvkit* pipe.
+ * Set the output format by piping your data into [*csvformat(1)*][csvformat]
+   and adding the upper-case `-D`, `-Q`, or `-T` flags to it.
 
 ### Notes
 
