@@ -485,9 +485,9 @@ Now, if all *csvkit* programs only output CSV data, how do we save data in
 a different format if the need arises.  Quite simply: by piping the result into
 [*csvformat(1)*][csvformat].
 
-*csvformat* lets you specify the output format by using the the `-D` and `-Q`
-flags, which are just the upper-case counterparts of the `-d` and `q` flags
-(side note: the lower-case version used specify an input format also exist):
+*csvformat* lets you specify the output format by using the `-D` and `-Q` flags,
+which are just the upper-case counterparts of the `-d` and `q` flags (side note:
+the lower-case version used specify an input format also exist):
 
     $ csvcut -c "Row 1,Row 2" example.csv | csvformat -D ";" -Q "'"
 
@@ -503,10 +503,46 @@ sets the output delimiter to tab characters:
  * Set the output format by piping your data into [*csvformat(1)*][csvformat]
    and adding the upper-case `-D`, `-Q`, or `-T` flags to it.
 
-### Notes
+### Quick notes
 
-<!-- TODO: csvkit: note on column header -->
-<!-- TODO: csvkit: note on 'smart' defaults... -->
+#### Use the first row as a column header
+
+In theory it is possible to tell *csvkit* to parse data without an explicit
+header row with the `-H` flag.  The programs will deal with this by calling
+the columns `a`, `b`, `c`, etc.  Avoid doing that if you can and give
+descriptive names to every column in your table, instead.
+
+#### Unfortunately *csvkit* wants to be helpful sometimes…
+
+Some of the programs in *csvkit* ([*csvlook(1)*][csvlook],
+[*csvjoin(1)*][csvjoin], and [*csvsort(1)*][csvsort] come to mind right now)
+try to guess what kind of data the table contains.  So, if you have a table like
+this:
+
+    Name,Phone Number
+    Alice,0023456
+    Bob,0012345
+
+[*csvsort(1)*][csvsort] will very cleverly recognise that the data consists of
+numbers.  At the same time it less cleverly fail to recognise that you're not
+actually supposed to remove leading zeroes in phone numbers…
+
+    csvsort -c 'Phone Number' table.csv
+    Name,Phone Number
+    Bob,12345
+    Alice,23456
+
+To disable automatic type inference, add the `-I` (that's a capital letter I as
+in *India* – in case this gets butchered by a bad font).
+
+    csvsort -I -c 'Phone Number' table.csv
+    Name,Phone Number
+    Bob,0012345
+    Alice,0023456
+
+If you're unsure if a particular program uses type inference or not, check the
+output of `-h` to see if it supports the `-I` flag.
+
 <!-- TODO: csvkit: don't actually make candy-separated values -->
 
 
