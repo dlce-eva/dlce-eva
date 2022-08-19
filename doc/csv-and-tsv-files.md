@@ -220,10 +220,15 @@ under `Tools → AutoCorrect Options…` and turn off all the things.
 
 ![The AutoCorrect Options dialogue](./images/csvtut-autocorrect-dialogue.png)
 
+Note that the settings for typographic quotes are on a separate tab (*Localised
+options*) – you wouldn't be the first to miss that.
+
+![Localised AutoCorrect options](./images/csvtut-autocorrect-dialogue-2.png)
+
 ### Importing TSV/CSV data into LibreOffice Calc
 
 The easiest way to import a TSV/CSV file is to just open the file in LibreOffice
-Calc (either from your file manager or by using *File → Open* in the menu bar.
+Calc (either from your file manager or by using *File → Open* in the menu bar).
 This will open the import dialogue where you can tell LibreOffice about the
 format of the file.  It also comes with a small preview where you can
 double-check the effects of your settings.  There are two things to look out
