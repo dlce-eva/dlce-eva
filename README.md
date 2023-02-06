@@ -3,6 +3,9 @@
 Research data management at the Department of Linguistic and Cultural Evolution
 of the Max-Planck-Institute for Evolutionary Anthropology
 
+One of the main goals of out RDM efforts is making sure researchers can create [reproducible](doc/reproducibility.md)
+results.
+
 ## Environment
 
 RDM at DLCE is based on a handful of foundational tools and principles:
