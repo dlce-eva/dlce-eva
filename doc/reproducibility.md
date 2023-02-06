@@ -20,6 +20,9 @@ Your code isn't static, neither are the results (a.k.a. revise and resubmit):
   (This is where many of the coding best practices come in: Basically,
   make your code understable/workable over a longer period of time.)
 
+Notes:
+- [Introduction to testing with R](https://towardsdatascience.com/unit-testing-in-r-68ab9cc8d211)
+
 
 ## The giant leap: Running your code somewhere else (a.k.a. portability)
 
