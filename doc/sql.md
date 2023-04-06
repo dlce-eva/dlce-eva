@@ -32,3 +32,9 @@ support, while [tidyverse's dbplyr](https://dbplyr.tidyverse.org/) provides an a
 queries in a way that might be more familiar (and can be used with backends other than SQLite).
 
 Python comes "with batteries", so [sqlite3 support is in the standard library](https://docs.python.org/3/library/sqlite3.html).
+
+
+## Example
+
+The SQLite database [ewave.sqlite](ewave.sqlite) - loaded with the [CLDF data](https://github.com/cldf-datasets/ewave) underlying the [eWAVE clld app](https://ewave-atlas.org/) - can be used to experiment with the "CLDF via SQLite" approach. The eWAVE dataset is a typical CLDF StructureDataset, i.e. has a ValueTable, listing datapoints for (language, parameter) pairs.
+
