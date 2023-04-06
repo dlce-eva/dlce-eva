@@ -26,6 +26,8 @@ Thus, to make use of this toolset, members of DLCE should be familiar with
 - Reference catalogs at DLCE - See [doc/catalogs.md](doc/catalogs.md)
 - Databases at DLCE - See [doc/databases.md](doc/databases.md)
 
+In particular for working with larger datasets, SQLite can be very useful. See [doc/sql.md](doc/sql.md).
+
 We recommend reading the tutorials and hints in the order they're mentioned in
 (i.e. start with Git and Python, then have a look at working on the shell and
 lastly, CLDF). Feel free to open an issue in this repository if you have any
