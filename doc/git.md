@@ -55,3 +55,24 @@ To enable support for long file names, run the following command:
     git config --system core.longpaths true
 
 [glottolog]: https://github.com/glottolog/glottolog
+
+## PSA: Avoid Unicode characters in file paths
+
+On some (Windows?) systems, `git`'s behaviour might turn a bit… volatile if the
+file path to a repo contains non-English characters (like `ü`, `ы` or `ß`).  As
+an example you might encounter errors like the following:
+
+    error: fsmonitor--daemon failed to start
+
+In general, the safest bet is to avoid any characters that might confuse your
+computer in your file/folder names (including spaces).  The following set of
+characters is considered safe:
+
+ 1. letters `a-z` (bonus points for making it all lower-case)
+ 2. numbers `0-9`
+ 3. period `.`, dash `-`, and underscore `_`
+
+Note:  If your user name contains non-English characters, then that will affect
+all files in your home folder (e.g. `C:\Users\Björn`).  In that case you can
+work around the issue by putting all your git repos in a separate folder outside
+of your home directory (e.g. `C:\repos`).
