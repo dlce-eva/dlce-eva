@@ -163,8 +163,8 @@ and “Language_ID” and they in turn need to look a certain way.
 Tables can have more columns than the minimal requirement and can have
 columns that don’t map onto CLDF-standards at all.
 
-For more specifics, see this file for CLDF v1.0
-<http://cldf.clld.org/v1.0/terms.rdf>.
+For more specifics, see the terms of CLDF v1.0
+<https://cldf.clld.org/v1.0/terms.html>.
 
 #### Tables in most CLDF-dataset
 
