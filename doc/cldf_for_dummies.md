@@ -335,14 +335,13 @@ in Glottolog contains a column of this kind called “Language_ID”. In
 Grambank, there is a similar column, but it is called
 “Language_level_ID”.
 
-With the above information, we can now combine the tables if we want.
-For example, we can rename the ID column in each of the tables to
+With the above information, we can now combine the tables if we want. If we're not using SQL, we may want to rename some columns so that we don't have problematic matches. For example, there may be a "Name" column in multiple of the tables that actually concern different information (name of a language, name of a parameter etc). SQL can deal with this, but if we're using something else like a spreadsheet program, pandas in python R etc we may want to make sure that we're matching the right things by renaming some columns. For example, we can rename the ID column in each of the tables to
 “Language_ID”, “Parameter_ID” and “Form_ID” and then join them together
 into one new table. In the example below, not all columns are shown due
 to space. Nota Bene that both ParameterTable and LanguageTable contains
 the column “Name”, so they would have to be dropped or otherwise handled
 (for example renamed to “Parameter_name” and “Language_name”) otherwise
-the joining would not work correctly.
+the joining would not work correctly (outside of SQL).
 
 | Form_ID         | Parameter_ID | Language_ID | Form   | Source        | Glottocode | Concepticon_ID |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
