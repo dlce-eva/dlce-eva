@@ -111,6 +111,7 @@ There are five types of CLDF-datasets. They are also known as “modules”.
 -   Dictionary (particular kind of lexicon, has Entries and Senses)
 -   Parallel text (collections of paragraphs of the same text in
     different languages, has Forms, Segments and FunctionalEquivalents)
+-   TextCorpus (cohesive stretches of discourse in the object language)
 -   generic (no specifics)
 
 ## Contents
@@ -125,7 +126,7 @@ json file has information *about* the dataset, for example the type of
 dataset is, what the contents are, what the filenames are etc.
 
 Many CLDF-datasets also contain a bibTeX-file with bibliographic
-references for the data. In such cases, each data-point is tied to a
+references for the data. In such cases, each data-point may be tied to a
 reference by the key in the bibTeX entry. Usually the key is in a column
 called “Source” in the ValueTable or FormTable. The bibTeX file is
 usually called “sources.bib”. If it’s called something else, it’ll say
