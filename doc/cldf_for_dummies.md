@@ -156,8 +156,8 @@ on LanguageTable being in languages.csv**. `pycldf` and `rcldf` can
 handle this for you, i.e. look up in the json what table is where and
 set all that up.
 
-Each table is usually tied to several pre-defined CLDF standards for the
-content. For example, FormTables need to have the columns “ID”, “Form”
+Each table usually contains columns which are pre-defined [CLDF standards for the
+content](https://cldf.clld.org/v1.0/terms.html#id). For example, FormTables need to have the columns “ID”, “Form”
 and “Language_ID” and they in turn need to look a certain way.
 
 Tables can have more columns than the minimal requirement and can have
