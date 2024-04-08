@@ -1,12 +1,7 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
-
-# CLDF for dummies
-
-Hedvig Skirgård 2023-11-30
+CLDF for dummies
+================
+Hedvig Skirgård
+2023-11-30
 
 # CLDF for dummies
 
@@ -27,7 +22,7 @@ FileMakerPro, Microsoft Access or similar programs.
 It’s plain, flat and simpler than you might think. In this document, you
 will learn the very basics on how it works.
 
-The data format was first published in 2018 $$1$$ and has since then
+The data format was first published in 2018 [1] and has since then
 expanded to include a large amount of different data sets.
 
 CLDF is well-documented. This document is a very basic intro, for more
@@ -157,8 +152,9 @@ handle this for you, i.e. look up in the json what table is where and
 set all that up.
 
 Each table usually contains columns which are pre-defined [CLDF standards for the
-content](https://cldf.clld.org/v1.0/terms.html#id). For example, FormTables need to have columns for the properties “id”, “form”
-and “Language_ID” and they in turn need to look a certain way.
+content](https://cldf.clld.org/v1.0/terms.html#id). For example, FormTables need 
+to have columns for the properties “id”, “form” and “Language_ID” and they in turn 
+need to look a certain way.
 
 Tables can have more columns than the minimal requirement and can have
 columns that don’t map onto CLDF-standards at all.
@@ -195,10 +191,11 @@ Structure data-sets also contain
     than one value, usually with extra information on proportions.
 
 Good to know 1: for the CLDF-dataset of D-PLACE (v1 and v2), the
-LanguageTable contains a row per *society* - not per language. There is a column for the
-Glottocode of the language associated with that society.
+LanguageTable contains a row per *society* - not per language. There is a column 
+for the Glottocode of the language associated with that society.
 
-Good to know 2: in the formal CLDF-ontology, "tables" are called "components".
+Good to know 2: in the formal CLDF-ontology, "tables" are called "components" 
+and columns within tables are "properties"
 
 #### Columns in tables
 
@@ -323,21 +320,35 @@ onto the column “ID” in the LanguageTable, and so on.
 There is no column “Form_ID” inside the FormTable, it’s just called ID
 there. Same with Parameter_ID and the ParameterTable and so on.
 
-**WARNING** Some LanguageTables contain a column called “Language_ID”
-which is **not** the same as the ID column. For Glottolog-cldf this column contains information on the language that a dialect belongs to. For example, Eastern Low Navarrese is a dialect of Basque. The glottocode of
+**WARNING** Some LanguageTables contain a column (aka property) called “Language_ID”
+which is **not** the same as the ID column. For glottolog-cldf this column 
+contains information on the language that a dialect belongs to. For example, 
+Eastern Low Navarrese is a dialect of the language Basque. The glottocode of
 this dialect is east1470. The glottocode of the language Basque is
-basq1248. In the LanguageTable of glottolog-cldf the dialect has basq1248 in 
-the column "Language_ID". This helps when you might want to
-match by the language-level rather than dialect-level. This isn't standard though, Language_ID can have other specifics to it in other CLDF-datasets. In Grambank, there is a similar column to glottolog-cldf's "Language_ID", but it is called
-“Language_level_ID” to make it more different.
+basq1248. In the LanguageTable of glottolog-cldf the row of the dialect has basq1248 
+in the column "Language_ID". This helps when you might want to
+match by the language-level rather than dialect-level. This isn't standard though, 
+the column Language_ID can have other specifics depending CLDF-datasets. In Grambank, 
+there  is a similar column to glottolog-cldf's "Language_ID", but it is called
+“Language_level_ID” to make it clearer what it refers to.
 
-With the above information, we can now combine the tables if we want. If we're not using SQL, we may want to rename some columns so that we don't have problematic matches. For example, there may be a "Name" column in multiple of the tables that actually concern different information (name of a language, name of a parameter etc). SQL can deal with this, but if we're using something else like a spreadsheet program, pandas in python R etc we may want to make sure that we're matching the right things by renaming some columns. For example, we can rename the ID column in each of the tables to
-“Language_ID”, “Parameter_ID” and “Form_ID” and then join them together
-into one new table. In the example below, not all columns are shown due
-to space. Nota Bene that both ParameterTable and LanguageTable contains
+With the above information, we can now combine the tables if we want. If 
+we're not using SQL, we may want to rename some columns so that we don't 
+have problematic matches. For example, there may be a "Name" column in 
+multiple of the tables that actually map to different information (name 
+of a language, name of a parameter etc). SQL can deal with this, but if 
+we're using something else like a spreadsheet program, pandas in python, 
+dplyr in R etc. we may want to make sure that we're matching the right things 
+by renaming some columns. For example, we can rename the ID column in each of 
+the tables to “Language_ID”, “Parameter_ID” and “Form_ID” and then join 
+them together into one new table. In the example below, not all columns 
+are shown due to space. 
+
+Nota Bene that both ParameterTable and LanguageTable contains
 the column “Name”, so they would have to be dropped or otherwise handled
-(for example renamed to “Parameter_name” and “Language_name”) otherwise
-the joining would not work correctly (outside of SQL).
+(for example renamed to “Parameter_name” and “Language_name”)
+the joining would not work correctly (outside of SQL). The columns called ID in each
+table were renamed before joining in this example.
 
 | Form_ID         | Parameter_ID | Language_ID | Form   | Source        | Glottocode | Concepticon_ID |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
@@ -367,7 +378,7 @@ to: - [CLDF-documentation]{<https://github.com/cldf/cldf/#readme>} -
 
 ## References
 
-$$1$$ Forkel, R., List, J. M., Greenhill, S. J., Rzymski, C., Bank, S.,
+[1] Forkel, R., List, J. M., Greenhill, S. J., Rzymski, C., Bank, S.,
 Cysouw, M. Hammarström, H., Haspelmath, M., Kaiping, G.A. and Gray, R.
 D. (2018). Cross-Linguistic Data Formats, advancing data sharing and
 re-use in comparative linguistics. Scientific data, 5(1), 1-10.
