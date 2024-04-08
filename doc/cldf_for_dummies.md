@@ -324,16 +324,12 @@ There is no column “Form_ID” inside the FormTable, it’s just called ID
 there. Same with Parameter_ID and the ParameterTable and so on.
 
 **WARNING** Some LanguageTables contain a column called “Language_ID”
-which is **not** the same as the ID column. For dialects, this column
-contains the Glottocode of the language that they are a dialect of. For
-example, Eastern Low Navarrese is a dialect of Basque. The glottocode of
+which is **not** the same as the ID column. For Glottolog-cldf this column contains information on the language that a dialect belongs to. For example, Eastern Low Navarrese is a dialect of Basque. The glottocode of
 this dialect is east1470. The glottocode of the language Basque is
-basq1248. If a LanguageTable has the column Language_ID, it would
-contain basq1248 for the dialect. This helps when you might want to
-match by the language-level rather than dialect-level.The LanguageTable
-in Glottolog contains a column of this kind called “Language_ID”. In
-Grambank, there is a similar column, but it is called
-“Language_level_ID”.
+basq1248. In the LanguageTable of glottolog-cldf the dialect has basq1248 in 
+the column "Language_ID". This helps when you might want to
+match by the language-level rather than dialect-level. This isn't standard though, Language_ID can have other specifics to it in other CLDF-datasets. In Grambank, there is a similar column to glottolog-cldf's "Language_ID", but it is called
+“Language_level_ID” to make it more different.
 
 With the above information, we can now combine the tables if we want. If we're not using SQL, we may want to rename some columns so that we don't have problematic matches. For example, there may be a "Name" column in multiple of the tables that actually concern different information (name of a language, name of a parameter etc). SQL can deal with this, but if we're using something else like a spreadsheet program, pandas in python R etc we may want to make sure that we're matching the right things by renaming some columns. For example, we can rename the ID column in each of the tables to
 “Language_ID”, “Parameter_ID” and “Form_ID” and then join them together
