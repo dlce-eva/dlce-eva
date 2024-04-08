@@ -157,7 +157,7 @@ handle this for you, i.e. look up in the json what table is where and
 set all that up.
 
 Each table usually contains columns which are pre-defined [CLDF standards for the
-content](https://cldf.clld.org/v1.0/terms.html#id). For example, FormTables need to have the columns “ID”, “Form”
+content](https://cldf.clld.org/v1.0/terms.html#id). For example, FormTables need to have columns for the properties “id”, “form”
 and “Language_ID” and they in turn need to look a certain way.
 
 Tables can have more columns than the minimal requirement and can have
@@ -194,9 +194,11 @@ Structure data-sets also contain
     language. There are examples of languages that are coded for more
     than one value, usually with extra information on proportions.
 
-Good to know: for the CLDF-dataset of D-PLACE (v1 and v2), the
-LanguageTable contains a row per *society*. There is a column for the
+Good to know 1: for the CLDF-dataset of D-PLACE (v1 and v2), the
+LanguageTable contains a row per *society* - not per language. There is a column for the
 Glottocode of the language associated with that society.
+
+Good to know 2: in the formal CLDF-ontology, "tables" are called "components".
 
 #### Columns in tables
 
