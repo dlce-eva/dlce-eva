@@ -146,13 +146,15 @@ in values.csv, “CognateTable” in cognates.csv etc.
 
 The json-meta data file says which table is in which file, it’s
 specified as the `url` of the table which conforms to a certain
-CLDF-standard, for example for `LanguageTable`. **You can’t always bank
-on LanguageTable being in languages.csv**. `pycldf` and `rcldf` can
+CLDF-standard, for example for `LanguageTable`. Types of tables that have 
+special meaning and rules in CLDF are known as `components`.
+
+**You can’t always bank on LanguageTable being in languages.csv**. `pycldf` and `rcldf` can
 handle this for you, i.e. look up in the json what table is where and
 set all that up.
 
-Each table usually contains columns which are pre-defined [CLDF standards for the
-content](https://cldf.clld.org/v1.0/terms.html#id). For example, FormTables need 
+Each type of table contains columns which conform to [CLDF-rules
+](https://cldf.clld.org/v1.0/terms.html). For example, FormTables need 
 to have columns for the properties “id”, “form” and “Language_ID” and they in turn 
 need to look a certain way.
 
