@@ -73,7 +73,7 @@ mentions of Python 2, try using `pip3` instead.
 
 Most recent Linux distributions ship with Python out of the box. Should Python
 not be available (check with `python --version` on the command line), it is
-generally recommend to install Python using your distributions's respective
+generally recommend to install Python using your distribution's respective
 package manager.
 
 ### Virtual environments
