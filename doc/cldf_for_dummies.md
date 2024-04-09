@@ -335,9 +335,9 @@ a column named "ID" in one table isn't directly matched to "ID" in another, sinc
 referring to quite different kinds of information. If you use SQL, there are established 
 practices for how to link information via primary and foreign keys. 
 
-If we just joined the tables directly without SQL or any other adjustments for the key-linking,
-we may get problems because ID columns may be match directly. In that case, we'd get something 
-like this - which is wrong:
+If we just joined the tables directly without SQL or any other adjustments for the key-linking and without
+specifying what columns we are joining by, we may get problems because ID columns may be match directly. 
+In that case, we'd get something like this - which is wrong:
 
 |ID  | Name     | Glottocode |Concepticon_ID | Parameter_ID | Language_ID | Form   | Source  
 |-----|----------|------------|------------|------------|------------|------------|------------|
