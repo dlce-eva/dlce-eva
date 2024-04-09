@@ -54,7 +54,7 @@ Good things to keep in mind:
     end-user, not how to make one.
 -   for more on *making* and *using* CLDF-datasets, have a look in the
     cookbook tutorials
-    [here]{<https://github.com/cldf/cookbook/tree/master#readme>}
+    [here](https://github.com/cldf/cookbook/tree/master#readme)
 -   there already exists a lot of documentation on how CLDF works, this
     document is not meant to be exhaustive but just a gentle entry to
     get you going. For more, see:
