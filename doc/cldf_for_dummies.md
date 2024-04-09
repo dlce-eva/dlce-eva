@@ -64,8 +64,8 @@ Good things to keep in mind:
 ## Dictionary
 In CLDF, there are some specific terms that are good to know about.
 
-property = column in a table
-component = table which conforms to specific CLDF-rules
+property = column in a table. The property `languageReference` is often realised in a column called `Language_ID`
+component = table which conforms to specific CLDF-rules. The component "LanguageTable" is often found in a file called "languages.csv"
 
 ## How to know if you’re dealing with a CLDF-dataset
 
