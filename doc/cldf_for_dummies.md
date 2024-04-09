@@ -397,11 +397,11 @@ tables that point to the same information. "Parameter_ID" in the ParameterTable 
 meaningfully matched to the column "Parameter_ID" in the FormTable and so forth.
 After this renaming, we can now join the tables directly - see example output below. 
 
-| Form_ID         | Parameter_ID | Language_ID | Form   | Source        | Glottocode | Concepticon_ID | Parameter_Name| Language_name |
-|-----------|-----------|-----------|-----------|-----------|-----------|-----------|----------|----------|----------|
-| 15-144_toburn-1 | 144_toburn   | 15          | pegew  | Blust-15-2005 | bint1246   | 2102           |to burn |Bintulu|
-| 15-144_toburn-2 | 144_toburn   | 15          | tinew  | Blust-15-2005 | bint1246   | 2102           |to burn |Bintulu|
-| 18-2_left-1     | 2_left       | 18          | akague | 38174         | cham1312   | 244            |left|CHamorro|
+| Form_ID         | Parameter_ID | Language_ID | Form      | Source        | Glottocode | Concepticon_ID | Parameter_Name | Language_name |
+|-----------      |-----------   |-----------  |-----------|-----------    |----------- |-----------     |----------      |----------|
+| 15-144_toburn-1 | 144_toburn   | 15          | pegew     | Blust-15-2005 | bint1246   | 2102           |to burn          |Bintulu|
+| 15-144_toburn-2 | 144_toburn   | 15          | tinew     | Blust-15-2005 | bint1246   | 2102           |to burn         |Bintulu|
+| 18-2_left-1     | 2_left       | 18          | akague    | 38174         | cham1312   | 244            |left          |CHamorro|
 
 
 > [!CAUTION]
