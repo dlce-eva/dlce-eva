@@ -40,7 +40,7 @@ Good things to keep in mind:
     -   Wordlist: NorthEuraLex v4.0
         <https://github.com/lexibank/northeuralex/tree/v4.0/cldf>
     -   Structure: Grambank v1.0.3
-        <https://github.com/grambank/grambank/tree/v1.0.3/cldf>\
+        <https://github.com/grambank/grambank/tree/v1.0.3/cldf>
 -   another one of the best ways to learn how CLDF works it to read the
     spec for the dataset. They are the ones that'll tell you what the
     columns really are etc.
@@ -70,7 +70,7 @@ component = table which conforms to specific CLDF-rules. The component "Language
 ## How to know if you’re dealing with a CLDF-dataset
 
 You are dealing with a CLDF-data set if there is a file ending with the
-extension “json” and at the top it identifies a CLDF-dataset type. For
+extension `.json` and at the top it identifies a CLDF-dataset type. For
 example, it could be
 `dc:conformsTo: http://cldf.clld.org/v1.0/terms.rdf#StructureDataset`.
 (There is one exception, see “Good to know” below.)
@@ -96,12 +96,12 @@ may have encountered:
 
 > [!TIP]
 > Good to know: [It is possible for a CLDF-dataset to only consist of one
-> file](https://github.com/cldf/cldf#metadata-free-conformance). No json,
-> no set of csvs. Just one file, for example values.csv. In such cases,
+> file](https://github.com/cldf/cldf#metadata-free-conformance)! No JSON-file,
+> no set of csvs. Just one file, for example `values.csv`. In such cases,
 > the file doesn’t have any meta-data specified and just conforms to all
-> the default settings. You can’t tell by a json that it’s a CLDF-dataset
-> because there isn’t one. This type of CLDF-data set is rare, and will
-> not be dealt with further here.
+> the default settings for all components, properties etc. You can’t tell
+> by a JSON-file that it’s a CLDF-dataset because there isn’t one.
+> This type of CLDF-data set is rare, and will not be dealt with further here.
 
 ### Types of CLDF-datasets
 
@@ -121,10 +121,10 @@ There are five types of CLDF-datasets. They are also known as “modules”.
 Each CLDF-dataset (except the metadata-free ones) consists minimally of:
 
 -   a set of tables (usually in csv-sheets)
--   a json-file
+-   a JSON-file
 
 The tables are usually in csv-format and contain the data itself. The
-json file has information *about* the dataset, for example the type of
+JSON-file has information *about* the dataset, for example the type of
 dataset is, what the contents are, what the filenames are etc.
 
 Many CLDF-datasets also contain a bibTeX-file with bibliographic
@@ -132,7 +132,7 @@ references for the data. In such cases, each data-point may be tied to a
 reference by the key in the bibTeX entry. Usually the key is in a column
 called “Source” in the ValueTable or FormTable. The bibTeX file is
 usually called “sources.bib”. If it’s called something else, it’ll say
-so in the meta-data json file.
+so in the meta-data JSON-file.
 
 ## Tables inside the datasets
 
@@ -156,7 +156,7 @@ specified as the `url` of the table which conforms to a certain
 CLDF-standard, for example for `LanguageTable`. Types of tables that have 
 special meaning and rules in CLDF are known as `components`. **You can’t 
 always bank on LanguageTable being in languages.csv**. SQl, `pycldf` and 
-`rcldf` can handle this for you, i.e. look up in the json what component is 
+`rcldf` can handle this for you, i.e. look up in the JSON-filewhat component is 
 where and set all that up.
 
 Each type of table contains columns which conform to [CLDF-rules
@@ -232,8 +232,8 @@ contains information about the languages and parameters - in this case
 concepts. The FormTable contains the actual forms. For one of the
 concepts, one of the languages has two words and both are listed.
 
-The meta-data json is not included here. You can see an example of a
-Wordlist-metadata json file here:
+The meta-data JSON-fileis not included here. You can see an example of a
+Wordlist-metadata JSON-file here:
 <https://github.com/lexibank/abvd/blob/master/cldf/cldf-metadata.json>.
 
 **LanguageTable**
@@ -299,7 +299,7 @@ first has “-1” and then “-2”.
 
 Optional file, but often present in the form of a bibTeX-file. One entry
 = one source. The bibTeX file is usually called “sources.bib”, but not
-necessary (check metadata.json as usual). The bibTeX Key (the first
+necessary (check `metadata.json` as usual). The bibTeX Key (the first
 string after `@BIBTEXENTRYTYPE{`) maps onto the Source column in the
 FormTable above.
 
