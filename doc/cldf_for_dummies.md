@@ -354,7 +354,7 @@ practices for how to link information via primary and foreign keys.
 If we just joined directly without SQL or any other adjustments for the key-linking and without
 specifying what columns we are joining by, we may get problems. 
 
-In dplyr in R and pandas in python, the default behaviour of join-functions is to join by all columns possible 
+For joining in dplyr in R (`join_*`) and pandas in python (`merge`), the default behaviour is to join by all columns possible 
 (unless specific columns to join by are spelled out). In that case, we'd get something like 
 this - which is not what we want:
 
