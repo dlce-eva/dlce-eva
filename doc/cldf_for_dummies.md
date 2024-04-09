@@ -352,7 +352,7 @@ practices for how to link information via primary and foreign keys.
 
 If we just joined the tables directly without SQL or any other adjustments for the key-linking and without
 specifying what columns we are joining by, we may get problems. In pandas in python, the default behaviour 
-is that duplicate columns get disambiguated by adding ".1" etc to each. In that case, we would get something 
+is that duplicate columns get disambiguated by adding ".0" etc to each. In that case, we would get something 
 like this - which is wrong:
 
 |	ID.0	|	Name.0	|	Glottocode	|	ID.1	|	Name.1	|	Concepticon_ID	|	ID.2	|	Parameter_ID	|	Language_ID	|	Form	|	Source	|
@@ -366,8 +366,8 @@ like this - which is wrong:
 |		|		|		|		|		|		|	18-2_left-1	|	2_left	|	18	|	akague	|	38174	|
 
 In dplyr in R the default behaviour of join-functions is to join by all columns possible 
-(unless specific columns to join by are spelled out). In that case, we'd get something like this 
-- which is also wrong:
+(unless specific columns to join by are spelled out). In that case, we'd get something like 
+this - which is also wrong:
 
 | ID  | Name     | Glottocode |Concepticon_ID | Parameter_ID | Language_ID | Form   | Source  
 |-----|----------|------------|------------|------------|------------|------------|------------|
