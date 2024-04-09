@@ -151,10 +151,18 @@ in values.csv, “CognateTable” in cognates.csv etc.
     Parameter_ID)
 -   ParameterTable -\> parameters.csv (contains minimally ID, Name) etc.
 
-The json-meta data file says which table is in which file, it’s
-specified as the `url` of the table which conforms to a certain
-CLDF-standard, for example for `LanguageTable`. Types of tables that have 
-special meaning and rules in CLDF are known as `components`. **You can’t 
+The JSON-file of metadata contains information on which tables (a.k.a components) 
+are inside the dataset and in turn what columns (a.k.a properites) the have. 
+You can see what type of CLDF-component a table is by inspecting the line in the 
+section of the code that contains `dc:conformsTo`, e.g. `dc:conformsTo": 
+"http://cldf.clld.org/v1.0/terms.rdf#ValueTable` means that the component being 
+described in that section of the code is a ValueTable. Later down in the section 
+describing the component, we can find the specific filename in the url-field, 
+e.g. `url": "values.csv`. Now we know there's a ValueTable and it's in the file values.csv.
+
+The specific line in the 
+meta-data JSON file contains the string 
+Types of tables that have special meaning and rules in CLDF are known as `components`. **You can’t 
 always bank on LanguageTable being in languages.csv**. SQl, `pycldf` and 
 `rcldf` can handle this for you, i.e. look up in the JSON-filewhat component is 
 where and set all that up.
