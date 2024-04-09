@@ -94,13 +94,14 @@ may have encountered:
 
 -   Grambank
 
-Good to know: [It is possible for a CLDF-dataset to only consist of one
-file](https://github.com/cldf/cldf#metadata-free-conformance). No json,
-no set of csvs. Just one file, for example values.csv. In such cases,
-the file doesn’t have any meta-data specified and just conforms to all
-the default settings. You can’t tell by a json that it’s a CLDF-dataset
-because there isn’t one. This type of CLDF-data set is rare, and will
-not be dealt with further here.
+> [!TIP]
+> Good to know: [It is possible for a CLDF-dataset to only consist of one
+> file](https://github.com/cldf/cldf#metadata-free-conformance). No json,
+> no set of csvs. Just one file, for example values.csv. In such cases,
+> the file doesn’t have any meta-data specified and just conforms to all
+> the default settings. You can’t tell by a json that it’s a CLDF-dataset
+> because there isn’t one. This type of CLDF-data set is rare, and will
+> not be dealt with further here.
 
 ### Types of CLDF-datasets
 
@@ -197,12 +198,14 @@ Structure data-sets also contain
     language. There are examples of languages that are coded for more
     than one value, usually with extra information on proportions.
 
-Good to know 1: for the CLDF-dataset of D-PLACE (v1 and v2), the
-LanguageTable contains a row per *society* - not per language. There is a column 
-for the Glottocode of the language associated with that society.
+> [!TIP]
+> Good to know: for the CLDF-dataset of D-PLACE (v1 and v2), the
+> LanguageTable contains a row per *society* - not per language. There is a column 
+> for the Glottocode of the language associated with that society.
 
-Good to know 2: in the formal CLDF-ontology, "tables" are called "components" 
-and columns within tables are "properties"
+> [!TIP]
+> Good to know: in the formal CLDF-ontology, "tables" are called "components" 
+> and columns within tables are "properties"
 
 #### Columns in tables
 
@@ -245,16 +248,18 @@ ID column here is called “Language_ID”.
 | 15  | Bintulu  | bint1246   |
 | 18  | CHamorro | cham1312   |
 
-Good to know: Sometimes the IDs in LanguageTable are Glottocodes or ISO
-639-3 codes, but they don’t have to be. They just have to be unique
-within that dataset. In Grambank, the ID’s are Glottocodes, but WALS has
-its own specific unique code-system different from both Glottocodes and
-ISO 639-3. If you want Glottocodes, go look for a column called
-Glottocode in the LanguageTable - don’t use the ID column.
+> [!TIP]
+> Good to know: Sometimes the IDs in LanguageTable are Glottocodes or ISO
+> 639-3 codes, but they don’t have to be. They just have to be unique
+> within that dataset. In Grambank, the ID’s are Glottocodes, but WALS has
+> its own specific unique code-system different from both Glottocodes and
+> ISO 639-3. If you want Glottocodes, go look for a column called
+> Glottocode in the LanguageTable - don’t use the ID column.
 
-Good to know 2: Glottocodes contain 4 letters or numbers and then 4
-numbers. The first 4 characters are not always letters. For example,
-`ww2p1234` and `3adt1234` are existing glottocodes.
+> [!TIP]
+> Good to know: Glottocodes contain 4 letters or numbers and then 4
+> numbers. The first 4 characters are not always letters. For example,
+> `ww2p1234` and `3adt1234` are existing glottocodes.
 
 **ParameterTable**
 
@@ -373,18 +378,19 @@ After this renaming, we can now join the tables directly - see example output be
 | 18-2_left-1     | 2_left       | 18          | akague | 38174         | cham1312   | 244            |left|CHamorro|
 
 
-**WARNING** Some LanguageTables contain a column called “Language_ID”
-which is **not** the same as Language_ID columns in other tables. 
-For the glottolog-cldf dataset the column Language_ID in the LanguageTable 
-contains information on the language that a dialect belongs to. For example, 
-Eastern Low Navarrese is a dialect of the language Basque. The glottocode of
-this dialect is east1470. The glottocode of the language Basque is
-basq1248. In the LanguageTable of glottolog-cldf the row of the dialect has basq1248 
-in the column "Language_ID". This helps when you might want to
-match by the languages rather than the dialect-level. This column isn't standard though, 
-the column Language_ID can have other specifics depending CLDF-datasets. In Grambank, 
-there  is a similar column to glottolog-cldf's "Language_ID", but it is called
-“Language_level_ID” to make it clearer what it refers to and more unique.
+> [!CAUTION]
+> Some LanguageTables contain a column called “Language_ID”
+> which is **not** the same as Language_ID columns in other tables. 
+> For the glottolog-cldf dataset the column Language_ID in the LanguageTable 
+> contains information on the language that a dialect belongs to. For example, 
+> Eastern Low Navarrese is a dialect of the language Basque. The glottocode of
+> this dialect is east1470. The glottocode of the language Basque is
+> basq1248. In the LanguageTable of glottolog-cldf the row of the dialect has basq1248 
+> in the column "Language_ID". This helps when you might want to
+> match by the languages rather than the dialect-level. This column isn't standard though, 
+> the column Language_ID can have other specifics depending CLDF-datasets. In Grambank, 
+> there  is a similar column to glottolog-cldf's "Language_ID", but it is called
+> “Language_level_ID” to make it clearer what it refers to and more unique.
 
 # Example: Structure
 
