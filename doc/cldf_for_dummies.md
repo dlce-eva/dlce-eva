@@ -15,7 +15,7 @@ in a specific way which makes it possible to combine them into an
 interlinked database. The files are all governed by standards, there are
 sanity-checks to make sure all lines up right. Because they are often
 just plain csv-sheets they can easily be read in by most data analysis
-software programs like python, R, julia etc or just regular spreadsheet
+software programs like Python, R, Julia etc or just regular spreadsheet
 programs like LibreOffice or Microsoft Excel. It is not necessary to use
 FileMakerPro, Microsoft Access or similar programs.
 
@@ -48,7 +48,7 @@ Good things to keep in mind:
     -   <https://github.com/grambank/grambank/blob/v1.0.3/cldf/README.md>
 -   many CLDF-datasets are continuously released, so make sure to keep
     track of which **version** you are using
--   if you use python, make sure to check out pycldf
+-   if you use Python, make sure to check out pycldf
 -   if you use R, keep an eye out for rcldf which is in development
 -   this document is about how to navigate existing CLDF-datasets as an
     end-user, not how to make one.
@@ -361,7 +361,7 @@ column "Name", since it occurs in both the LanguageTable and ParameterTable.
 What to do instead depends on what approach you want to use. In this example, I will show a very 
 basic approach that does not make use of SQL or other relational database conventions. Instead, we 
 simply rename some of the columns in each table and then do a direct match. You can do this with
-pandas in python, dplyr in R, "manually" in spreadsheet programs etc.
+pandas in Python, dplyr in R, "manually" in spreadsheet programs etc.
 
 We need to first determine which column names occur in multiple tables with different information.
 They are: "ID" and "Name". All the other column names are unique across all tables. We will 
