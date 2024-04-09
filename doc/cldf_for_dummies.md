@@ -335,8 +335,8 @@ a column named "ID" in one table isn't directly matched to "ID" in another, sinc
 referring to quite different kinds of information. If you use SQL, there are established 
 practices for how to link information via primary and foreign keys. 
 
-If we just joined the tables directly without SQL or any other adjustments, we may get 
-problems because ID columns may be match directly. In that case, we'd get something 
+If we just joined the tables directly without SQL or any other adjustments for the key-linking,
+we may get problems because ID columns may be match directly. In that case, we'd get something 
 like this - which is wrong:
 
 |ID  | Name     | Glottocode |Concepticon_ID | Parameter_ID | Language_ID | Form   | Source  
@@ -360,9 +360,10 @@ pandas in python, dplyr in R, "manually" in spreadsheet programs etc.
 
 We need to first determine which column names occur in multiple tables with different information.
 They are: "ID" and "Name". All the other column names are unique across all tables. We will 
-rename each "ID" and "Name"-column by adding the "Language_", "Parameter_" and "Form_" in front, resp.
-Now we have matching column names in the different tables that point to the same information. "Parameter_ID" in
-the ParameterTable can be meaningfully matched to the column "Parameter_ID" in the FormTable.
+rename each "ID" and "Name"-column by adding the "Language_", "Parameter_" and "Form_" in front, 
+respectively based on the table-type. Now we have matching column names in the different 
+tables that point to the same information. "Parameter_ID" in the ParameterTable can be 
+meaningfully matched to the column "Parameter_ID" in the FormTable and so forth.
 After this renaming, we can now join the tables directly - see example output below. 
 
 | Form_ID         | Parameter_ID | Language_ID | Form   | Source        | Glottocode | Concepticon_ID | Parameter_Name| Language_name |
@@ -372,21 +373,18 @@ After this renaming, we can now join the tables directly - see example output be
 | 18-2_left-1     | 2_left       | 18          | akague | 38174         | cham1312   | 244            |left|CHamorro|
 
 
-**WARNING** Some LanguageTables contain a column (aka property) called “Language_ID”
-which is **not** the same as the ID column. For glottolog-cldf this column 
+**WARNING** Some LanguageTables contain a column called “Language_ID”
+which is **not** the same as Language_ID columns in other tables. 
+For the glottolog-cldf dataset the column Language_ID in the LanguageTable 
 contains information on the language that a dialect belongs to. For example, 
 Eastern Low Navarrese is a dialect of the language Basque. The glottocode of
 this dialect is east1470. The glottocode of the language Basque is
 basq1248. In the LanguageTable of glottolog-cldf the row of the dialect has basq1248 
 in the column "Language_ID". This helps when you might want to
-match by the language-level rather than dialect-level. This isn't standard though, 
+match by the languages rather than the dialect-level. This column isn't standard though, 
 the column Language_ID can have other specifics depending CLDF-datasets. In Grambank, 
 there  is a similar column to glottolog-cldf's "Language_ID", but it is called
-“Language_level_ID” to make it clearer what it refers to.
-
-With the above information, we can now combine the tables if we want. 
-
-
+“Language_level_ID” to make it clearer what it refers to and more unique.
 
 # Example: Structure
 
