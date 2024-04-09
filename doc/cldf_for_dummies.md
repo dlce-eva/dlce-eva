@@ -23,7 +23,8 @@ It’s plain, flat and simpler than you might think. In this document, you
 will learn the very basics on how it works.
 
 The data format was first published in 2018 [1] and has since then
-expanded to include a large amount of different data sets.
+been used in a large amount of different data sets. You can see a list of
+them [here](https://github.com/cldf-datasets/clld_meta/blob/master/cldf/contributions.csv).
 
 CLDF is well-documented. This document is a very basic intro, for more
 advanced queries go to <https://github.com/cldf/cldf/#readme> and
