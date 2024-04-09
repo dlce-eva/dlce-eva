@@ -259,7 +259,7 @@ ID column here is called “Language_ID”.
 > [!TIP]
 > Good to know: Sometimes the IDs in LanguageTable are Glottocodes or ISO
 > 639-3 codes, but they don’t have to be. They just have to be unique
-> within that dataset. In Grambank, the ID’s are Glottocodes, but WALS has
+> within that dataset. In Grambank, the IDs are Glottocodes, but WALS has
 > its own specific unique code-system different from both Glottocodes and
 > ISO 639-3. If you want Glottocodes, go look for a column called
 > Glottocode in the LanguageTable - don’t use the ID column.
