@@ -225,12 +225,12 @@ what property in the CLDF-universe. For example, there is the property
 <http://cldf.clld.org/v1.0/terms.rdf#source> and often is mapped onto a
 column called "Source". However, if one CLDF-creator wanted to name this
 column "Reference" instead, that's all well and good. The
-json-metadata-file would tell the users what column "Reference"
+JSON metadata-file would tell the users that the column "Reference"
 corresponds to the standardised property "source" and point to the
 property-url. As with filenames of tables, you can often get by with
 assuming that bibliographic references are in a column called "Source"
 and the LanguageTable is in languages.csv --- but this needn't always be
-true! All glory to the json-metadata file.
+true! Studying the JSON meta-data file is often worthwhile.
 
 # Example: Wordlist
 
@@ -350,8 +350,23 @@ referring to quite different kinds of information. If you use SQL, there are est
 practices for how to link information via primary and foreign keys. 
 
 If we just joined the tables directly without SQL or any other adjustments for the key-linking and without
-specifying what columns we are joining by, we may get problems because ID columns may be match directly. 
-In that case, we'd get something like this - which is wrong:
+specifying what columns we are joining by, we may get problems. In pandas in python, the default behaviour 
+is that duplicate columns get disambiguated by adding ".1" etc to each. In that case, we would get something 
+like this - which is wrong:
+
+|	ID.1	|	Name.1	|	Glottocode	|	ID.2	|	Name.2	|	Concepticon_ID	|	ID.3	|	Parameter_ID	|	Language_ID	|	Form	|	Source	|
+|-----|----------|------------|------------|------------|------------|------------|------------|------------|------------|------------|
+|	15	|	Bintulu	|	bint1246	|		|		|		|		|		|		|		|		|
+|	18	|	CHamorro	|	cham1312	|		|		|		|		|		|		|		|		|
+|		|		|		|	144_toburn	|	to burn	|	2102	|		|		|		|		|		|
+|		|		|		|	2_left	|	left	|	244	|		|		|		|		|		|
+|		|		|		|		|		|		|	15-144_toburn-1	|	144_toburn	|	15	|	pegew	|	Blust-15-2005	|
+|		|		|		|		|		|		|	15-144_toburn-2	|	144_toburn	|	15	|	tinew	|	Blust-15-2005	|
+|		|		|		|		|		|		|	18-2_left-1	|	2_left	|	18	|	akague	|	38174	|
+
+In dplyr in R the default behaviour of join-functions is to join by all columns possible 
+(unless specific columns to join by are spelled out). In that case, we'd get something like this 
+- which is also wrong:
 
 |ID  | Name     | Glottocode |Concepticon_ID | Parameter_ID | Language_ID | Form   | Source  
 |-----|----------|------------|------------|------------|------------|------------|------------|
