@@ -369,7 +369,7 @@ In dplyr in R the default behaviour of join-functions is to join by all columns 
 (unless specific columns to join by are spelled out). In that case, we'd get something like this 
 - which is also wrong:
 
-|ID  | Name     | Glottocode |Concepticon_ID | Parameter_ID | Language_ID | Form   | Source  
+| ID  | Name     | Glottocode |Concepticon_ID | Parameter_ID | Language_ID | Form   | Source  
 |-----|----------|------------|------------|------------|------------|------------|------------|
 | 15  | Bintulu  | bint1246   ||
 | 18  | CHamorro | cham1312   ||
@@ -378,6 +378,7 @@ In dplyr in R the default behaviour of join-functions is to join by all columns 
 | 15-144_toburn-1 |||| 144_toburn   | 15          | pegew  | Blust-15-2005 |
 | 15-144_toburn-2 | |||144_toburn   | 15          | tinew  | Blust-15-2005 |
 | 18-2_left-1     |||| 2_left       | 18          | akague | 38174         |
+
 
 In the table above, all the rows in the ID column are just stacked on top of each other. The ID column in
 the LanguageTable is matched directly to the ID in the ParameterTable, and so on. The same is true with the
