@@ -352,23 +352,11 @@ referring to quite different kinds of information. If you use SQL, there are est
 practices for how to link information via primary and foreign keys. 
 
 If we just joined directly without SQL or any other adjustments for the key-linking and without
-specifying what columns we are joining by, we may get problems. In pandas in python, the default behaviour 
-is that duplicate columns get disambiguated by adding ".0" etc to each. In that case, we would get something 
-like this - which is wrong:
+specifying what columns we are joining by, we may get problems. 
 
-|	ID.0	|	Name.0	|	Glottocode	|	ID.1	|	Name.1	|	Concepticon_ID	|	ID.2	|	Parameter_ID	|	Language_ID	|	Form	|	Source	|
-|-----|----------|------------|------------|------------|------------|------------|------------|------------|------------|------------|
-|	15	|	Bintulu	|	bint1246	|		|		|		|		|		|		|		|		|
-|	18	|	CHamorro	|	cham1312	|		|		|		|		|		|		|		|		|
-|		|		|		|	144_toburn	|	to burn	|	2102	|		|		|		|		|		|
-|		|		|		|	2_left	|	left	|	244	|		|		|		|		|		|
-|		|		|		|		|		|		|	15-144_toburn-1	|	144_toburn	|	15	|	pegew	|	Blust-15-2005	|
-|		|		|		|		|		|		|	15-144_toburn-2	|	144_toburn	|	15	|	tinew	|	Blust-15-2005	|
-|		|		|		|		|		|		|	18-2_left-1	|	2_left	|	18	|	akague	|	38174	|
-
-In dplyr in R the default behaviour of join-functions is to join by all columns possible 
+In dplyr in R and pandas in python, the default behaviour of join-functions is to join by all columns possible 
 (unless specific columns to join by are spelled out). In that case, we'd get something like 
-this - which is also wrong:
+this - which is not what we want:
 
 | ID  | Name     | Glottocode |Concepticon_ID | Parameter_ID | Language_ID | Form   | Source  
 |-----|----------|------------|------------|------------|------------|------------|------------|
@@ -379,7 +367,6 @@ this - which is also wrong:
 | 15-144_toburn-1 |||| 144_toburn   | 15          | pegew  | Blust-15-2005 |
 | 15-144_toburn-2 | |||144_toburn   | 15          | tinew  | Blust-15-2005 |
 | 18-2_left-1     |||| 2_left       | 18          | akague | 38174         |
-
 
 In the table above, all the rows in the ID column are just stacked on top of each other. The ID column in
 the LanguageTable is matched directly to the ID in the ParameterTable, and so on. The same is true with the
