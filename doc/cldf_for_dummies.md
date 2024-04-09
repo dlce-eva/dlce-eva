@@ -294,7 +294,8 @@ column ID in the LanguageTable.
 | 15-144_toburn-2 | 144_toburn   | 15          | tinew  | Blust-15-2005 |
 | 18-2_left-1     | 2_left       | 18          | akague | 38174         |
 
-The ID column here is a combination of the Language_ID, Parameter_ID and
+In this example, and in several other WordList datasets (but not all),  
+the ID column is in fact a combination of the Language_ID, Parameter_ID and
 last a number to distinguish if there are more than one form. For
 example, because Bintulu has two words for “to burn”, there are two rows
 with different Forms but the same Parameter_ID (they both mean “to
