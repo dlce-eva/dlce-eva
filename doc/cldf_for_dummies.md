@@ -354,7 +354,7 @@ specifying what columns we are joining by, we may get problems. In pandas in pyt
 is that duplicate columns get disambiguated by adding ".1" etc to each. In that case, we would get something 
 like this - which is wrong:
 
-|	ID.1	|	Name.1	|	Glottocode	|	ID.2	|	Name.2	|	Concepticon_ID	|	ID.3	|	Parameter_ID	|	Language_ID	|	Form	|	Source	|
+|	ID.0	|	Name.0	|	Glottocode	|	ID.1	|	Name.1	|	Concepticon_ID	|	ID.2	|	Parameter_ID	|	Language_ID	|	Form	|	Source	|
 |-----|----------|------------|------------|------------|------------|------------|------------|------------|------------|------------|
 |	15	|	Bintulu	|	bint1246	|		|		|		|		|		|		|		|		|
 |	18	|	CHamorro	|	cham1312	|		|		|		|		|		|		|		|		|
