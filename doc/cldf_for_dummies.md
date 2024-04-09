@@ -61,6 +61,12 @@ Good things to keep in mind:
     -   <https://github.com/cldf/cldf/#readme>
     -   <https://cldf.clld.org/>
 
+## Dictionary
+In CLDF, there are some specific terms that are good to know about.
+
+property = column in a table
+component = table which conforms to specific CLDF-rules
+
 ## How to know if you’re dealing with a CLDF-dataset
 
 You are dealing with a CLDF-data set if there is a file ending with the
@@ -310,16 +316,61 @@ FormTable above.
 
 ## example: Wordlist - linking together
 
-Each of the tables has a column called “ID”. This column allows us to
-link the tables together. The column “Language_ID” in the FormTable maps
-onto the column “ID” in the LanguageTable, and so on.
+The information in the different tables are linked to each other via what is called
+primary and foreign keys. The primary key in a table is found in the column ID and 
+uniquely identifies each row. In a FormTable, it identifies each form, in a ParameterTable, 
+each parameter and so on. There are also foreign keys, these are links to rows in other tables. 
+For example, in the FormTable in our example there is a column called "Parameter_ID", which
+is linking the information it rows in the ParameterTable. Generally, most CLDF-dataset tables 
+follow the naming column convention "ID in FormTable = Form_ID in other tables".
 
--   Langugage_ID -\> ID column in LanguageTable
--   Parameter_ID -\> ID column in ParameterTable
--   Form_ID -\> ID column in FormTable.
+-   Langugage_ID in other tables -\> ID column in LanguageTable
+-   Parameter_ID in other tables -\> ID column in ParameterTable
+-   Form_ID  in other tables -\> ID column in FormTable
+-   etc.
 
-There is no column “Form_ID” inside the FormTable, it’s just called ID
-there. Same with Parameter_ID and the ParameterTable and so on.
+These primary and foreign keys make it easy to combine information from many different tables.
+You can do this combining in several different ways. It is necessary to take care such that
+a column named "ID" in one table isn't directly matched to "ID" in another, since they are 
+referring to quite different kinds of information. If you use SQL, there are established 
+practices for how to link information via primary and foreign keys. 
+
+If we just joined the tables directly without SQL or any other adjustments, we may get 
+problems because ID columns may be match directly. In that case, we'd get something 
+like this - which is wrong:
+
+|ID  | Name     | Glottocode |Concepticon_ID | Parameter_ID | Language_ID | Form   | Source  
+|-----|----------|------------|------------|------------|------------|------------|------------|
+| 15  | Bintulu  | bint1246   ||
+| 18  | CHamorro | cham1312   ||
+| 144_toburn | to burn || 2102           |
+| 2_left     | left    | |244            |
+| 15-144_toburn-1 |||| 144_toburn   | 15          | pegew  | Blust-15-2005 |
+| 15-144_toburn-2 | |||144_toburn   | 15          | tinew  | Blust-15-2005 |
+| 18-2_left-1     |||| 2_left       | 18          | akague | 38174         |
+
+In the table above, all the rows in the ID column are just stacked on top of each other. The ID column in
+the LanguageTable is matched directly to the ID in the ParameterTable, and so on. The same is true with the
+column "Name", since it occurs in both the LanguageTable and ParameterTable.
+
+What to do instead depends on what approach you want to use. In this example, I will show a very 
+basic approach that does not make use of SQL or other relational database conventions. Instead, we 
+simply rename some of the columns in each table and then do a direct match. You can do this with
+pandas in python, dplyr in R, "manually" in spreadsheet programs etc.
+
+We need to first determine which column names occur in multiple tables with different information.
+They are: "ID" and "Name". All the other column names are unique across all tables. We will 
+rename each "ID" and "Name"-column by adding the "Language_", "Parameter_" and "Form_" in front, resp.
+Now we have matching column names in the different tables that point to the same information. "Parameter_ID" in
+the ParameterTable can be meaningfully matched to the column "Parameter_ID" in the FormTable.
+After this renaming, we can now join the tables directly - see example output below. 
+
+| Form_ID         | Parameter_ID | Language_ID | Form   | Source        | Glottocode | Concepticon_ID | Parameter_Name| Language_name |
+|-----------|-----------|-----------|-----------|-----------|-----------|-----------|----------|----------|----------|
+| 15-144_toburn-1 | 144_toburn   | 15          | pegew  | Blust-15-2005 | bint1246   | 2102           |to burn |Bintulu|
+| 15-144_toburn-2 | 144_toburn   | 15          | tinew  | Blust-15-2005 | bint1246   | 2102           |to burn |Bintulu|
+| 18-2_left-1     | 2_left       | 18          | akague | 38174         | cham1312   | 244            |left|CHamorro|
+
 
 **WARNING** Some LanguageTables contain a column (aka property) called “Language_ID”
 which is **not** the same as the ID column. For glottolog-cldf this column 
@@ -333,29 +384,9 @@ the column Language_ID can have other specifics depending CLDF-datasets. In Gram
 there  is a similar column to glottolog-cldf's "Language_ID", but it is called
 “Language_level_ID” to make it clearer what it refers to.
 
-With the above information, we can now combine the tables if we want. If 
-we're not using SQL, we may want to rename some columns so that we don't 
-have problematic matches. For example, there may be a "Name" column in 
-multiple of the tables that actually map to different information (name 
-of a language, name of a parameter etc). SQL can deal with this, but if 
-we're using something else like a spreadsheet program, pandas in python, 
-dplyr in R etc. we may want to make sure that we're matching the right things 
-by renaming some columns. For example, we can rename the ID column in each of 
-the tables to “Language_ID”, “Parameter_ID” and “Form_ID” and then join 
-them together into one new table. In the example below, not all columns 
-are shown due to space. 
+With the above information, we can now combine the tables if we want. 
 
-Nota Bene that both ParameterTable and LanguageTable contains
-the column “Name”, so they would have to be dropped or otherwise handled
-(for example renamed to “Parameter_name” and “Language_name”)
-the joining would not work correctly (outside of SQL). The columns called ID in each
-table were renamed before joining in this example.
 
-| Form_ID         | Parameter_ID | Language_ID | Form   | Source        | Glottocode | Concepticon_ID |
-|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| 15-144_toburn-1 | 144_toburn   | 15          | pegew  | Blust-15-2005 | bint1246   | 2102           |
-| 15-144_toburn-2 | 144_toburn   | 15          | tinew  | Blust-15-2005 | bint1246   | 2102           |
-| 18-2_left-1     | 2_left       | 18          | akague | 38174         | cham1312   | 244            |
 
 # Example: Structure
 
