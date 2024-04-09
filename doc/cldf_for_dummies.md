@@ -331,7 +331,8 @@ FormTable above.
 
 ## example: Wordlist - linking together
 
-The information in the different tables are linked to each other via what is called
+Now let's turn to joining information from multiple tables into one. The 
+information in the different tables are linked to each other via what is called
 primary and foreign keys. The primary key in a table is found in the column ID and 
 uniquely identifies each row. In a FormTable, it identifies each form, in a ParameterTable, 
 each parameter and so on. There are also foreign keys, these are links to rows in other tables. 
@@ -350,7 +351,7 @@ a column named "ID" in one table isn't directly matched to "ID" in another, sinc
 referring to quite different kinds of information. If you use SQL, there are established 
 practices for how to link information via primary and foreign keys. 
 
-If we just joined the tables directly without SQL or any other adjustments for the key-linking and without
+If we just joined directly without SQL or any other adjustments for the key-linking and without
 specifying what columns we are joining by, we may get problems. In pandas in python, the default behaviour 
 is that duplicate columns get disambiguated by adding ".0" etc to each. In that case, we would get something 
 like this - which is wrong:
