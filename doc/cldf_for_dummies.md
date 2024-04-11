@@ -382,8 +382,9 @@ specify what columns to join over and we specified `ID` and `Name`.
 
 What to do instead depends on what approach you want to use. In this example, I will show a very 
 basic approach that does not make use of SQL or other relational database conventions. Instead, we 
-simply rename some of the columns in each table and then do a direct match. You can do this with
-pandas in Python, dplyr in R, "manually" in spreadsheet programs etc.
+simply rename some of the columns in each table and then do a direct match. When we do the match after
+the renaming we could rely on dplyr or pandas finding the right columns automatically, but the best thing would still 
+be to write out the by-arguments explicitly.
 
 We need to first determine which column names occur in multiple tables with different information.
 They are: "ID" and "Name". All the other column names are unique across all tables. We will 
@@ -395,13 +396,48 @@ What we have effectively done is rename the primary keys in each table to match 
 other tables which are linking to that primary key. The primary key `ID` in the ParameterTable gets
 the same name as the foreign key `Parameter_ID` in the FormTable which is referring to it.
 
-After this renaming, we can now join the tables directly - see example output below. 
+`R` code example with base R pipes (`|>`)
 
-| Form_ID         | Parameter_ID | Language_ID | Form      | Source        | Glottocode | Concepticon_ID | Parameter_Name | Language_name |
+```
+library(dplyr)
+
+LanguageTable <- LanguageTable |>
+    dplyr::rename(Language_ID = ID, Language_name = Name)
+
+ParameterTable <- ParameterTable |>
+    dplyr::rename(Parameter_ID = ID, Parameter_name = Name)
+
+FormTable <- FormTable |>
+    dplyr::rename(Form_ID = ID)
+```
+
+After this renaming, we can now join the tables directly. Remmeber, it is still desirable to spell out the join by-argument explicitly. 
+
+```
+JoinedTable <- FormTable |>
+    dplyr::full_join(ParameterTable, by = "Parameter_ID") |>
+    dplyr::full_join(LanguageTable, by = "Language_ID")
+
+```
+
+| Form_ID         | Parameter_ID | Language_ID | Form      | Source        | Glottocode | Concepticon_ID | Parameter_name | Language_name |
 |-----------      |-----------   |-----------  |-----------|-----------    |----------- |-----------     |----------      |----------|
 | 15-144_toburn-1 | 144_toburn   | 15          | pegew     | Blust-15-2005 | bint1246   | 2102           |to burn          |Bintulu|
 | 15-144_toburn-2 | 144_toburn   | 15          | tinew     | Blust-15-2005 | bint1246   | 2102           |to burn         |Bintulu|
 | 18-2_left-1     | 2_left       | 18          | akague    | 38174         | cham1312   | 244            |left          |CHamorro|
+
+
+[dplyr also offers the functionality of joining based on columns that have different names in the two data-frames](https://www.r-bloggers.com/2022/06/how-to-join-data-frames-for-different-column-names-in-r/).
+In that case, we do not need to rename as we did earlier but can just join directly. The name of the column in the resulting table
+will be the name of column in first dataframe, the left-side of the join.
+
+```
+library(dplyr)
+
+JoinedTable <- FormTable |>
+    dplyr::full_join(ParameterTable, by = c("Parameter_ID" = "ID")) |>
+    dplyr::full_join(LanguageTable, by = c("Language_ID" = "ID"))
+```
 
 
 > [!CAUTION]
