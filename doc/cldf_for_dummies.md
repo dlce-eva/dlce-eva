@@ -354,8 +354,15 @@ practices for how to link information via primary and foreign keys.
 If we just joined directly without SQL or any other adjustments for the key-linking and without
 specifying what columns we are joining by, we may get problems. 
 
-For joining in dplyr in R (`join_*`) and pandas in python (`merge`), the default behaviour is to join by all columns possible 
-(unless specific columns to join by are spelled out). In that case, we'd get something like 
+When joining information from two tables in dplyr in R (e.g. `*_join`) or pandas in python (`merge`), 
+the default behaviour is to join by all columns that share the same name. This can 
+cause problems, and therefore it is generally **strongly** encouraged to specify explicitly 
+what columns should be used for the joining (for dplyr::*_join functions, the optional argument 
+`by` should be specified, for pandas the relevant optional argument is called `on`).
+
+If we do not specify which columns to join by, the functions will in this example use the columns `ID`
+and `Name` to combine the information since these are shared across the different tables. If we 
+do that and use `dplyr::full_join()` or pandas `merge(how="outer")` we would get something like 
 this - which is not what we want:
 
 | ID  | Name     | Glottocode |Concepticon_ID | Parameter_ID | Language_ID | Form   | Source  
@@ -370,7 +377,8 @@ this - which is not what we want:
 
 In the table above, all the rows in the ID column are just stacked on top of each other. The ID column in
 the LanguageTable is matched directly to the ID in the ParameterTable, and so on. The same is true with the
-column "Name", since it occurs in both the LanguageTable and ParameterTable.
+column "Name", since it occurs in both the LanguageTable and ParameterTable. This would also occur if we did 
+specify what columns to join over and we specified `ID` and `Name`.
 
 What to do instead depends on what approach you want to use. In this example, I will show a very 
 basic approach that does not make use of SQL or other relational database conventions. Instead, we 
@@ -383,6 +391,10 @@ rename each "ID" and "Name"-column by adding the "Language_", "Parameter_" and "
 respectively based on the table-type. Now we have matching column names in the different 
 tables that point to the same information. "Parameter_ID" in the ParameterTable can be 
 meaningfully matched to the column "Parameter_ID" in the FormTable and so forth.
+What we have effectively done is rename the primary keys in each table to match the name of the foreign keys in
+other tables which are linking to that primary key. The primary key `ID` in the ParameterTable gets
+the same name as the foreign key `Parameter_ID` in the FormTable which is referring to it.
+
 After this renaming, we can now join the tables directly - see example output below. 
 
 | Form_ID         | Parameter_ID | Language_ID | Form      | Source        | Glottocode | Concepticon_ID | Parameter_Name | Language_name |
