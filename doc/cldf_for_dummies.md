@@ -67,7 +67,7 @@ Good things to keep in mind:
 In CLDF, there are some specific terms that are good to know about.
 
 - **property**: column in a table. The property `languageReference` is often realised in a column called `Language_ID`. All CLDF properties are listed in the [CLDF ontology](https://cldf.clld.org/v1.0/terms.html).
--- **component**: table which conforms to specific CLDF-rules. The component "LanguageTable" is often found in a file called "languages.csv". All CLDF components (including their default metadata) are listed at https://github.com/cldf/cldf/tree/master/components
+- **component**: table which conforms to specific CLDF-rules. The component "LanguageTable" is often found in a file called "languages.csv". All CLDF components (including their default metadata) are listed at https://github.com/cldf/cldf/tree/master/components
 
 ## How to know if you’re dealing with a CLDF-dataset
 
