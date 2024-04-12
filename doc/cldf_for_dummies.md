@@ -34,7 +34,7 @@ advanced queries go to <https://github.com/cldf/cldf/#readme> and
 
 Good things to keep in mind:
 
--   one of the best way to learn how CLDF works is to poke around in an
+-   the best way to learn how CLDF looks like is to poke around in an
     existing dataset. Open the files, check what’s in there, form
     assumptions and then check if the assumptions are always true. Below
     are two recommended starter-datasets:
@@ -42,7 +42,7 @@ Good things to keep in mind:
         <https://github.com/lexibank/northeuralex/tree/v4.0/cldf>
     -   Structure: Grambank v1.0.3
         <https://github.com/grambank/grambank/tree/v1.0.3/cldf>
--   another one of the best ways to learn how CLDF works it to read the
+-   another way to inspect CLDF datasets is to read the
     spec for the dataset. They are the ones that'll tell you what the
     columns really are etc.
     -   <https://github.com/lexibank/northeuralex/blob/v4.0/cldf/README.md>
@@ -59,14 +59,15 @@ Good things to keep in mind:
 -   there already exists a lot of documentation on how CLDF works, this
     document is not meant to be exhaustive but just a gentle entry to
     get you going. For more, see:
-    -   <https://github.com/cldf/cldf/#readme>
-    -   <https://cldf.clld.org/>
+    -   [the CLDF specification](https://github.com/cldf/cldf/#readme)
+    -   [the CLDF website](https://cldf.clld.org/)
+
 
 ## Dictionary
 In CLDF, there are some specific terms that are good to know about.
 
-property = column in a table. The property `languageReference` is often realised in a column called `Language_ID`
-component = table which conforms to specific CLDF-rules. The component "LanguageTable" is often found in a file called "languages.csv"
+- **property**: column in a table. The property `languageReference` is often realised in a column called `Language_ID`. All CLDF properties are listed in the [CLDF ontology](https://cldf.clld.org/v1.0/terms.html).
+-- **component**: table which conforms to specific CLDF-rules. The component "LanguageTable" is often found in a file called "languages.csv". All CLDF components (including their default metadata) are listed at https://github.com/cldf/cldf/tree/master/components
 
 ## How to know if you’re dealing with a CLDF-dataset
 
@@ -106,7 +107,7 @@ may have encountered:
 
 ### Types of CLDF-datasets
 
-There are five types of CLDF-datasets. They are also known as “modules”.
+There are five types of CLDF-datasets. They are also known as [“modules”](https://github.com/cldf/cldf/tree/master/modules).
 
 -   Wordlist (lexicon, has Forms and often Cognates)
 -   Structure dataset (grammar or other types of information with one
@@ -139,7 +140,7 @@ so in the meta-data JSON-file.
 
 There are some tables that occur in most CLDF-datasets, and some that
 occur only in certain types. For example, there is no table with word
-forms for Structure data sets - that’s for wordlists and Dictionaries.
+forms for StructureDatasets - that’s for Wordlists and Dictionaries.
 
 The tables have specific names in the CLDF-world and have pre-defined
 specifics. The names are different from their filenames. You can see
@@ -169,15 +170,13 @@ always bank on LanguageTable being in languages.csv**. SQl, `pycldf` and
 where and set all that up.
 
 Each type of table contains columns which conform to [CLDF-rules
-](https://cldf.clld.org/v1.0/terms.html). For example, FormTables need 
+](https://cldf.clld.org/v1.0/terms.html), i.e. properties. For example, FormTables need 
 to have columns for the properties “id”, “form” and “Language_ID” and they in turn 
 need to look a certain way.
 
 Tables can have more columns than the minimal requirement and can have
-columns that don’t map onto CLDF-standards at all.
+columns that don’t map onto CLDF properties at all.
 
-For more specifics, see the terms of CLDF v1.0
-<https://cldf.clld.org/v1.0/terms.html>.
 
 #### Tables in most CLDF-dataset
 
@@ -255,7 +254,7 @@ ID column here is called “Language_ID”.
 | ID  | Name     | Glottocode |
 |-----|----------|------------|
 | 15  | Bintulu  | bint1246   |
-| 18  | CHamorro | cham1312   |
+| 18  | Chamorro | cham1312   |
 
 > [!TIP]
 > Good to know: Sometimes the IDs in LanguageTable are Glottocodes or ISO
@@ -346,113 +345,45 @@ follow the naming column convention "ID in FormTable = Form_ID in other tables".
 -   etc.
 
 These primary and foreign keys make it easy to combine information from many different tables.
-You can do this combining in several different ways. It is necessary to take care such that
-a column named "ID" in one table isn't directly matched to "ID" in another, since they are 
-referring to quite different kinds of information. If you use SQL, there are established 
-practices for how to link information via primary and foreign keys. 
 
-If we just joined directly without SQL or any other adjustments for the key-linking and without
-specifying what columns we are joining by, we may get problems. 
+As an example, let's list all word forms in our Wordlist with the name of the language they belong to.
+This requires adding information from LanguageTable for each row in FormTable - we [*join*](https://swcarpentry.github.io/sql-novice-survey/07-join.html) the
+information from two tables to create a new table.
 
-When joining information from two tables in dplyr in R (e.g. `*_join`) or pandas in python (`merge`), 
-the default behaviour is to join by all columns that share the same name. This can 
-cause problems, and therefore it is generally **strongly** encouraged to specify explicitly 
-what columns should be used for the joining (for dplyr::*_join functions, the optional argument 
-`by` should be specified, for pandas the relevant optional argument is called `on`).
+We can do this for example in R, using one of [dplyr's `*_join` functions](https://www.rdocumentation.org/packages/dplyr/versions/0.7.8/topics/join). Since we want to create a joined table with one row for each
+row in FormTable, we'll use `left_join` and pass FormTable as first table and LanguageTable as second table. As explained above, the foreign key `Language_ID` in FormTable references the corresponding row in LanguageTable that has information about the language a form belongs to. Thus, for each row in FormTable, we join
+information from the row in LanguageTable with `ID` matching the `Language_ID` in FormTable. This
+translates to the following code in R (with base R pipes (`|>`)):
 
-If we do not specify which columns to join by, the functions will in this example use the columns `ID`
-and `Name` to combine the information since these are shared across the different tables. If we 
-do that and use `dplyr::full_join()` or pandas `merge(how="outer")` we would get something like 
-this - which is not what we want:
-
-| ID  | Name     | Glottocode |Concepticon_ID | Parameter_ID | Language_ID | Form   | Source  
-|-----|----------|------------|------------|------------|------------|------------|------------|
-| 15  | Bintulu  | bint1246   ||
-| 18  | CHamorro | cham1312   ||
-| 144_toburn | to burn || 2102           |
-| 2_left     | left    | |244            |
-| 15-144_toburn-1 |||| 144_toburn   | 15          | pegew  | Blust-15-2005 |
-| 15-144_toburn-2 | |||144_toburn   | 15          | tinew  | Blust-15-2005 |
-| 18-2_left-1     |||| 2_left       | 18          | akague | 38174         |
-
-In the table above, all the rows in the ID column are just stacked on top of each other. The ID column in
-the LanguageTable is matched directly to the ID in the ParameterTable, and so on. The same is true with the
-column "Name", since it occurs in both the LanguageTable and ParameterTable. This would also occur if we did 
-specify what columns to join over and we specified `ID` and `Name`.
-
-What to do instead depends on what approach you want to use. In this example, I will show a very 
-basic approach that does not make use of SQL or other relational database conventions. Instead, we 
-simply rename some of the columns in each table and then do a direct match. When we do the match after
-the renaming we could rely on dplyr or pandas finding the right columns automatically, but the best thing would still 
-be to write out the by-arguments explicitly.
-
-We need to first determine which column names occur in multiple tables with different information.
-They are: "ID" and "Name". All the other column names are unique across all tables. We will 
-rename each "ID" and "Name"-column by adding the "Language_", "Parameter_" and "Form_" in front, 
-respectively based on the table-type. Now we have matching column names in the different 
-tables that point to the same information. "Parameter_ID" in the ParameterTable can be 
-meaningfully matched to the column "Parameter_ID" in the FormTable and so forth.
-What we have effectively done is rename the primary keys in each table to match the name of the foreign keys in
-other tables which are linking to that primary key. The primary key `ID` in the ParameterTable gets
-the same name as the foreign key `Parameter_ID` in the FormTable which is referring to it.
-
-`R` code example with base R pipes (`|>`)
-
-```
-library(dplyr)
-
-LanguageTable <- LanguageTable |>
-    dplyr::rename(Language_ID = ID, Language_name = Name)
-
-ParameterTable <- ParameterTable |>
-    dplyr::rename(Parameter_ID = ID, Parameter_name = Name)
-
-FormTable <- FormTable |>
-    dplyr::rename(Form_ID = ID)
-```
-
-After this renaming, we can now join the tables directly. Remmeber, it is still desirable to spell out the join by-argument explicitly. 
-
-```
-JoinedTable <- FormTable |>
-    dplyr::full_join(ParameterTable, by = "Parameter_ID") |>
-    dplyr::full_join(LanguageTable, by = "Language_ID")
-
-```
-
-| Form_ID         | Parameter_ID | Language_ID | Form      | Source        | Glottocode | Concepticon_ID | Parameter_name | Language_name |
-|-----------      |-----------   |-----------  |-----------|-----------    |----------- |-----------     |----------      |----------|
-| 15-144_toburn-1 | 144_toburn   | 15          | pegew     | Blust-15-2005 | bint1246   | 2102           |to burn          |Bintulu|
-| 15-144_toburn-2 | 144_toburn   | 15          | tinew     | Blust-15-2005 | bint1246   | 2102           |to burn         |Bintulu|
-| 18-2_left-1     | 2_left       | 18          | akague    | 38174         | cham1312   | 244            |left          |CHamorro|
-
-
-[dplyr also offers the functionality of joining based on columns that have different names in the two data-frames](https://www.r-bloggers.com/2022/06/how-to-join-data-frames-for-different-column-names-in-r/).
-In that case, we do not need to rename as we did earlier but can just join directly. The name of the column in the resulting table
-will be the name of column in first dataframe, the left-side of the join.
-
-```
+```R
 library(dplyr)
 
 JoinedTable <- FormTable |>
-    dplyr::full_join(ParameterTable, by = c("Parameter_ID" = "ID")) |>
-    dplyr::full_join(LanguageTable, by = c("Language_ID" = "ID"))
+    dplyr::left_join(LanguageTable, by = c("Language_ID" = "ID"))
 ```
+
+and the resulting table will look as follows:
+
+| ID         | Parameter_ID | Language_ID | Form      | Source        | Glottocode | Name |
+|----------- |-----------   |------------ |---------- |-----------    |----------- |----- |
+| 15-144_toburn-1 | 144_toburn   | 15     | pegew     | Blust-15-2005 | bint1246   | Bintulu|
+| 15-144_toburn-2 | 144_toburn   | 15     | tinew     | Blust-15-2005 | bint1246   | Bintulu|
+| 18-2_left-1     | 2_left       | 18     | akague    | 38174         | cham1312   | Chamorro|
+
 
 
 > [!CAUTION]
-> Some LanguageTables contain a column called “Language_ID”
-> which is **not** the same as Language_ID columns in other tables. 
+> Sometimes a LanguageTable contains a column called “Language_ID”, i.e. a key referencing
+> another row in the same table. This is called a "self-referential foreign key".
 > For the glottolog-cldf dataset the column Language_ID in the LanguageTable 
 > contains information on the language that a dialect belongs to. For example, 
 > Eastern Low Navarrese is a dialect of the language Basque. The glottocode of
 > this dialect is east1470. The glottocode of the language Basque is
 > basq1248. In the LanguageTable of glottolog-cldf the row of the dialect has basq1248 
 > in the column "Language_ID". This helps when you might want to
-> match by the languages rather than the dialect-level. This column isn't standard though, 
-> the column Language_ID can have other specifics depending CLDF-datasets. In Grambank, 
+> match by the languages rather than the dialect-level. In Grambank, 
 > there  is a similar column to glottolog-cldf's "Language_ID", but it is called
-> “Language_level_ID” to make it clearer what it refers to and more unique.
+> “Language_level_ID” to make the nature of the relation clearer.
 
 # Example: Structure
 
@@ -470,9 +401,10 @@ interfaces smoothly with clld web applications.
 ## Advanced
 
 This document is only a very basic intro. If you want to learn more, go
-to: - [CLDF-documentation]{<https://github.com/cldf/cldf/#readme>} -
-[CLDF-tutorials]{<https://github.com/cldf/cookbook/tree/master#readme>} -
-[CLDF-website]{<https://cldf.clld.org/>}
+to: 
+- [the CLDF specification](https://github.com/cldf/cldf/#readme)
+- [the CLDF cookbook](https://github.com/cldf/cookbook/tree/master#readme)
+- [the CLDF website](https://cldf.clld.org/)
 
 ## References
 
