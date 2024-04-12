@@ -353,13 +353,12 @@ information from two tables to create a new table.
 We can do this for example in R, using one of [dplyr's `*_join` functions](https://www.rdocumentation.org/packages/dplyr/versions/0.7.8/topics/join). Since we want to create a joined table with one row for each
 row in FormTable, we'll use `left_join` and pass FormTable as first table and LanguageTable as second table. As explained above, the foreign key `Language_ID` in FormTable references the corresponding row in LanguageTable that has information about the language a form belongs to. Thus, for each row in FormTable, we join
 information from the row in LanguageTable with `ID` matching the `Language_ID` in FormTable. This
-translates to the following code in R (with base R pipes (`|>`)):
+translates to the following code in R:
 
 ```R
 library(dplyr)
 
-JoinedTable <- FormTable |>
-    dplyr::left_join(LanguageTable, by = c("Language_ID" = "ID"))
+JoinedTable <- dplyr::left_join(FormTable, LanguageTable, by = c("Language_ID" = "ID"))
 ```
 
 and the resulting table will look as follows:
