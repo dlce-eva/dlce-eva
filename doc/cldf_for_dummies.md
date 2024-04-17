@@ -1,6 +1,6 @@
 CLDF for dummies
 ================
-Hedvig Skirgård, Johannes Englisch and Robert Forkel
+Hedvig Skirgård, Christoph Rzymski and Robert Forkel
 2023-11-30
 
 # CLDF for dummies
