@@ -239,12 +239,12 @@ Now let's turn to joining information from multiple tables into one. The  inform
 These primary and foreign keys make it easy to combine information from many different tables.
 
 > [!TIP]
-> Good to know: primary and foreign key are a general infrastructure in relational databases. They can be tracked by different strings, as in the case of CLD (`Language_ID`and ÌD`), but they can also be identical ([example](https://nceas.github.io/sasap-training/materials/reproducible_research_in_r_fairbanks/data-modeling-tidy-data.html#primary-and-foreign-keys)). Meta-data like the JSON-file informs us which is which and what is linked to what.
+> Good to know: primary and foreign key are a general infrastructure in relational databases, i.e. also outside of CLDF. They can be tracked by different strings depending on wether they are primary or foreign, as in the case of CLDF (`Language_ID`and ÌD`), but they can also have identical labels ([example](https://nceas.github.io/sasap-training/materials/reproducible_research_in_r_fairbanks/data-modeling-tidy-data.html#primary-and-foreign-keys)). Meta-data, like the JSON-file, informs us which is which and what is linked to what.
 
 > [!CAUTION]
 > Primary and foreign keys are not the same as keys in dictionaries in python.
 
-As an example, let's list all word forms in our Wordlist with the name of the language they belong to. This requires adding information from LanguageTable for each row in FormTable - we [*join*](https://swcarpentry.github.io/sql-novice-survey/07-join.html) the information from two tables to create a new table.
+Let's list all word forms in our Wordlist with the name of the language they belong to. This requires adding information from LanguageTable for each row in FormTable - we [*join*](https://swcarpentry.github.io/sql-novice-survey/07-join.html) the information from two tables to create a new table.
 
 We can do this for example in R, using one of [dplyr's `*_join` functions](https://www.rdocumentation.org/packages/dplyr/versions/0.7.8/topics/join). Since we want to create a joined table with one row for each row in FormTable, we'll use `left_join` and pass FormTable as first table and LanguageTable as second table. As explained above, the foreign key `Language_ID` in FormTable references the corresponding row in LanguageTable that has information about the language a form belongs to. Thus, for each row in FormTable, we join information from the row in LanguageTable with `ID` matching the `Language_ID` in FormTable. This translates to the following code in R:
 
