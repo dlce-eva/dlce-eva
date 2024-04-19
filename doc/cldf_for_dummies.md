@@ -5,34 +5,40 @@ Hedvig Skirgård
 
 # CLDF for dummies
 
-This document outlines some of the very basics of the Cross-Linguistic Data Formats (CLDF) for researchers who want to use the data sets for analysis, comparison or plotting. CLDF is a way of organizing language data, in particular data sets with many different languages in it. The basic organisation is a set of tables, usually in csv-sheets (languages.csv, forms.csv etc). These documents are linked to each other in a specific way which makes it possible to combine them into an interlinked database. The files are all governed by standards, there are sanity-checks to make sure all lines up right. Because they are often just plain csv-sheets they can easily be read in by most data analysis software programs like Python, R, Julia etc or just regular spreadsheet programs like LibreOffice or Microsoft Excel. It is not necessary to use FileMakerPro, Microsoft Access or similar programs.
+This document outlines some of the very basics of the Cross-Linguistic Data Format (CLDF) for researchers who want to use the data sets for analysis, comparison or plotting. CLDF is a way of organizing language data, in particular data sets with many different languages in it. The basic organisation is a set of tables, usually in csv-sheets (`languages.csv`, `forms.csv` etc). These documents are linked to each other in a specific way which makes it possible to combine them into an interlinked database. The files are governed by standards, there are sanity-checks to make sure everything lines up right (every language has a row in the LanguageTable etc). Because CLDF-datasets are often just plain csv-sheets they can easily be read in by most data analysis software programs like Python, R, Julia etc or just regular spreadsheet programs like LibreOffice or Microsoft Excel. It is not necessary to use FileMakerPro, Microsoft Access or similar programs.
 
-It’s plain, flat and simpler than you might think. In this document, you will learn the very basics on how it works.
+CLDF is plain, flat and simpler than you might think. In this document, you will learn the very basics on how the content structure works.
 
 The data format was first published in 2018 [1] and has since then been used in a large amount of different datasets. You can see a list of them [here](https://github.com/cldf-datasets/clld_meta/blob/master/cldf/contributions.csv).
 
-CLDF is well-documented. This document is a very basic intro, for more advanced queries go to <https://github.com/cldf/cldf/#readme> and <https://cldf.clld.org/>
+CLDF is well-documented. This document is a very basic intro, for more advanced queries go to <https://github.com/cldf/cldf/#readme> and <https://cldf.clld.org/>. We'll link to the CLDF-spec documents throughout this documents as needed.
 
 ## Expectations of reader
-This document is written for an audience interested in systematic documentation of cross-linguistic data and who have basic familiarity with using columns and rows in tables to represent information. There are extra pointers in some places implementations in the python package `pandas` or the R package `dplyr`, but it is not necessary to master these programming languages or specific pacalages to make use of this document.
+This document is written for an audience interested in systematic documentation of cross-linguistic data and who have basic familiarity with using columns and rows in tables to represent information. There are extra pointers in some places for code using the python package `pandas` or the R package `dplyr`, but it is not necessary to master these programming languages or specific pacalages to make use of this document. 
 
 ## What is NOT in this document
-This document is an overview of the content and structure of CLDF-datsets. It does not contain a tutorial for how to create CLDF-datasets. For tutorials on creation of CLDF-datasets and other use cases, see the CLDF-cookbooks [here](https://github.com/cldf/cookbook/tree/master?tab=readme-ov-file#readme).
+This document is an overview of the content and structure of CLDF-datsets. It does not contain a tutorial for how to create CLDF-datasets. For tutorials on creation of CLDF-datasets and other use cases, see [the CLDF-cookbooks](https://github.com/cldf/cookbook/tree/master?tab=readme-ov-file#readme).
 
 ## Glossary
 In CLDF, there are some specific terms that are good to know about.
 
-- **dataset**
-- **module**
-- **component**: table which conforms to specific CLDF-rules. The component "LanguageTable" is often found in a file called "languages.csv". All CLDF components (including their default metadata) are listed at https://github.com/cldf/cldf/tree/master/components
+- **dataset**: top level unit, can contain mutliple modules
+- **module**: set of CLDF-components linked in a strucutred way. Modules come in different types, for example `WordList` or `Generic` [CLDF-spec: Modules](https://github.com/cldf/cldf/blob/master/modules/README.md)
+- **component**: table which conforms to specific CLDF-rules. The component "LanguageTable" is often found in a file called "languages.csv". All CLDF components (including their default metadata) are listed at [CLDF-spec: Components](https://github.com/cldf/cldf/tree/master/components). Examples include:
+    - LanguageTable
+    - ParameterTable
+    - FormTable
+    - etc.
 - **property**: column in a table. The property `languageReference` is often realised in a column called `Language_ID`. All CLDF properties are listed in the [CLDF ontology](https://cldf.clld.org/v1.0/terms.html).
+
+For example, within the CLDF-`dataset` WALS there is a module of the type `StructureDataset`. Inside this module are a set of tables (aka `components`). Each table contains columns which track `properties` of the data.
 
 ## How to know if you’re dealing with a CLDF-dataset
 
 You are dealing with a CLDF-data set if there is a file ending with the extension `.json` and at the top it identifies a CLDF-dataset type. For
-example, it could be `dc:conformsTo: http://cldf.clld.org/v1.0/terms.rdf#StructureDataset`. (There is one exception, see “Good to know” below.)
+example, it could be `dc:conformsTo: http://cldf.clld.org/v1.0/terms.rdf#StructureDataset`. (There is one exception to this rule, see “Good to know” below.)
 
-Often there is a folder called “cldf” with files like “languages.csv”, “values.csv” and “StructureDataset-metadata.json” in it. The last file will be different depending on the type of data set.
+Often there is a folder called “cldf” with files like `languages.csv`, `values.csv` and `StructureDataset-metadata.json` in it. The JSON filename will be different depending on the type of module.
 
 Here are some examples of data sets that are available in CLDF that you may have encountered:
 
@@ -44,23 +50,58 @@ Here are some examples of data sets that are available in CLDF that you may have
 
 -   Glottolog
 
--   Lexibank
+-   Lexibank 
 
 -   Grambank
+
+-   AUTOTYP
 
 > [!TIP]
 > Good to know: [It is possible for a CLDF-dataset to only consist of one file](https://github.com/cldf/cldf#metadata-free-conformance)! No JSON-file, no set of csvs. Just one file, for example `values.csv`. In such cases, the file doesn’t have any meta-data specified and just conforms to all the default settings for all components, properties etc. You can’t tell by a JSON-file that it’s a CLDF-dataset because there isn’t one This type of CLDF-data set is rare, and will not be dealt with further here.
 
-## Types of CLDF-datasets
+## Types of CLDF-modules
 
-There are six types of CLDF-datasets. They are also known as [“modules”](https://github.com/cldf/cldf/tree/master/modules).
+There are six types of CLDF-[“modules”](https://github.com/cldf/cldf/tree/master/modules).
 
--   Wordlist (lexicon, has Forms and often Cognates)
+-   Wordlist (has Forms and often Cognates)
+    - example: lexibank-analysed & Vanuatu Voices
 -   Structure dataset (grammar or other types of information with one value for a Parameter and a Feature, has Values)
--   Dictionary (particular kind of lexicon, has Entries and Senses)
--   Parallel text (collections of paragraphs of the same text in different languages, has Forms, Segments and FunctionalEquivalents)
--   TextCorpus (cohesive stretches of discourse in the object language)
+    - example: PHOIBLE, glottolog-cldf, WALS, AUTOTYP, D-PLACE & Grambank
 -   generic (no specifics)
+    - [Phlorest phylogeny derived from Honkola et al. 2013](https://github.com/phlorest/honkola_et_al2013/)
+-   Dictionary (particular kind of lexicon, has Entries and Senses)
+    - example: medialengua
+-   TextCorpus (cohesive stretches of discourse in the object language)
+    - example: [Tsez Annotated Corpus Project](https://github.com/clld/tsezacp)
+-   Parallel text (collections of paragraphs of the same text in different languages, has Forms, Segments and FunctionalEquivalents)
+
+The CLDF-dataset [`clld_meta` lists all known CLDF-datasets (excluding itself and Glottolog)](https://github.com/cldf-datasets/clld_meta).
+
+The table below shows the number of modules for each type, in clld_meta on 2024-04-19. Modules with the same Concept_DOI have been collapsed to one item, this means that for example WALS counts only once even though 5 distinct versions have been published - because they all have the same Concept_DOI in clld_meta. In most cases, datasets that are versions of the same underlying data have the same Concept_DOI. 
+
+Most CLDF data are word-lists.
+
+| Module  | n    |
+|-----|----------|
+| Wordlist           |167|
+| StructureDataset   | 43|
+| Generic            | 31|
+| Dictionary         | 17|
+| TextCorpus         |  1|
+| ParallelText       | 0 |
+
+
+A small number of CLDF-datasets contain multiple modules of different types.
+
+- tsezacp (TextCorpus and Dictionary)
+- gerstnerhungarian (Wordlist and Dictionary)
+- lexibank-analysed (StructureDataset and Wordlist)
+- liljegrenhindukush (StructureDataset and Wordlist)
+- zhoubizic (StructureDataset and Wordlist)
+- beidasinitic (StructureDataset and Wordlist)      
+- allenbai (StructureDataset and Wordlist)          
+- mattercariban (StructureDataset and Wordlist)     
+- normansinitic (StructureDataset and Wordlist)
 
 ## Contents
 
@@ -73,9 +114,9 @@ The tables are usually in csv-format and contain the data itself. The JSON-file 
 
 Many CLDF-datasets also contain a bibTeX-file with bibliographic references for the data. In such cases, each data-point may be tied to a reference by the key in the bibTeX entry. Usually the key is in a column called “Source” in the ValueTable or FormTable. The bibTeX file is usually called “sources.bib”. If it’s called something else, it’ll say so in the meta-data JSON-file.
 
-## Tables inside the datasets
+## Tables (aka components) inside the modules in side datasets
 
-There are some tables that occur in most CLDF-datasets, and some that occur only in certain types. For example, there is no table with word forms for StructureDatasets - that’s for Wordlists and Dictionaries.
+There are some tables that occur in most CLDF-modules, and some that occur only in certain types. For example, there is no table with word forms for StructureDatasets - that’s for Wordlists and Dictionaries.
 
 The tables have specific names in the CLDF-world and have pre-defined specifics. The names are different from their filenames. You can see which name is tied to which file in the json. “LanguageTable” is usually found in the file languages.csv, “CodeTable” in codes.csv, “ValueTable” in values.csv, “CognateTable” in cognates.csv etc.
 
