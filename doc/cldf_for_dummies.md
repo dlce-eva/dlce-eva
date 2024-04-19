@@ -9,37 +9,23 @@ This document outlines some of the very basics of the Cross-Linguistic Data Form
 
 It’s plain, flat and simpler than you might think. In this document, you will learn the very basics on how it works.
 
-The data format was first published in 2018 [1] and has since then been used in a large amount of different data sets. You can see a list of them [here](https://github.com/cldf-datasets/clld_meta/blob/master/cldf/contributions.csv).
+The data format was first published in 2018 [1] and has since then been used in a large amount of different datasets. You can see a list of them [here](https://github.com/cldf-datasets/clld_meta/blob/master/cldf/contributions.csv).
 
 CLDF is well-documented. This document is a very basic intro, for more advanced queries go to <https://github.com/cldf/cldf/#readme> and <https://cldf.clld.org/>
- 
-## Before we start
 
-Good things to keep in mind:
+## Expectations of reader
+This document is written for an audience interested in systematic documentation of cross-linguistic data and who have basic familiarity with using columns and rows in tables to represent information. There are extra pointers in some places implementations in the python package `pandas` or the R package `dplyr`, but it is not necessary to master these programming languages or specific pacalages to make use of this document.
 
--   the best way to learn how CLDF looks like is to poke around in an existing dataset. Open the files, check what’s in there, form assumptions and then check if the assumptions are always true. Below are two recommended starter-datasets:
-    -   Wordlist: NorthEuraLex v4.0
-        <https://github.com/lexibank/northeuralex/tree/v4.0/cldf>
-    -   Structure: Grambank v1.0.3
-        <https://github.com/grambank/grambank/tree/v1.0.3/cldf>
--   another way to inspect CLDF datasets is to read the spec for the dataset. They are the ones that'll tell you what the columns really are etc.
-    -   <https://github.com/lexibank/northeuralex/blob/v4.0/cldf/README.md>
-    -   <https://github.com/grambank/grambank/blob/v1.0.3/cldf/README.md>
--   many CLDF-datasets are continuously released, so make sure to keep track of which **version** you are using
--   if you use Python, make sure to check out pycldf
--   if you use R, keep an eye out for rcldf which is in development
--   this document is about how to navigate existing CLDF-datasets as an end-user, not how to make one.
--   for more on *making* and *using* CLDF-datasets, have a look in the cookbook tutorials
-    [here](https://github.com/cldf/cookbook/tree/master#readme)
--   there already exists a lot of documentation on how CLDF works, this document is not meant to be exhaustive but just a gentle entry to get you going. For more, see:
-    -   [the CLDF specification](https://github.com/cldf/cldf/#readme)
-    -   [the CLDF website](https://cldf.clld.org/)
+## What is NOT in this document
+This document is an overview of the content and structure of CLDF-datsets. It does not contain a tutorial for how to create CLDF-datasets. For tutorials on creation of CLDF-datasets and other use cases, see the CLDF-cookbooks [here](https://github.com/cldf/cookbook/tree/master?tab=readme-ov-file#readme).
 
-## Dictionary
+## Glossary
 In CLDF, there are some specific terms that are good to know about.
 
-- **property**: column in a table. The property `languageReference` is often realised in a column called `Language_ID`. All CLDF properties are listed in the [CLDF ontology](https://cldf.clld.org/v1.0/terms.html).
+- **dataset**
+- **module**
 - **component**: table which conforms to specific CLDF-rules. The component "LanguageTable" is often found in a file called "languages.csv". All CLDF components (including their default metadata) are listed at https://github.com/cldf/cldf/tree/master/components
+- **property**: column in a table. The property `languageReference` is often realised in a column called `Language_ID`. All CLDF properties are listed in the [CLDF ontology](https://cldf.clld.org/v1.0/terms.html).
 
 ## How to know if you’re dealing with a CLDF-dataset
 
@@ -65,9 +51,9 @@ Here are some examples of data sets that are available in CLDF that you may have
 > [!TIP]
 > Good to know: [It is possible for a CLDF-dataset to only consist of one file](https://github.com/cldf/cldf#metadata-free-conformance)! No JSON-file, no set of csvs. Just one file, for example `values.csv`. In such cases, the file doesn’t have any meta-data specified and just conforms to all the default settings for all components, properties etc. You can’t tell by a JSON-file that it’s a CLDF-dataset because there isn’t one This type of CLDF-data set is rare, and will not be dealt with further here.
 
-### Types of CLDF-datasets
+## Types of CLDF-datasets
 
-There are five types of CLDF-datasets. They are also known as [“modules”](https://github.com/cldf/cldf/tree/master/modules).
+There are six types of CLDF-datasets. They are also known as [“modules”](https://github.com/cldf/cldf/tree/master/modules).
 
 -   Wordlist (lexicon, has Forms and often Cognates)
 -   Structure dataset (grammar or other types of information with one value for a Parameter and a Feature, has Values)
@@ -248,6 +234,30 @@ to:
 - [the CLDF specification](https://github.com/cldf/cldf/#readme)
 - [the CLDF cookbook](https://github.com/cldf/cookbook/tree/master#readme)
 - [the CLDF website](https://cldf.clld.org/)
+
+
+## Before we start
+
+Good things to keep in mind:
+
+-   the best way to learn how CLDF looks like is to poke around in an existing dataset. Open the files, check what’s in there, form assumptions and then check if the assumptions are always true. Below are two recommended starter-datasets:
+    -   Wordlist: NorthEuraLex v4.0
+        <https://github.com/lexibank/northeuralex/tree/v4.0/cldf>
+    -   Structure: Grambank v1.0.3
+        <https://github.com/grambank/grambank/tree/v1.0.3/cldf>
+-   another way to inspect CLDF datasets is to read the spec for the dataset. They are the ones that'll tell you what the columns really are etc.
+    -   <https://github.com/lexibank/northeuralex/blob/v4.0/cldf/README.md>
+    -   <https://github.com/grambank/grambank/blob/v1.0.3/cldf/README.md>
+-   many CLDF-datasets are continuously released, so make sure to keep track of which **version** you are using
+-   if you use Python, make sure to check out pycldf
+-   if you use R, keep an eye out for rcldf which is in development
+-   this document is about how to navigate existing CLDF-datasets as an end-user, not how to make one.
+-   for more on *making* and *using* CLDF-datasets, have a look in the cookbook tutorials
+    [here](https://github.com/cldf/cookbook/tree/master#readme)
+-   there already exists a lot of documentation on how CLDF works, this document is not meant to be exhaustive but just a gentle entry to get you going. For more, see:
+    -   [the CLDF specification](https://github.com/cldf/cldf/#readme)
+    -   [the CLDF website](https://cldf.clld.org/)
+
 
 ## References
 
