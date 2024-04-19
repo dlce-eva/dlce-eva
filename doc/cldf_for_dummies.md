@@ -230,12 +230,19 @@ Optional file, but often present in the form of a bibTeX-file. One entry = one s
 
 Now let's turn to joining information from multiple tables into one. The  information in the different tables are linked to each other via what is called primary and foreign keys. The primary key in a table is found in the column ID and uniquely identifies each row. In a FormTable, it identifies each form, in a ParameterTable, each parameter and so on. There are also foreign keys, these are links to rows in other tables.  For example, in the FormTable in our example there is a column called "Parameter_ID", which is linking the information it rows in the ParameterTable. Generally, most CLDF-dataset tables follow the naming column convention "ID in FormTable = Form_ID in other tables".
 
--   Langugage_ID in other tables -\> ID column in LanguageTable
--   Parameter_ID in other tables -\> ID column in ParameterTable
--   Form_ID  in other tables -\> ID column in FormTable
--   etc.
+| Foreign key  | Primary key    | 
+|------------|---------|
+|`Langugage_ID` in other tables |`ID` column in LanguageTable |
+|`Parameter_ID` in other tables |`ID` column in ParameterTable |
+|`Form_ID`  in other tables |`ID` column in FormTable|
 
 These primary and foreign keys make it easy to combine information from many different tables.
+
+> [!TIP]
+> Good to know: primary and foreign key are a general infrastructure in relational databases. They can be tracked by different strings, as in the case of CLD (`Language_ID`and ÌD`), but they can also be identical ([example](https://nceas.github.io/sasap-training/materials/reproducible_research_in_r_fairbanks/data-modeling-tidy-data.html#primary-and-foreign-keys)). Meta-data like the JSON-file informs us which is which and what is linked to what.
+
+> [!CAUTION]
+> Primary and foreign keys are not the same as keys in dictionaries in python.
 
 As an example, let's list all word forms in our Wordlist with the name of the language they belong to. This requires adding information from LanguageTable for each row in FormTable - we [*join*](https://swcarpentry.github.io/sql-novice-survey/07-join.html) the information from two tables to create a new table.
 
@@ -300,6 +307,13 @@ Good things to keep in mind:
     -   [the CLDF website](https://cldf.clld.org/)
 
 
+# Acknowledgements
+
+This document has received valuable input from Russell Barlow, Stephen Mann, Cristian Juárez, Tihomir Rangelov, Ezequiel Koile, Christoph Rzymski and Robert Forkel.
+
+
 ## References
 
 [1] Forkel, R., List, J. M., Greenhill, S. J., Rzymski, C., Bank, S., Cysouw, M. Hammarström, H., Haspelmath, M., Kaiping, G.A. and Gray, R.D. (2018). Cross-Linguistic Data Formats, advancing data sharing and re-use in comparative linguistics. Scientific data, 5(1), 1-10.
+
+
