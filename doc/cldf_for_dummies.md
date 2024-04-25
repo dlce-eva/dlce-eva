@@ -99,7 +99,7 @@ Most CLDF data are word-lists.
 | ParallelText       | 0 |
 
 
-A small number of CLDF-contributions contain multiple modules of different types.
+A small number of CLDF-contributions are linked to several modules of different types.
 
 - tsezacp (TextCorpus and Dictionary)
 - gerstnerhungarian (Wordlist and Dictionary)
