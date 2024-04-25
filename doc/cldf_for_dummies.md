@@ -124,7 +124,7 @@ Many CLDF-datasets also contain a bibTeX-file with bibliographic references for 
 
 In general, the metadata in the JSON-file is helpful to examine as it'll clarify exactly what is where, the formatting, what is linked to what etc. JSON-files can be hard to read for the first time manually, but even if you do not understand all the structures it is usually possible to derive some important key information.
 
-## Tables (a.k.a. components) inside the modules in side datasets
+## Tables (a.k.a. components)
 
 There are some tables that occur in most CLDF-modules, and some that occur only in certain types. For example, there is no table with word forms for StructureDatasets - that’s for Wordlists and Dictionaries.
 
@@ -169,7 +169,7 @@ Structure data-sets also contain
 > [!TIP]
 > Good to know: Wordlist modules typically contain information on how the words are linked to items in the [Concepticon resource](https://concepticon.clld.org/). This serves to help link the same or similar concepts in different word lists (e.g. "SEA" and "OCEAN"). It is encouraged that new Wordlists modules link to Concepticon, but it is not a necessary requirement for publishing CLDF Wordlist modules.
 
-## Columns in tables
+## Columns (a.k.a properties) in tables
 
 Each table consists of a set of columns. The names of these columns are often for example "ID", "Longitude", "Value" etc. However, they can vary. The meta-data contains information on which column name maps onto what property in the CLDF-universe. For example, there is the property "source"", which has the propertyURL <http://cldf.clld.org/v1.0/terms.rdf#source> and often is mapped onto a column called "Source". However, if one CLDF-creator wanted to name this column "Reference" instead, that's all well and good. The JSON metadata-file would tell the users that the column "Reference" corresponds to the standardised property "source" and point to the property-url. As with filenames of tables, you can often get by with assuming that bibliographic references are in a column called "Source" and the LanguageTable is in languages.csv --- but this needn't always be true! Studying the JSON meta-data file is often worthwhile.
 
