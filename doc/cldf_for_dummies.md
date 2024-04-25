@@ -26,8 +26,8 @@ This document is an overview of the content and structure of CLDF-datasets. It d
 # Glossary
 In CLDF, there are some specific terms that are good to know about.
 
-- **dataset**: top-level unit, can contain multiple modules
-- **module**: set of CLDF-components linked in a structured way. Modules come in different types, for example `WordList` or `Generic` [CLDF-spec: Modules](https://github.com/cldf/cldf/blob/master/modules/README.md)
+- **contribution**: top-level unit, can contain multiple modules
+- **module/dataset**: set of CLDF-components linked in a structured way. Modules come in different types, for example `WordList` or `Generic` [CLDF-spec: Modules](https://github.com/cldf/cldf/blob/master/modules/README.md)
 - **component**: table which conforms to specific CLDF-rules. The component "LanguageTable" is often found in a file called "languages.csv". All CLDF components (including their default metadata) are listed at [CLDF-spec: Components](https://github.com/cldf/cldf/tree/master/components). Examples include:
     - LanguageTable
     - ParameterTable
@@ -35,7 +35,7 @@ In CLDF, there are some specific terms that are good to know about.
     - etc.
 - **property**: column in a table. The property `languageReference` is often realised in a column called `Language_ID`. All CLDF properties are listed in the [CLDF ontology](https://cldf.clld.org/v1.0/terms.html).
 
-For example, within the CLDF-`dataset` WALS there is a module of the type `StructureDataset`. Inside this module are a set of tables (a.k.a. `components`). Each table contains columns which track `properties` of the data.
+For example, within the CLDF-`contribution` WALS there is a module of the type `StructureDataset`. Inside this module are a set of tables (a.k.a. `components`). Each table contains columns which track `properties` of the data.
 
 # How to know if you’re dealing with a CLDF-dataset
 
@@ -70,10 +70,10 @@ There are six types of CLDF-[“modules”](https://github.com/cldf/cldf/tree/ma
 -   Wordlist (has Forms and often Cognates)
     - example: lexibank-analysed & Vanuatu Voices
     - [README in CLDF specification](https://github.com/cldf/cldf/blob/master/modules/Wordlist/README.md)
--   Structure dataset (grammar or other types of information with one value for a Parameter and a Feature, has Values)
+-   StructureDataset (grammar or other types of information with one value for a Parameter and a Feature, has Values)
     - example: PHOIBLE, glottolog-cldf, WALS, AUTOTYP, D-PLACE & Grambank
     - [README in CLDF specification](https://github.com/cldf/cldf/blob/master/modules/StructureDataset/README.md)
--   generic (no specifics)
+-   Generic (no specifics)
     - [Phlorest phylogeny derived from Honkola et al. 2013](https://github.com/phlorest/honkola_et_al2013/)
 -   Dictionary (particular kind of lexicon, has Entries and Senses)
     - example: [medialengua](https://github.com/dictionaria/medialengua)
@@ -99,7 +99,7 @@ Most CLDF data are word-lists.
 | ParallelText       | 0 |
 
 
-A small number of CLDF-datasets contain multiple modules of different types.
+A small number of CLDF-contributions contain multiple modules of different types.
 
 - tsezacp (TextCorpus and Dictionary)
 - gerstnerhungarian (Wordlist and Dictionary)
@@ -146,9 +146,9 @@ Each type of table contains columns which conform to [CLDF-rules](https://cldf.c
 Tables can have more columns than the minimal requirement and can have columns that don’t map onto CLDF properties at all.
 
 
-## Tables in most CLDF-dataset
+## Tables in most CLDF-modules
 
-Here are CLDF-tables that occur in most CLDF-datasets.
+Here are CLDF-tables that occur in most CLDF-modules.
 
 -   LanguageTable - list of all of the languages in the dataset. May also include language varities classified by Glottolog as dialects or proto-languages. Includes meta-information like longitude, language, family etc.
 -   ParameterTable - contains a definition of the variables. For lexicon, these are the concepts (e.g. "hand"), for grammar these are the features (e.g. "Definite articles").
@@ -175,9 +175,9 @@ Each table consists of a set of columns. The names of these columns are often fo
 
 # Example: Wordlist
 
-Below is a tiny Wordlist CLDF-dataset. This dataset contains 3 words in 2 languages. The first two tables, LanguageTable and ParameterTable contain information about the languages and parameters - in this case concepts. The FormTable contains the actual forms. For one of the concepts, one of the languages has two words and both are listed.
+Below is a tiny Wordlist CLDF-module. This module contains 3 words in 2 languages. The first two tables, LanguageTable and ParameterTable contain information about the languages and parameters - in this case concepts. The FormTable contains the actual forms. For one of the concepts, one of the languages has two words and both are listed.
 
-The meta-data JSON-file is not included here. You can see an example of a Wordlist-metadata JSON-file here: <https://github.com/lexibank/abvd/blob/master/cldf/cldf-metadata.json>.
+The meta-data JSON-file is not included here. You can see an example of a Wordlist-metadata JSON-file [here](https://github.com/lexibank/abvd/blob/master/cldf/cldf-metadata.json).
 
 **LanguageTable**
 
