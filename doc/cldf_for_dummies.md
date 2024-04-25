@@ -3,7 +3,7 @@ CLDF for dummies
 Hedvig Skirgård
 2024-04-25
 
-# CLDF for dummies
+# Introduction
 
 This document outlines some of the very basics of the Cross-Linguistic Data Format (CLDF) for researchers who want to use the data sets for analysis, comparison or plotting. CLDF is a way of organizing language data, in particular data sets with many different languages in it. The basic organisation is a set of tables, usually in csv-sheets (`languages.csv`, `forms.csv` etc). These documents are linked to each other in a specific way which makes it possible to combine them into an interlinked database. The files are governed by standards, there are sanity-checks to make sure everything lines up right (every language has a row in the LanguageTable etc). Because CLDF-datasets are often just plain csv-sheets they can easily be read in by most data analysis software programs like Python, R, Julia etc or just regular spreadsheet programs like LibreOffice or Microsoft Excel. It is not necessary to use FileMakerPro, Microsoft Access or similar programs.
 
@@ -23,7 +23,7 @@ This document is written for an audience interested in systematic documentation 
 ## What is NOT in this document
 This document is an overview of the content and structure of CLDF-datasets. It does not contain a tutorial for how to _create_ CLDF-datasets. For tutorials on creation of CLDF-datasets and other use cases, see [the CLDF-cookbooks](https://github.com/cldf/cookbook/tree/master?tab=readme-ov-file#readme).
 
-## Glossary
+# Glossary
 In CLDF, there are some specific terms that are good to know about.
 
 - **dataset**: top-level unit, can contain multiple modules
@@ -37,7 +37,7 @@ In CLDF, there are some specific terms that are good to know about.
 
 For example, within the CLDF-`dataset` WALS there is a module of the type `StructureDataset`. Inside this module are a set of tables (a.k.a. `components`). Each table contains columns which track `properties` of the data.
 
-## How to know if you’re dealing with a CLDF-dataset
+# How to know if you’re dealing with a CLDF-dataset
 
 You are dealing with a CLDF-data set if there is a file ending with the extension `.json` and at the top inside of it it identifies a CLDF-dataset type. For
 example, it could be `dc:conformsTo: http://cldf.clld.org/v1.0/terms.rdf#StructureDataset`. (There is one exception to this rule, see “Good to know” below.)
@@ -63,7 +63,7 @@ Here are some examples of data sets that are available in CLDF that you may have
 > [!TIP]
 > Good to know: [It is possible for a CLDF-dataset to only consist of one file](https://github.com/cldf/cldf#metadata-free-conformance)! No JSON-file, no set of csvs. Just one file, for example `values.csv`. In such cases, the file doesn’t have any meta-data specified and just conforms to all the default settings for all components, properties etc. You can’t tell by a JSON-file that it’s a CLDF-dataset because there isn’t one This type of CLDF-data set is rare, and will not be dealt with further here.
 
-## Types of CLDF-modules
+# Types of CLDF-modules
 
 There are six types of CLDF-[“modules”](https://github.com/cldf/cldf/tree/master/modules).
 
@@ -111,7 +111,7 @@ A small number of CLDF-datasets contain multiple modules of different types.
 - mattercariban (StructureDataset and Wordlist)     
 - normansinitic (StructureDataset and Wordlist)
 
-## Contents
+# Contents
 
 Each CLDF-dataset (except the metadata-free ones) consists minimally of:
 
@@ -124,7 +124,7 @@ Many CLDF-datasets also contain a bibTeX-file with bibliographic references for 
 
 In general, the metadata in the JSON-file is helpful to examine as it'll clarify exactly what is where, the formatting, what is linked to what etc. JSON-files can be hard to read for the first time manually, but even if you do not understand all the structures it is usually possible to derive some important key information.
 
-## Tables (a.k.a. components) inside the modules in side datasets
+# Tables (a.k.a. components) inside the modules in side datasets
 
 There are some tables that occur in most CLDF-modules, and some that occur only in certain types. For example, there is no table with word forms for StructureDatasets - that’s for Wordlists and Dictionaries.
 
@@ -146,7 +146,7 @@ Each type of table contains columns which conform to [CLDF-rules](https://cldf.c
 Tables can have more columns than the minimal requirement and can have columns that don’t map onto CLDF properties at all.
 
 
-#### Tables in most CLDF-dataset
+## Tables in most CLDF-dataset
 
 Here are CLDF-tables that occur in most CLDF-datasets.
 
@@ -169,7 +169,7 @@ Structure data-sets also contain
 > [!TIP]
 > Good to know: Wordlist modules typically contain information on how the words are linked to items in the [Concepticon resource](https://concepticon.clld.org/). This serves to help link the same or similar concepts in different word lists (e.g. "SEA" and "OCEAN"). It is encouraged that new Wordlists modules link to Concepticon, but it is not a necessary requirement for publishing CLDF Wordlist modules.
 
-#### Columns in tables
+# Columns in tables
 
 Each table consists of a set of columns. The names of these columns are often for example "ID", "Longitude", "Value" etc. However, they can vary. The meta-data contains information on which column name maps onto what property in the CLDF-universe. For example, there is the property "source"", which has the propertyURL <http://cldf.clld.org/v1.0/terms.rdf#source> and often is mapped onto a column called "Source". However, if one CLDF-creator wanted to name this column "Reference" instead, that's all well and good. The JSON metadata-file would tell the users that the column "Reference" corresponds to the standardised property "source" and point to the property-url. As with filenames of tables, you can often get by with assuming that bibliographic references are in a column called "Source" and the LanguageTable is in languages.csv --- but this needn't always be true! Studying the JSON meta-data file is often worthwhile.
 
@@ -284,7 +284,7 @@ TBA
 
 CLDF is a type of data-format, the set of tables etc described here. CLLD was a larger project and stands for Cross-Linguistic Linked Data. CLLD was a project for publishing databases on the web, it ended in 2016. clld is a web app framework - a piece of software. clld and CLDF came out of the CLLD-project but are distinct from it. CLDF data interfaces smoothly with clld web applications.
 
-## Onwards
+# Onwards
 
 This document is only a very basic intro. If you want to learn more, go
 to: 
