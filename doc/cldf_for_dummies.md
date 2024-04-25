@@ -1,7 +1,7 @@
 CLDF for dummies
 ================
 Hedvig Skirgård
-2023-11-30
+2024-04-25
 
 # CLDF for dummies
 
@@ -14,15 +14,15 @@ The data format was first published in 2018 [1] and has since then been used in 
 CLDF is well-documented. This document is a very basic intro, for more advanced queries go to <https://github.com/cldf/cldf/#readme> and <https://cldf.clld.org/>. We'll link to the CLDF-spec documents throughout this documents as needed.
 
 ## Expectations of reader
-This document is written for an audience interested in systematic documentation of cross-linguistic data and who have basic familiarity with using columns and rows in tables to represent information. There are extra pointers in some places for code using the python package `pandas` or the R package `dplyr`, but it is not necessary to master these programming languages or specific pacalages to make use of this document. 
+This document is written for an audience interested in systematic documentation of cross-linguistic data and who have basic familiarity with using columns and rows in tables to represent information. There are extra pointers in some places for code using the python package `pandas` or the R package `dplyr`, but it is not necessary to master these programming languages or specific packages to make use of this document. 
 
 ## What is NOT in this document
-This document is an overview of the content and structure of CLDF-datsets. It does not contain a tutorial for how to create CLDF-datasets. For tutorials on creation of CLDF-datasets and other use cases, see [the CLDF-cookbooks](https://github.com/cldf/cookbook/tree/master?tab=readme-ov-file#readme).
+This document is an overview of the content and structure of CLDF-datasets. It does not contain a tutorial for how to _create_ CLDF-datasets. For tutorials on creation of CLDF-datasets and other use cases, see [the CLDF-cookbooks](https://github.com/cldf/cookbook/tree/master?tab=readme-ov-file#readme).
 
 ## Glossary
 In CLDF, there are some specific terms that are good to know about.
 
-- **dataset**: top level unit, can contain multiple modules
+- **dataset**: top-level unit, can contain multiple modules
 - **module**: set of CLDF-components linked in a structured way. Modules come in different types, for example `WordList` or `Generic` [CLDF-spec: Modules](https://github.com/cldf/cldf/blob/master/modules/README.md)
 - **component**: table which conforms to specific CLDF-rules. The component "LanguageTable" is often found in a file called "languages.csv". All CLDF components (including their default metadata) are listed at [CLDF-spec: Components](https://github.com/cldf/cldf/tree/master/components). Examples include:
     - LanguageTable
@@ -31,7 +31,7 @@ In CLDF, there are some specific terms that are good to know about.
     - etc.
 - **property**: column in a table. The property `languageReference` is often realised in a column called `Language_ID`. All CLDF properties are listed in the [CLDF ontology](https://cldf.clld.org/v1.0/terms.html).
 
-For example, within the CLDF-`dataset` WALS there is a module of the type `StructureDataset`. Inside this module are a set of tables (aka `components`). Each table contains columns which track `properties` of the data.
+For example, within the CLDF-`dataset` WALS there is a module of the type `StructureDataset`. Inside this module are a set of tables (a.k.a. `components`). Each table contains columns which track `properties` of the data.
 
 ## How to know if you’re dealing with a CLDF-dataset
 
@@ -65,19 +65,23 @@ There are six types of CLDF-[“modules”](https://github.com/cldf/cldf/tree/ma
 
 -   Wordlist (has Forms and often Cognates)
     - example: lexibank-analysed & Vanuatu Voices
+    - [README in CLDF specification](https://github.com/cldf/cldf/blob/master/modules/Wordlist/README.md)
 -   Structure dataset (grammar or other types of information with one value for a Parameter and a Feature, has Values)
     - example: PHOIBLE, glottolog-cldf, WALS, AUTOTYP, D-PLACE & Grambank
+    - [README in CLDF specification](https://github.com/cldf/cldf/blob/master/modules/StructureDataset/README.md)
 -   generic (no specifics)
     - [Phlorest phylogeny derived from Honkola et al. 2013](https://github.com/phlorest/honkola_et_al2013/)
 -   Dictionary (particular kind of lexicon, has Entries and Senses)
-    - example: medialengua
+    - example: [medialengua](https://github.com/dictionaria/medialengua)
+    - [README in CLDF specification](https://github.com/cldf/cldf/blob/master/modules/Dictionary/README.md)
 -   TextCorpus (cohesive stretches of discourse in the object language)
     - example: [Tsez Annotated Corpus Project](https://github.com/clld/tsezacp)
 -   Parallel text (collections of paragraphs of the same text in different languages, has Forms, Segments and FunctionalEquivalents)
+    - [README in CLDF specification](https://github.com/cldf/cldf/blob/master/modules/ParallelText/README.md)
 
-The CLDF-dataset [`clld_meta` lists all known CLDF-datasets (excluding itself and Glottolog)](https://github.com/cldf-datasets/clld_meta).
+There is a catalogue of all known published CLDF-datasets, [`clld_meta`](https://github.com/cldf-datasets/clld_meta). It is itself a CLDF-dataset and contains information all all known CLDF-datasets (excluding itself and glottolog-cldf).
 
-The table below shows the number of modules for each type, in clld_meta on 2024-04-19. Modules with the same Concept_DOI have been collapsed to one item, this means that for example WALS counts only once even though 5 distinct versions have been published - because they all have the same Concept_DOI in clld_meta. In most cases, datasets that are versions of the same underlying data have the same Concept_DOI. 
+The table below shows the number of modules for each type, in clld_meta on 2024-04-19. Different modules with the same Concept_DOI have been collapsed to one item, this means that for example WALS counts only once even though 5 distinct versions have been published. In most cases, datasets that are versions of the same underlying data have the same Concept_DOI, for example: Grambank has been published in 4 versions but they all share the same Concept_DOI. 
 
 Most CLDF data are word-lists.
 
@@ -107,18 +111,20 @@ A small number of CLDF-datasets contain multiple modules of different types.
 
 Each CLDF-dataset (except the metadata-free ones) consists minimally of:
 
--   a set of tables (usually in csv-sheets)
+-   a set of tables (usually in csv-sheets, but sometimes tsv or other. The specifics are noted in the metadata JSON-file)
 -   a JSON-file
 
 The tables are usually in csv-format and contain the data itself. The JSON-file has information *about* the dataset, for example the type of dataset is, what the contents are, what the filenames are etc.
 
-Many CLDF-datasets also contain a bibTeX-file with bibliographic references for the data. In such cases, each data-point may be tied to a reference by the key in the bibTeX entry. Usually the key is in a column called “Source” in the ValueTable or FormTable. The bibTeX file is usually called “sources.bib”. If it’s called something else, it’ll say so in the meta-data JSON-file.
+Many CLDF-datasets also contain a bibTeX-file with bibliographic references for the data. In such cases, each data-point may be tied to a reference by the key in the bibTeX entry. Usually, the key is in a column called “Source” in the ValueTable or FormTable. The bibTeX file is usually called “sources.bib”. If it’s called something else, it’ll say so in the meta-data JSON-file.
 
-## Tables (aka components) inside the modules in side datasets
+In general, the metadata in the JSON-file is helpful to examine as it'll clarify exactly what is where, the formatting, what is linked to what etc. JSON-files can be hard to read for the first time manually, but even if you do not understand all the structures it is usually possible to derive some important key information.
+
+## Tables (a.k.a. components) inside the modules in side datasets
 
 There are some tables that occur in most CLDF-modules, and some that occur only in certain types. For example, there is no table with word forms for StructureDatasets - that’s for Wordlists and Dictionaries.
 
-The tables have specific names in the CLDF-world and have pre-defined specifics. The names are different from their filenames. You can see which name is tied to which file in the json. “LanguageTable” is usually found in the file languages.csv, “CodeTable” in codes.csv, “ValueTable” in values.csv, “CognateTable” in cognates.csv etc.
+The tables have specific names in the CLDF-world and have pre-defined specifics with options for non-standard columns and information as well. The names are different from their filenames. You can see which name is tied to which file in the json. “LanguageTable” is usually found in the file languages.csv, “CodeTable” in codes.csv, “ValueTable” in values.csv, “CognateTable” in cognates.csv etc.
 
 -   LanguageTable -\> languages.csv (contains minimally ID)
 -   FormTable -\> forms.csv (contains minimally ID, Form, Language_ID,
@@ -140,9 +146,8 @@ Tables can have more columns than the minimal requirement and can have columns t
 
 Here are CLDF-tables that occur in most CLDF-datasets.
 
--   LanguageTable - list of all of the languages in the dataset. May also include things classified by Glottolog as dialects or proto-languages. Includes meta-information like longitude, language
-    family etc.
--   ParameterTable - contains a definition of the variables. For lexicon, these are the concepts, for grammar these are the features.
+-   LanguageTable - list of all of the languages in the dataset. May also include language varities classified by Glottolog as dialects or proto-languages. Includes meta-information like longitude, language, family etc.
+-   ParameterTable - contains a definition of the variables. For lexicon, these are the concepts (e.g. "hand"), for grammar these are the features (e.g. "Definite articles").
 
 Wordlist also contain
 
@@ -158,7 +163,7 @@ Structure data-sets also contain
 > Good to know: for the CLDF-dataset of D-PLACE (v1 and v2), the LanguageTable contains a row per *society* - not per language. There is a column  for the Glottocode of the language associated with that society.
 
 > [!TIP]
-> Good to know: in the formal CLDF-ontology, "tables" are called "components" and columns within tables are "properties"
+> Good to know: Wordlist modules typically contain information on how the words are linked to items in the [Concepticon resource](https://concepticon.clld.org/). This serves to help link the same or similar concepts in different word lists (e.g. "SEA" and "OCEAN"). It is encouraged that new Wordlists modules link to Concepticon, but it is not a necessary requirement for publishing CLDF Wordlist modules.
 
 #### Columns in tables
 
