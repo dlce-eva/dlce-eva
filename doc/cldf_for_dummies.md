@@ -282,7 +282,13 @@ TBA
 
 # CLLD, clld and CLDF
 
-CLDF is a type of data-format, the set of tables etc described here. CLLD was a larger project and stands for Cross-Linguistic Linked Data. CLLD was a project for publishing databases on the web, it ended in 2016. clld is a web app framework - a piece of software. clld and CLDF came out of the CLLD-project but are distinct from it. CLDF data interfaces smoothly with clld web applications.
+CLDF is a type of data-format, the set of tables etc described here. 
+
+CLLD was a larger project and stands for Cross-Linguistic Linked Data. CLLD was a project for publishing databases on the web, it ended in 2016. 
+
+clld is a web app framework - a piece of software. 
+
+clld and CLDF came out of the CLLD-project but are distinct from it. CLDF data interfaces smoothly with clld web applications.
 
 # Onwards
 
