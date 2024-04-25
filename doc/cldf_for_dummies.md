@@ -83,7 +83,7 @@ There are six types of CLDF-[“modules”](https://github.com/cldf/cldf/tree/ma
 -   Parallel text (collections of paragraphs of the same text in different languages, has Forms, Segments and FunctionalEquivalents)
     - [README in CLDF specification](https://github.com/cldf/cldf/blob/master/modules/ParallelText/README.md)
 
-There is a catalogue of all known published CLDF-datasets, [`clld_meta`](https://github.com/cldf-datasets/clld_meta). It is itself a CLDF-dataset and contains information all all known CLDF-datasets (excluding itself and glottolog-cldf).
+There is a catalogue of almost all published CLDF-datasets, [`clld_meta`](https://github.com/cldf-datasets/clld_meta). It is itself a CLDF-dataset and contains information all all known CLDF-datasets (excluding itself and glottolog-cldf).
 
 The table below shows the number of modules for each type, in clld_meta on 2024-04-19. Different modules with the same Concept_DOI have been collapsed to one item, this means that for example WALS counts only once even though 5 distinct versions have been published. In most cases, datasets that are versions of the same underlying data have the same Concept_DOI, for example: Grambank has been published in 4 versions but they all share the same Concept_DOI. 
 
