@@ -22,8 +22,8 @@ This document is an overview of the content and structure of CLDF-datsets. It do
 ## Glossary
 In CLDF, there are some specific terms that are good to know about.
 
-- **dataset**: top level unit, can contain mutliple modules
-- **module**: set of CLDF-components linked in a strucutred way. Modules come in different types, for example `WordList` or `Generic` [CLDF-spec: Modules](https://github.com/cldf/cldf/blob/master/modules/README.md)
+- **dataset**: top level unit, can contain multiple modules
+- **module**: set of CLDF-components linked in a structured way. Modules come in different types, for example `WordList` or `Generic` [CLDF-spec: Modules](https://github.com/cldf/cldf/blob/master/modules/README.md)
 - **component**: table which conforms to specific CLDF-rules. The component "LanguageTable" is often found in a file called "languages.csv". All CLDF components (including their default metadata) are listed at [CLDF-spec: Components](https://github.com/cldf/cldf/tree/master/components). Examples include:
     - LanguageTable
     - ParameterTable
@@ -35,7 +35,7 @@ For example, within the CLDF-`dataset` WALS there is a module of the type `Struc
 
 ## How to know if you’re dealing with a CLDF-dataset
 
-You are dealing with a CLDF-data set if there is a file ending with the extension `.json` and at the top it identifies a CLDF-dataset type. For
+You are dealing with a CLDF-data set if there is a file ending with the extension `.json` and at the top inside of it it identifies a CLDF-dataset type. For
 example, it could be `dc:conformsTo: http://cldf.clld.org/v1.0/terms.rdf#StructureDataset`. (There is one exception to this rule, see “Good to know” below.)
 
 Often there is a folder called “cldf” with files like `languages.csv`, `values.csv` and `StructureDataset-metadata.json` in it. The JSON filename will be different depending on the type of module.
@@ -129,7 +129,7 @@ The JSON-file of metadata contains information on which tables (a.k.a components
 "http://cldf.clld.org/v1.0/terms.rdf#ValueTable` means that the component being  described in that section of the code is a ValueTable. Later down in the section 
 describing the component, we can find the specific filename in the url-field, e.g. `url": "values.csv`. Now we know there's a ValueTable and it's in the file values.csv.
 
-The specific line in the meta-data JSON file contains the string  Types of tables that have special meaning and rules in CLDF are known as `components`. **You can’t  always bank on LanguageTable being in languages.csv**. SQl, `pycldf` and `rcldf` can handle this for you, i.e. look up in the JSON-filewhat component is where and set all that up.
+The specific line in the meta-data JSON file contains the string  Types of tables that have special meaning and rules in CLDF are known as `components`. **You can’t  always bank on LanguageTable being in languages.csv**. SQL, [`pycldf`](https://pypi.org/project/pycldf/0.6.0/) and [`rcldf`](https://github.com/SimonGreenhill/rcldf/releases/tag/v1.2.0) can handle this for you, i.e. look up in the JSON-filewhat component is where and set all that up.
 
 Each type of table contains columns which conform to [CLDF-rules](https://cldf.clld.org/v1.0/terms.html), i.e. properties. For example, FormTables need to have columns for the properties “id”, “form” and “Language_ID” and they in turn need to look a certain way.
 
@@ -275,45 +275,25 @@ TBA
 
 CLDF is a type of data-format, the set of tables etc described here. CLLD was a larger project and stands for Cross-Linguistic Linked Data. CLLD was a project for publishing databases on the web, it ended in 2016. clld is a web app framework - a piece of software. clld and CLDF came out of the CLLD-project but are distinct from it. CLDF data interfaces smoothly with clld web applications.
 
-## Advanced
+## Onwards
 
 This document is only a very basic intro. If you want to learn more, go
 to: 
 - [the CLDF specification](https://github.com/cldf/cldf/#readme)
-- [the CLDF cookbook](https://github.com/cldf/cookbook/tree/master#readme)
 - [the CLDF website](https://cldf.clld.org/)
 
+For more on _creating_ and _using_ CLDF-datasets, have a look in [these cookbook tutorials](https://github.com/cldf/cookbook/tree/master#readme)
 
-## Before we start
+One good way of learning how CLDF works is to poke around in existing datasets. Open the files, check what’s in there, form assumptions and then check if the assumptions are always true. Below are two recommended starter-datasets
 
-Good things to keep in mind:
-
--   the best way to learn how CLDF looks like is to poke around in an existing dataset. Open the files, check what’s in there, form assumptions and then check if the assumptions are always true. Below are two recommended starter-datasets:
-    -   Wordlist: NorthEuraLex v4.0
-        <https://github.com/lexibank/northeuralex/tree/v4.0/cldf>
-    -   Structure: Grambank v1.0.3
-        <https://github.com/grambank/grambank/tree/v1.0.3/cldf>
--   another way to inspect CLDF datasets is to read the spec for the dataset. They are the ones that'll tell you what the columns really are etc.
-    -   <https://github.com/lexibank/northeuralex/blob/v4.0/cldf/README.md>
-    -   <https://github.com/grambank/grambank/blob/v1.0.3/cldf/README.md>
--   many CLDF-datasets are continuously released, so make sure to keep track of which **version** you are using
--   if you use Python, make sure to check out pycldf
--   if you use R, keep an eye out for rcldf which is in development
--   this document is about how to navigate existing CLDF-datasets as an end-user, not how to make one.
--   for more on *making* and *using* CLDF-datasets, have a look in the cookbook tutorials
-    [here](https://github.com/cldf/cookbook/tree/master#readme)
--   there already exists a lot of documentation on how CLDF works, this document is not meant to be exhaustive but just a gentle entry to get you going. For more, see:
-    -   [the CLDF specification](https://github.com/cldf/cldf/#readme)
-    -   [the CLDF website](https://cldf.clld.org/)
-
+ -   Wordlist: [NorthEuraLex v4.0](https://github.com/lexibank/northeuralex/tree/v4.0/cldf)
+ -   Structure: [Grambank v1.0.3](https://github.com/grambank/grambank/tree/v1.0.3/cldf)
 
 # Acknowledgements
 
-This document has received valuable input from Russell Barlow, Stephen Mann, Cristian Juárez, Tihomir Rangelov, Ezequiel Koile, Christoph Rzymski and Robert Forkel.
+This document has received valuable input from Robert Forkel, Christoph Rzymski, Russell Barlow, Stephen Mann, Cristian Juárez, Tihomir Rangelov and Ezequiel Koile.
 
 
 ## References
 
 [1] Forkel, R., List, J. M., Greenhill, S. J., Rzymski, C., Bank, S., Cysouw, M. Hammarström, H., Haspelmath, M., Kaiping, G.A. and Gray, R.D. (2018). Cross-Linguistic Data Formats, advancing data sharing and re-use in comparative linguistics. Scientific data, 5(1), 1-10.
-
-
