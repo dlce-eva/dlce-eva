@@ -251,7 +251,7 @@ Now let's turn to joining information from multiple tables into one. The  inform
 These primary and foreign keys make it easy to combine information from many different tables.
 
 > [!TIP]
-> Good to know: primary and foreign key are a general infrastructure in relational databases, i.e. also outside of CLDF. They can be tracked by different strings depending on wether they are primary or foreign, as in the case of CLDF (`Language_ID`and ÌD`), but they can also have identical labels ([example](https://nceas.github.io/sasap-training/materials/reproducible_research_in_r_fairbanks/data-modeling-tidy-data.html#primary-and-foreign-keys)). Meta-data, like the JSON-file, informs us which is which and what is linked to what.
+> Good to know: primary and foreign key are a general infrastructure in relational databases, i.e. also outside of CLDF. They can be labeled with different column/property names depending on wether they are primary or foreign, as in the case of CLDF (`Language_ID`and ÌD`), but they can also have identical labels ([example](https://nceas.github.io/sasap-training/materials/reproducible_research_in_r_fairbanks/data-modeling-tidy-data.html#primary-and-foreign-keys)). Meta-data, like the JSON-file, informs us which is which and what is linked to what.
 
 > [!CAUTION]
 > Primary and foreign keys are not the same as keys in dictionaries in python.
