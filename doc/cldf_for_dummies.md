@@ -164,10 +164,10 @@ Structure data-sets also contain
 -   CodeTable - The list of possible values for each parameter. For example, GB020 in Grambank is a binary feature and can take 0, 1 and ? whereas EA016 in the Ethnographic Atlas (D-PLACE) can take 1, 2 or 9. The options are often exclusive of each other for each language. There are examples of languages that are coded for more than one value, usually with extra information on proportions.
 
 > [!TIP]
-> Good to know: for the CLDF-dataset of D-PLACE (v1 and v2), the LanguageTable contains a row per *society* - not per language. There is a column  for the Glottocode of the language associated with that society.
+> Good to know: CLDF can be used for data on socities or other units of observation - not just languages. For example, in the CLDF-dataset of D-PLACE (v1 and v2), the LanguageTable contains a row per *society* - not per language. There is a column for the Glottocode of the language associated with that society.
 
 > [!TIP]
-> Good to know: Wordlist modules typically contain information on how the words are linked to items in the [Concepticon resource](https://concepticon.clld.org/). This serves to help link the same or similar concepts in different word lists (e.g. "SEA" and "OCEAN"). It is encouraged that new Wordlists modules link to Concepticon, but it is not a necessary requirement for publishing CLDF Wordlist modules.
+> Good to know: Wordlist modules typically contain information on how the words are linked to items in the [Concepticon resource](https://concepticon.clld.org/). This resource serves to help link the same or similar concepts in different word lists (e.g. "SEA" and "OCEAN"). It is encouraged that new Wordlists modules link to Concepticon, but it is not a necessary requirement for publishing CLDF Wordlist modules.
 
 ## Columns (a.k.a properties) in tables
 
@@ -175,9 +175,9 @@ Each table consists of a set of columns. The names of these columns are often fo
 
 # Example: Wordlist
 
-Below is a tiny Wordlist CLDF-dataset. This dataset contains 3 words in 2 languages. The first two tables, LanguageTable and ParameterTable contains information about the languages and parameters - in this case concepts. The FormTable contains the actual forms. For one of the concepts, one of the languages has two words and both are listed.
+Below is a tiny Wordlist CLDF-dataset. This dataset contains 3 words in 2 languages. The first two tables, LanguageTable and ParameterTable contain information about the languages and parameters - in this case concepts. The FormTable contains the actual forms. For one of the concepts, one of the languages has two words and both are listed.
 
-The meta-data JSON-fileis not included here. You can see an example of a Wordlist-metadata JSON-file here: <https://github.com/lexibank/abvd/blob/master/cldf/cldf-metadata.json>.
+The meta-data JSON-file is not included here. You can see an example of a Wordlist-metadata JSON-file here: <https://github.com/lexibank/abvd/blob/master/cldf/cldf-metadata.json>.
 
 **LanguageTable**
 
@@ -189,7 +189,7 @@ One row = one language (or sometimes dialect or proto-language, i.e above langua
 | 18  | Chamorro | cham1312   |
 
 > [!TIP]
-> Good to know: Sometimes the IDs in LanguageTable are Glottocodes or ISO 639-3 codes, but they don’t have to be. They just have to be unique within that dataset. In Grambank, the IDs are Glottocodes, but WALS has its own specific unique code-system different from both Glottocodes and ISO 639-3. If you want Glottocodes, go look for a column called Glottocode in the LanguageTable - don’t use the ID column.
+> Good to know: Sometimes the IDs in LanguageTable are [Glottocodes (curated by Glottolog)](https://glottolog.org/glottolog/language) or [ISO 639-3 codes (curated by SIL International)](https://iso639-3.sil.org/), but they don’t have to be. They just have to be unique within that dataset. In Grambank, the IDs are Glottocodes, but WALS has its own specific unique code-system different from both Glottocodes and ISO 639-3. If you want Glottocodes, go look for a column called Glottocode in the LanguageTable - don’t use the ID column.
 
 > [!TIP]
 > Good to know: Glottocodes contain 4 letters or numbers and then 4 numbers. The first 4 characters are not always letters. For example, `ww2p1234` and `3adt1234` are existing glottocodes.
