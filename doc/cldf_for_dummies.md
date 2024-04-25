@@ -26,7 +26,7 @@ This document is an overview of the content and structure of CLDF-datasets. It d
 # Glossary
 In CLDF, there are some specific terms that are good to know about.
 
-- **contribution**: top-level unit, can contain multiple modules
+- **publication**: top-level unit, can be linked to multiple modules
 - **module/dataset**: set of CLDF-components linked in a structured way. Modules come in different types, for example `WordList` or `Generic` [CLDF-spec: Modules](https://github.com/cldf/cldf/blob/master/modules/README.md)
 - **component**: table which conforms to specific CLDF-rules. The component "LanguageTable" is often found in a file called "languages.csv". All CLDF components (including their default metadata) are listed at [CLDF-spec: Components](https://github.com/cldf/cldf/tree/master/components). Examples include:
     - LanguageTable
@@ -35,7 +35,7 @@ In CLDF, there are some specific terms that are good to know about.
     - etc.
 - **property**: column in a table. The property `languageReference` is often realised in a column called `Language_ID`. All CLDF properties are listed in the [CLDF ontology](https://cldf.clld.org/v1.0/terms.html).
 
-For example, within the CLDF-`contribution` WALS there is a module of the type `StructureDataset`. Inside this module are a set of tables (a.k.a. `components`). Each table contains columns which track `properties` of the data.
+For example, within the publication WALS is linked to a CLDF-dataset of the module-type `StructureDataset`. Inside this module are a set of tables (a.k.a. `components`). Each table contains columns which track `properties` of the data.
 
 # How to know if you’re dealing with a CLDF-dataset
 
@@ -98,8 +98,7 @@ Most CLDF data are word-lists.
 | TextCorpus         |  1|
 | ParallelText       | 0 |
 
-
-A small number of CLDF-contributions are linked to several modules of different types.
+Publications can be linked to several CLDF-modules, sometimes even of different types. These can be published together or separately on platforms like Zenodo. In clld_meta, the different modules are most often linked by the same Contribution_ID. They can be further linked via Concept_DOI, which would also track different versions. Here are all of the CLDF-contributions in clld_meta which are linked to several modules of different types.
 
 - tsezacp (TextCorpus and Dictionary)
 - gerstnerhungarian (Wordlist and Dictionary)
