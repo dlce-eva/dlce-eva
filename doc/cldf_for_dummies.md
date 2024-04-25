@@ -164,6 +164,9 @@ Structure data-sets also contain
 -   CodeTable - The list of possible values for each parameter. For example, GB020 in Grambank is a binary feature and can take 0, 1 and ? whereas EA016 in the Ethnographic Atlas (D-PLACE) can take 1, 2 or 9. The options are often exclusive of each other for each language. There are examples of languages that are coded for more than one value, usually with extra information on proportions.
 
 > [!TIP]
+> Good to know: while there are minimal required content depending on module type, there is also flexibility in adding more information. Some modules contain components that typically appear in different modules. E.g. the tsezacp morpheme concordance is modeled using an `EntryTable` component, despite the dataset being a `TextCorpus` and not a `Dictionary` (where we usually find `EntryTables`).
+
+> [!TIP]
 > Good to know: CLDF can be used for data on socities or other units of observation - not just languages. For example, in the CLDF-dataset of D-PLACE (v1 and v2), the LanguageTable contains a row per *society* - not per language. There is a column for the Glottocode of the language associated with that society.
 
 > [!TIP]
