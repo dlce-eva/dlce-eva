@@ -11,7 +11,11 @@ CLDF is plain, flat and simpler than you might think. In this document, you will
 
 The data format was first published in 2018 [1] and has since then been used in a large amount of different datasets. You can see a list of them [here](https://github.com/cldf-datasets/clld_meta/blob/master/cldf/contributions.csv).
 
-CLDF is well-documented. This document is a very basic intro, for more advanced queries go to <https://github.com/cldf/cldf/#readme> and <https://cldf.clld.org/>. We'll link to the CLDF-spec documents throughout this documents as needed.
+CLDF is well-documented. This document is a very basic intro, for more advanced queries go to <https://github.com/cldf/cldf/#readme> and <https://cldf.clld.org/>. We'll link to the CLDF-spec documents throughout this document as needed.
+
+If you are reading this markdownfile on GitHub.com, you can access a clickable outline of the document by selecting the table of contents symbol on the top right of the page.
+
+![Screenshot 2024-04-25 at 12 48 36](https://github.com/HedvigS/dlce-eva/assets/5327845/ab1772f8-9878-482c-9727-a741586335ed)
 
 ## Expectations of reader
 This document is written for an audience interested in systematic documentation of cross-linguistic data and who have basic familiarity with using columns and rows in tables to represent information. There are extra pointers in some places for code using the python package `pandas` or the R package `dplyr`, but it is not necessary to master these programming languages or specific packages to make use of this document. 
@@ -289,15 +293,14 @@ to:
 
 For more on _creating_ and _using_ CLDF-datasets, have a look in [these cookbook tutorials](https://github.com/cldf/cookbook/tree/master#readme)
 
-One good way of learning how CLDF works is to poke around in existing datasets. Open the files, check what’s in there, form assumptions and then check if the assumptions are always true. Below are two recommended starter-datasets
+One good way of learning how CLDF works is to poke around in existing datasets. Open the files, check what’s in there, form assumptions and then check if the assumptions are always true (e.g. "are all languages in the ValueTable in the LanguageTable?", "how does Code_ID work in the ValueTable?" etc). Below are two recommended starter-datasets
 
  -   Wordlist: [NorthEuraLex v4.0](https://github.com/lexibank/northeuralex/tree/v4.0/cldf)
  -   Structure: [Grambank v1.0.3](https://github.com/grambank/grambank/tree/v1.0.3/cldf)
 
 # Acknowledgements
 
-This document has received valuable input from Robert Forkel, Christoph Rzymski, Russell Barlow, Stephen Mann, Cristian Juárez, Tihomir Rangelov and Ezequiel Koile.
-
+This document has received valuable input from Robert Forkel, Christoph Rzymski, Russell Barlow, Stephen Mann, Cristian Juárez, Tihomir Rangelov and Ezequiel Koile. I am grateful to them for sharing their expertise and improving this guide.
 
 ## References
 
