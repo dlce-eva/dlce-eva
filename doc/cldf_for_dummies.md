@@ -1,11 +1,13 @@
 CLDF for dummies
 ================
 Hedvig Skirgård
-2024-04-25
+2025-02-13
 
 # Introduction
 
-This document outlines some of the very basics of the Cross-Linguistic Data Format (CLDF) for researchers who want to use the data sets for analysis, comparison or plotting. CLDF is a way of organizing language data, in particular data sets with many different languages in it. The basic organisation is a set of tables, usually in csv-sheets (`languages.csv`, `forms.csv` etc). These documents are linked to each other in a specific way which makes it possible to combine them into an interlinked database. The files are governed by standards, there are sanity-checks to make sure everything lines up right (every language has a row in the LanguageTable etc). Because CLDF-datasets are often just plain csv-sheets they can easily be read in by most data analysis software programs like Python, R, Julia etc or just regular spreadsheet programs like LibreOffice or Microsoft Excel. It is not necessary to use FileMakerPro, Microsoft Access or similar programs.
+This document outlines some of the very basics of the Cross-Linguistic Data Format (CLDF) for researchers who want to use the data sets for analysis, comparison or plotting. The title of the document is a reference to the "... for dummies" book series of non-intimidating guides to various topics. It is not meant as an insult in anyway.
+
+CLDF is a way of organizing language data, in particular data sets with many different languages in it. The basic organisation is a set of tables, usually in csv-sheets (`languages.csv`, `forms.csv` etc). These documents are linked to each other in a specific way which makes it possible to combine them into an interlinked database. The files are governed by standards, there are sanity-checks to make sure everything lines up right (every language has a row in the LanguageTable etc). Because CLDF-datasets are often just plain csv-sheets they can easily be read in by most data analysis software programs like Python, R, Julia etc or just regular spreadsheet programs like LibreOffice or Microsoft Excel. It is not necessary to use FileMakerPro, Microsoft Access or similar programs.
 
 CLDF is plain, flat and simpler than you might think. In this document, you will learn the very basics on how the content structure works.
 
