@@ -137,7 +137,7 @@ e.g.:
 There was an issue recently where `cldfbench` couldn't actually see the config
 file even it was well-formed and clearly visible in the Windows file manager.
 Even more curiously, the file created by `catconfig` was invisible in the
-Windows file manager (but still worked perfectly file).  Maybe it's a weird file
+Windows file manager (but still worked perfectly fine).  Maybe it's a weird file
 permission issue.  Who knows.
 
 Should you encounter this problem, you'll have to use `cldfbench catconfig` to
