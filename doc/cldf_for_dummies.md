@@ -11,7 +11,7 @@ CLDF is a way of organizing language data, in particular data sets with many dif
 
 CLDF is plain, flat and simpler than you might think. In this document, you will learn the very basics on how the content structure works.
 
-The data format was first published in 2018 [1] and has since then been used in a large amount of different datasets. You can see a list of them [here](https://github.com/cldf-datasets/clld_meta/blob/master/cldf/contributions.csv).
+The data format was first published in 2018 [1] and has since then been used in a large amount of different datasets. You can see a list of them [here](https://github.com/cldf-datasets/cldf_meta/blob/master/cldf/contributions.csv).
 
 CLDF is well-documented. This document is a very basic intro, for more advanced queries go to <https://github.com/cldf/cldf/#readme> and <https://cldf.clld.org/>. We'll link to the CLDF-spec documents throughout this document as needed.
 
@@ -85,9 +85,9 @@ There are six types of CLDF-[“modules”](https://github.com/cldf/cldf/tree/ma
 -   Parallel text (collections of paragraphs of the same text in different languages, has Forms, Segments and FunctionalEquivalents)
     - [README in CLDF specification](https://github.com/cldf/cldf/blob/master/modules/ParallelText/README.md)
 
-There is a catalogue of almost all published CLDF-datasets, [`clld_meta`](https://github.com/cldf-datasets/clld_meta). It is itself a CLDF-dataset and contains information all all known CLDF-datasets (excluding itself and glottolog-cldf).
+There is a catalogue of almost all published CLDF-datasets, [`cldf_meta`](https://github.com/cldf-datasets/cldf_meta). It is itself a CLDF-dataset and contains information all all known CLDF-datasets (excluding itself and glottolog-cldf).
 
-The table below shows the number of modules for each type, in clld_meta on 2024-04-19. Different modules with the same Concept_DOI have been collapsed to one item, this means that for example WALS counts only once even though 5 distinct versions have been published. In most cases, datasets that are versions of the same underlying data have the same Concept_DOI, for example: Grambank has been published in 4 versions but they all share the same Concept_DOI. 
+The table below shows the number of modules for each type, in cldf_meta on 2024-04-19. Different modules with the same Concept_DOI have been collapsed to one item, this means that for example WALS counts only once even though 5 distinct versions have been published. In most cases, datasets that are versions of the same underlying data have the same Concept_DOI, for example: Grambank has been published in 4 versions but they all share the same Concept_DOI. 
 
 Most CLDF data are word-lists.
 
@@ -100,7 +100,7 @@ Most CLDF data are word-lists.
 | TextCorpus         |  1|
 | ParallelText       | 0 |
 
-Publications can be linked to several CLDF-modules, sometimes even of different types. These can be published together or separately on platforms like Zenodo. In clld_meta, the different modules are most often linked by the same Contribution_ID. They can be further linked via Concept_DOI, which would also track different versions. Here are all of the CLDF-contributions in clld_meta which are linked to several modules of different types.
+Publications can be linked to several CLDF-modules, sometimes even of different types. These can be published together or separately on platforms like Zenodo. In cldf_meta, the different modules are most often linked by the same Contribution_ID. They can be further linked via Concept_DOI, which would also track different versions. Here are all of the CLDF-contributions in cldf_meta which are linked to several modules of different types.
 
 - tsezacp (TextCorpus and Dictionary)
 - gerstnerhungarian (Wordlist and Dictionary)
